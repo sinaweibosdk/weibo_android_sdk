@@ -1,7 +1,0 @@
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:state_focused="true" android:drawable="@drawable/button_big_green_highlighted"/>
-    <item android:state_pressed="true" android:drawable="@drawable/button_big_green_highlighted"/>
-    <item android:state_selected="true" android:drawable="@drawable/button_big_green_highlighted"/>
-    <item android:drawable="@drawable/button_big_green"/>
-    
-</selector>

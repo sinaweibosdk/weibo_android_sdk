@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/share_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/weibosdk_demo_share_to_weibo_title"
+        android:textSize="20sp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="vertical" >
+
+            <!-- 分享文字 -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background"
+                android:orientation="horizontal" >
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentLeft="true"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/weibosdk_demo_share_text_title" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:singleLine="true"
+                        android:text="@string/weibosdk_demo_share_default_text" />
+                </LinearLayout>
+
+                <CheckBox
+                    android:id="@+id/share_text_checkbox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:checked="true" />
+            </RelativeLayout>
+
+            <!-- 分享图片 -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background"
+                android:orientation="horizontal" >
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentLeft="true"
+                    android:orientation="vertical"
+                    tools:ignore="UseCompoundDrawables" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/weibosdk_demo_share_image_title" />
+
+                    <ImageView
+                        android:id="@+id/share_imageview"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:src="@drawable/ic_sina_logo"
+                        tools:ignore="ContentDescription" />
+                </LinearLayout>
+
+                <CheckBox
+                    android:id="@+id/shared_image_checkbox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true" />
+            </RelativeLayout>
+
+            <!-- 分享网页 -->
+            <com.sina.weibo.sdk.demo.WBShareItemView
+                android:id="@+id/share_webpage_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <!-- 分享音乐 -->
+            <com.sina.weibo.sdk.demo.WBShareItemView
+                android:id="@+id/share_music_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <!-- 分享视频 -->
+            <com.sina.weibo.sdk.demo.WBShareItemView
+                android:id="@+id/share_video_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <!-- 分享声音 -->
+            <com.sina.weibo.sdk.demo.WBShareItemView
+                android:id="@+id/share_voice_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <!-- 分享按钮 -->
+            <Button
+                android:id="@+id/share_to_btn"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="8dp"
+                android:gravity="center"
+                android:text="@string/weibosdk_demo_share_to"
+                android:textSize="18sp" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

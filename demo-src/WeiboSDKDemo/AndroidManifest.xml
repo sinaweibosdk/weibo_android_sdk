@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.sina.weibo.sdk.demo"
+    android:versionCode="1"
+    android:versionName="2.4.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="17" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_logo"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        
+        <!-- 主 Activity -->
+        <activity
+            android:name="com.sina.weibo.sdk.demo.WBDemoMainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        
+        <!-- 授权认证 -->
+        <activity android:name="com.sina.weibo.sdk.demo.WBAuthActivity" />
+        <activity android:name="com.sina.weibo.sdk.demo.WBAuthCodeActivity" />
+        <activity android:name="com.sina.weibo.sdk.demo.WBShareMainActivity" />
+        
+        <!-- 分享 -->
+        <activity
+            android:name="com.sina.weibo.sdk.demo.WBShareActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.sina.weibo.sdk.demo.WBShareResponseActivity" >
+            <intent-filter>
+                <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_RESP_ACTIVITY" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        
+        <!-- 登录/注销 -->
+        <activity android:name="com.sina.weibo.sdk.demo.WBLoginLogoutActivity" />
+
+        <!-- OpenAPI -->
+        <activity android:name="com.sina.weibo.sdk.demo.openapi.WBOpenAPIActivity" />
+        <activity android:name="com.sina.weibo.sdk.demo.openapi.WBInviteAPIActivity" />
+        <activity android:name="com.sina.weibo.sdk.demo.openapi.WBLogoutAPIActivity" />
+
+        <!-- 其他 -->
+        <activity android:name="com.sina.weibo.sdk.demo.WBCallActivityV3" />
+        <activity android:name="com.sina.weibo.sdk.demo.WBUserStateActivity" />
+    </application>
+
+</manifest>

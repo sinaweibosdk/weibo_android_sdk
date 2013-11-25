@@ -1,0 +1,37 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <Button
+        android:id="@+id/feature_oauth"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginTop="20dp"
+        android:onClick="onOauth"
+        android:text="@string/weibosdk_demo_feature_oauth" />
+
+    <Button
+        android:id="@+id/feature_share"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="@string/weibosdk_demo_feature_share" />
+
+    <Button
+        android:id="@+id/feature_login_logout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="@string/weibosdk_demo_feature_login_logout" />
+    
+    <Button
+        android:id="@+id/feature_open_api"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="@string/weibosdk_demo_feature_open_api" />
+
+</LinearLayout>
