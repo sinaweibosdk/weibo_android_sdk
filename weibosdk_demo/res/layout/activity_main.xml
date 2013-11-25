@@ -1,0 +1,43 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity" >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/hello_world"
+        android:textSize="20dp" />
+
+    <Button
+        android:id="@+id/regBtn"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="注册到微博" />
+
+    <ScrollView android:layout_width="fill_parent" android:layout_height="wrap_content">
+    <Button
+        android:id="@+id/sendImageMsg"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="发消息" />
+    
+<!--     <Button -->
+<!--         android:id="@+id/sendTextMsg" -->
+<!--         android:layout_width="fill_parent" -->
+<!--         android:layout_height="wrap_content" -->
+<!--         android:text="发消息" /> -->
+<!--     <Button -->
+<!--         android:id="@+id/sendVideoMsg" -->
+<!--         android:layout_width="fill_parent" -->
+<!--         android:layout_height="wrap_content" -->
+<!--         android:text="发消息" /> -->
+    </ScrollView>
+    <Button
+        android:id="@+id/newWeibo"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="是否支持SDK" />
+</LinearLayout>

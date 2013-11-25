@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="api_types">
+        <item>微博接口:StatusesAPI</item>
+        <item>评论接口:CommentsAPI</item>
+        <item>用户接口:UsersAPI</item>
+        <item>关系接口:FriendshipsAPI</item>
+        <item>账号接口:AccoutAPI</item>
+        <item>收藏接口:FavoritesAPI</item>
+        <item>话题接口:TrendsAPI</item>
+        <item>标签接口:TagsAPI</item>
+        <item>注册接口:RegisterAPI</item>
+        <item>搜索接口:SearchAPI</item>
+        <item>推荐接口:SuggestionsAPI</item>
+        <item>提醒接口:RemindAPI</item>
+        <item>短链接口:ShortUrlAPI</item>
+        <item>通知接口:NotificationAPI</item>
+        <item>公共服务接口:CommonAPI</item>
+        <item>位置服务接口:PlaceAPI</item>
+        <item>地理信息接口:LocationAPI</item>
+        <item>社交电视接口:KandianAPI</item>
+    </string-array>
+ <string-array name="examples">
+        <item>发送微博</item>
+        <item>获取关注好友微博</item>
+         <item>打开启动微博客户端</item>
+        <item>打开用户信息页面 uid</item>
+        <item>打开用户信息页面 nickname</item>
+        <item>打开微博发送页面 content</item>
+        <item>打开微博发送页面 多参数</item>
+         <item>打开查看附近人页面</item>
+        <item>打开查看附近微博界面</item>
+         <item>打开打开摇一摇界面</item>
+        <item>打开通讯录界面</item>
+         <item>打开内置浏览器界面</item>
+        <item>打开私信对话界面</item>
+         <item>打开私信对话界面 nick</item>
+        
+         <item>打开用户话题列表页面</item>
+       <item id="123">打开某条微博正文</item>
+
+    </string-array>
+</resources>

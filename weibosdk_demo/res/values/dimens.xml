@@ -1,0 +1,10 @@
+<resources>
+
+    <dimen name="padding_small">8dp</dimen>
+    <dimen name="padding_medium">8dp</dimen>
+    <dimen name="padding_large">16dp</dimen>
+    <dimen name="weibosdk_dialog_left_margin">3dp</dimen>
+    <dimen name="weibosdk_dialog_top_margin">10dp</dimen>
+    <dimen name="weibosdk_dialog_right_margin">15dp</dimen>
+	<dimen name="weibosdk_dialog_bottom_margin">15dp</dimen>
+</resources>

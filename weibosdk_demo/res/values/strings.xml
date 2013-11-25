@@ -1,0 +1,52 @@
+<resources>
+
+    <string name="app_name">微博sdkDemo</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="weibosdk_attention">注意</string>
+    <string name="weibosdk_delete_all">是否要删除这条微博？</string>
+    <string name="weibosdk_ok">是</string>
+    <string name="weibosdk_cancel">否</string>
+    <string name="weibosdk_app_name">com_weibo_android</string>
+    <string name="weibosdk_send">发送</string>
+    <string name="weibosdk_photo">拍照</string>
+    <string name="weibosdk_close">关闭</string>
+    <string name="weibosdk_share_dialog_title">新浪微博</string>
+    <string name="weibosdk_please_login">请登录！</string>
+    <string name="weibosdk_send_sucess">分享成功！</string>
+    <string name="weibosdk_send_failed">分享失败！</string>
+    <string name="weibosdk_del_pic">是否删除图片？</string>
+    <string name="weibosdk_comment">评论</string>
+    <string name="weibosdk_forward">转发</string>
+    <string name="weibosdk_fav">收藏</string>
+    <string name="testcontent"></string>
+    <string name="post_weibo">发送微博</string>
+    <string name="nearbypeople">周边的人</string>
+    <string name="nearbyweibo">周边的微博</string>
+    <string name="userinfo">个人资料</string>
+    <string name="pageinfo">位置(page)介绍面</string>
+    <string name="pageproductlist">图书(page)产品列表</string>
+    <string name="pageuserlist">位置用户列表</string>
+    <string name="pageweibolist">位置微博列表</string>
+    <string name="pagephotolist">位置图片列表</string>
+    <string name="pagedetailinfo">位置详细资料页</string>
+    <string name="usertrends">话题列表</string>
+    <string name="weibobrowser">内置浏览器打开</string>
+    <string name="weibomap">地图页面</string>
+    <string name="nearphotolist">xy周边热图</string>
+    <string name="poiphotolist">poi周边热图</string>
+    <string name="poipage">POI页面</string>
+    <string name="mblogdetail">查看微博正文</string>
+    <string name="qrcode">扫描二维码界面</string>
+	<string name="auth">OAUTH2.0获取Token</string>
+	<string name="code">OAUTH2.0获取Code</string>
+	<string name="sso">单点登录sso</string>
+	<string name="apiCancel">注销用户</string>
+	<string name="checkinternet">无法联系网络，请检查网络配置</string>
+	 <string name="hello_world">微博SDK入口</string>
+	<string name="auth_succ">认证成功</string>
+	<string name="access_token_null">Access Token 不存在！</string>
+	<string name="revoke_auth_succ">授权回收成功！</string>
+	<string name="invite_succ">已经成功发送邀请！</string>
+	
+</resources>
