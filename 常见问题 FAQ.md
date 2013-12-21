@@ -62,6 +62,18 @@
 >**A：**出于安全性的考虑，微博客户端 V4.1 做了一些改动，会将包名和签名等信息发送给 Server 进行验证。V4.1 以前的版本是没有传入这些参数的。Server目前会优先根据包名和签名信息验证你的应用是否合法。  
 因此，如果你的应用还没有在平台上注册包名和签名，请火速注册包名和签名，以免给您的应用造成用户流失。如果注册后还是不行，毫无疑问，你的签名肯定不正确，请确保您的签名是由您所测试的 APK 生成出来的。
 
+**Q：**收到错误代码：21322 **redirect_uri_mismatch**（重定向地址不匹配），这是为什么？  
+![redirect_uri_mismatch][12]  
+>**A：**请确保你在**平台上填写的授权回调地址**与**代码中写的授权回调地址(RedirectURI)**一样。  授权回调页对移动客户端应用来说对用户是不可见的，所以定义为何种形式都将不影响，但是没有定义将无法使用SDK认证登录。建议使用默认回调页 https://api.weibo.com/oauth2/default.html （可以在新浪微博开放平台->我的应用->应用信息->高级应用->授权设置->应用回调页中找到）。
+
+**Q：**收到错误代码：21325 **invalid_grant**（提供的Access Grant是无效的、过期的或已撤销的），这是为什么？  
+>**A：**请确保相关审核已通过：
+ - 通过开发者身份认证审核
+ - 在平台进行相关修改后，如修改签名等操作，同样需要等待审核
+  
+**Q：**授权时的ErrorCode地址在哪？  
+>**A：**[OAuth2.0 错误码][13]。
+
 ###6. 关于微博分享
 **Q：**微博分享需要客户端吗？  
 >**A：**是的，目前第三方分享微博需要客户端的支持，请确保已安装官方微博客户端。如果不想使用微博客户端进行分享，可以使用 OpenAPI，拼接 URL，通过 HTTP 请求发送微博。  
@@ -92,7 +104,9 @@
 [5]:http://open.weibo.com/wiki/%E5%BE%AE%E5%8D%9AAPI
 [6]:http://open.weibo.com/wiki/Error_code
 [7]:http://open.weibo.com/tools/console
-[8]:http://open.weibo.com/wiki/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98#.E5.AE.A1.E6.A0.B8.E7.9B.B8.E5.85.B3.E9.97.AE.E9.A2.98
-[9]:https://github.com/mobileresearch/weibo_android_sdk/blob/master/%E5%BE%AE%E5%8D%9AAndroid%E5%B9%B3%E5%8F%B0SDK%E6%96%87%E6%A1%A3V2.4.0.pdf
-[10]:https://github.com/mobileresearch/weibo_android_sdk/blob/master/app_signatures.apk
+[8]:http://t.cn/zHW4aDG
+[9]:/微博Android平台SDK文档V2.4.0.pdf
+[10]:/app_signatures.apk
 [11]:http://open.weibo.com/wiki/Scope
+[12]:/raw/FAQ/screenshot/error_redirect_uri_mismatch.png
+[13]:http://t.cn/8kWBkoj
