@@ -16,9 +16,6 @@
 
 package com.sina.weibo.sdk.widget;
 
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -300,16 +297,24 @@ public class LoginoutButton extends Button implements OnClickListener {
 		            if (!TextUtils.isEmpty(response)) {
 		                try {
 		                    JSONObject obj = new JSONObject(response);
-		                    String value = obj.getString("result");
-
-		                    // 注销成功
-		                    if ("true".equalsIgnoreCase(value)) {
-		                    	// XXX: 考虑是否需要将 AccessTokenKeeper 放到 SDK 中？？
-		                        //AccessTokenKeeper.clear(getContext());
-		                    	// 清空当前 Token
-		                        mAccessToken = null;
-		                        
-		                        setText(R.string.com_sina_weibo_sdk_login_with_weibo_account);
+		                    if(obj.isNull("error")){
+			                    String value = obj.getString("result");
+	
+			                    // 注销成功
+			                    if ("true".equalsIgnoreCase(value)) {
+			                    	// XXX: 考虑是否需要将 AccessTokenKeeper 放到 SDK 中？？
+			                        //AccessTokenKeeper.clear(getContext());
+			                    	// 清空当前 Token
+			                        mAccessToken = null;
+			                        
+			                        setText(R.string.com_sina_weibo_sdk_login_with_weibo_account);
+			                    }
+		                    } else {
+		                    	String error_code = obj.getString("error_code");
+		                    	if(error_code.equals("21317")){
+		                    		 mAccessToken = null;
+				                     setText(R.string.com_sina_weibo_sdk_login_with_weibo_account);
+		                    	}
 		                    }
 		                } catch (JSONException e) {
 		                    e.printStackTrace();
@@ -320,34 +325,16 @@ public class LoginoutButton extends Button implements OnClickListener {
 		            	mLogoutListener.onComplete(response);
 					}
 		        }
-	    
-	            @Override
-	            public void onComplete4binary(ByteArrayOutputStream responseOS) {
-	                LogUtil.e(TAG, "onComplete4binary...");
-	                // Do nothing
-	            }
-	    
-	            @Override
-	            public void onIOException(IOException e) {
-	                LogUtil.e(TAG, "onIOException： " + e.getMessage());
+
+				@Override
+				public void onWeiboException(WeiboException e) {
+					LogUtil.e(TAG, "WeiboException： " + e.getMessage());
 	                // 注销失败
 	                setText(R.string.com_sina_weibo_sdk_logout);
-	                
 	                if (mLogoutListener != null) {
-	                	mLogoutListener.onIOException(e);
+	                	mLogoutListener.onWeiboException(e);
 	                }
-	            }
-	    
-	            @Override
-	            public void onError(WeiboException e) {
-	                LogUtil.e(TAG, "WeiboException： " + e.getMessage());
-	                // 注销失败
-	                setText(R.string.com_sina_weibo_sdk_logout);
-	                
-	                if (mLogoutListener != null) {
-	                	mLogoutListener.onError(e);
-	                }
-	            }
+				}
 	        });
 		}
 	}

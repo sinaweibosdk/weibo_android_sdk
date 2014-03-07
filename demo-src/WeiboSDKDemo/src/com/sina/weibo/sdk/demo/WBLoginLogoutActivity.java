@@ -16,8 +16,6 @@
 
 package com.sina.weibo.sdk.demo;
 
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
 import java.text.SimpleDateFormat;
 
 import org.json.JSONException;
@@ -254,21 +252,11 @@ public class WBLoginLogoutActivity extends Activity {
                     e.printStackTrace();
                 }
             }
-        }
-        
-        @Override
-        public void onComplete4binary(ByteArrayOutputStream responseOS) {
-            // Do nothing
-        }        
-        
-        @Override
-        public void onIOException(IOException e) {
-            mTokenView.setText(R.string.weibosdk_demo_logout_failed);
-        }
+        }     
 
-        @Override
-        public void onError(WeiboException e) {
-            mTokenView.setText(R.string.weibosdk_demo_logout_failed);
-        }
+		@Override
+		public void onWeiboException(WeiboException e) {
+			mTokenView.setText(R.string.weibosdk_demo_logout_failed);
+		}
     }
 }

@@ -16,8 +16,6 @@
 
 package com.sina.weibo.sdk.demo.openapi;
 
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
 import java.text.SimpleDateFormat;
 
 import org.json.JSONException;
@@ -51,7 +49,7 @@ public class WBLogoutAPIActivity extends Activity {
     /** 注销按钮 */
     private Button mLogoutButton;
     /** 当前 Token 信息 */
-    Oauth2AccessToken mAccessToken;
+    private Oauth2AccessToken mAccessToken;
     /** 注销操作回调 */
     private LogOutRequestListener mLogoutRequestListener = new LogOutRequestListener();
     
@@ -107,20 +105,10 @@ public class WBLogoutAPIActivity extends Activity {
                     e.printStackTrace();
                 }
             }
-        }
-        
-        @Override
-        public void onComplete4binary(ByteArrayOutputStream responseOS) {
-            // Do nothing
         } 
-        
-        @Override
-        public void onIOException(IOException e) {
-            mTokenView.setText(R.string.weibosdk_demo_logout_failed);
-        }
 
         @Override
-        public void onError(WeiboException e) {
+        public void onWeiboException(WeiboException e) {
             mTokenView.setText(R.string.weibosdk_demo_logout_failed);
         }
     }

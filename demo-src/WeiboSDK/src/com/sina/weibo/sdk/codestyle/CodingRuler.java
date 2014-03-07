@@ -64,10 +64,10 @@ package com.sina.weibo.sdk.codestyle;
  *             从而达到良好的可读性。
  *    <li>4.2. 总体上来说，要按照先 public, 后 protected, 最后 private, 函数的排布
  *             也应该有一个逻辑的先后顺序，由重到轻。
- *    <li>4.3. 以下顺序可供参考：
+ *    <li>4.3. 以下顺序可供参考：<br>
  *         定义TAG，一般为 private（可选）<br>
  *         定义 public 常量<br>
- *         定义 private 常量、内部类<br>
+ *         定义 protected 常量、内部类<br>
  *         定义 private 变量<br>
  *         定义 public 方法<br>
  *         定义 protected 方法<br>

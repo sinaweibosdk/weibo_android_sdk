@@ -10,8 +10,8 @@
     <string name="weibosdk_demo_feature_open_api">开放接口（Open API）</string>
 
     <!-- 获取 Token -->
-    <string name="weibosdk_demo_obtain_token_via_signature">通过应用签名信息获取 Token</string>
-    <string name="weibosdk_demo_obtain_token_via_sso">通过单点登录 (SSO) 获取 Token</string>
+    <string name="weibosdk_demo_obtain_token_via_sso">SSO（单点登录）授权</string>
+    <string name="weibosdk_demo_obtain_token_via_signature">Web 授权</string>
     <string name="weibosdk_demo_obtain_token_via_code">通过 Code 获取 Token</string>
     <string name="weibosdk_demo_token_info">Token 信息：</string>
     <string name="weibosdk_demo_token_has_existed">Token 仍在有效期内，无需再次登录。</string>
@@ -106,4 +106,8 @@
     <string name="weibosdk_demo_openapi_invite_success">发送邀请成功</string>
     <string name="weibosdk_demo_openapi_invite_failed">发送邀请失败</string>
     <string name="weibosdk_demo_access_token_is_empty">Access Token 不存在，请先登录</string>
+    
+    <string name="weibosdk_demo_get_home_mblog">获取首页微博信息流</string>
+    <string name="weibosdk_demo_get_comment">获取微博评论信息流</string>
+    <string name="weibosdk_demo_get_group">获取微博好友分组</string>
 </resources>

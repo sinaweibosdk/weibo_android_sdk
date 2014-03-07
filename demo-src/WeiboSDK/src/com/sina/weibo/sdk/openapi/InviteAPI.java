@@ -21,13 +21,15 @@ import org.json.JSONObject;
 import android.text.TextUtils;
 
 import com.sina.weibo.sdk.auth.Oauth2AccessToken;
-import com.sina.weibo.sdk.auth.WeiboParameters;
 import com.sina.weibo.sdk.net.RequestListener;
+import com.sina.weibo.sdk.net.WeiboParameters;
 import com.sina.weibo.sdk.utils.LogUtil;
 
 /**
  * 该类提供了好友邀请接口，支持登录用户向自己的微博互粉好友发送私信邀请、礼物。
- * @see <a href="http://open.weibo.com/wiki/2/messages/invite">好友邀请接口</a>
+ * 详情请参考： 
+ * <li><a href="http://open.weibo.com/wiki/2/messages/invite">好友邀请接口</a>
+ * <li><a href=http://t.cn/8F75vDo>申请接入流程</a>
  * 
  * @author SINA
  * @since 2013-11-04
@@ -66,10 +68,10 @@ public class InviteAPI extends AbsOpenAPI {
                 && jsonData != null 
                 && !TextUtils.isEmpty(jsonData.toString())) {
             
-            WeiboParameters params = new WeiboParameters();
-            params.add("uid", uid);
-            params.add("data", jsonData.toString());
-            request(INVITE_URL, params, "POST", listener);
+        	WeiboParameters params = new WeiboParameters();
+            params.put("uid", uid);
+            params.put("data", jsonData.toString());
+            requestAsync(INVITE_URL, params, HTTPMETHOD_POST, listener);
         } else {
             LogUtil.d(TAG, "Invite args error!");
         }

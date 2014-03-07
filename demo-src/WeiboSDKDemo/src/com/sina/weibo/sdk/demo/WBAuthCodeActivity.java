@@ -16,14 +16,10 @@
 
 package com.sina.weibo.sdk.demo;
 
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
 import java.text.SimpleDateFormat;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
 import android.view.View;
@@ -35,11 +31,11 @@ import android.widget.Toast;
 import com.sina.weibo.sdk.auth.Oauth2AccessToken;
 import com.sina.weibo.sdk.auth.WeiboAuth;
 import com.sina.weibo.sdk.auth.WeiboAuthListener;
-import com.sina.weibo.sdk.auth.WeiboParameters;
 import com.sina.weibo.sdk.constant.WBConstants;
 import com.sina.weibo.sdk.exception.WeiboException;
 import com.sina.weibo.sdk.net.AsyncWeiboRunner;
 import com.sina.weibo.sdk.net.RequestListener;
+import com.sina.weibo.sdk.net.WeiboParameters;
 import com.sina.weibo.sdk.utils.LogUtil;
 import com.sina.weibo.sdk.utils.UIUtils;
 
@@ -51,7 +47,7 @@ import com.sina.weibo.sdk.utils.UIUtils;
  * <li>您不想安装微博客户端</li></br>
  * 您可以自行通过 Code 来获取 Token。通过这种方式需要使用到 APP_SECRET，请务必妥善保管好
  * 自己的 APP_SECRET，<b>泄露有风险</b>。
- * 更多细节请查看：</b><a href="http://open.weibo.com/wiki/%E6%8E%88%E6%9D%83%E6%9C%BA%E5%88%B6%E8%AF%B4%E6%98%8E#Web.E5.BA.94.E7.94.A8.E7.9A.84.E9.AA.8C.E8.AF.81.E6.8E.88.E6.9D.83">验证授权步骤</a>
+ * 更多细节请查看：</b><a href="http://t.cn/zldm9tt">验证授权步骤</a>
  * 
  * @author SINA
  * @since 2013-10-18
@@ -68,10 +64,6 @@ public class WBAuthCodeActivity extends Activity {
     
     /** 通过 code 获取 Token 的 URL */
     private static final String OAUTH2_ACCESS_TOKEN_URL = "https://open.weibo.cn/oauth2/access_token";
-    
-    /** 获取 Token 成功或失败的消息 */
-    private static final int MSG_FETCH_TOKEN_SUCCESS = 1;
-    private static final int MSG_FETCH_TOKEN_FAILED  = 2;
     
     /** UI 元素列表 */
     private TextView mNote;
@@ -164,35 +156,6 @@ public class WBAuthCodeActivity extends Activity {
                     "Auth exception : " + e.getMessage(), Toast.LENGTH_LONG);
         }
     }
-
-    /**
-     * 该 Handler 配合 {@link RequestListener} 对应的回调来更新 UI。
-     */
-    private Handler mHandler = new Handler() {
-        public void handleMessage(Message msg) {
-            switch (msg.what) {
-            case MSG_FETCH_TOKEN_SUCCESS:
-                // 显示 Token
-                String date = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(
-                        new java.util.Date(mAccessToken.getExpiresTime()));
-                String format = getString(R.string.weibosdk_demo_token_to_string_format_1);
-                mTokenText.setText(String.format(format, mAccessToken.getToken(), date));
-                mAuthCodeButton.setEnabled(false);
-                
-                Toast.makeText(WBAuthCodeActivity.this, 
-                        R.string.weibosdk_demo_toast_obtain_token_success, Toast.LENGTH_SHORT).show();
-                break;
-                
-            case MSG_FETCH_TOKEN_FAILED:
-                Toast.makeText(WBAuthCodeActivity.this, 
-                        R.string.weibosdk_demo_toast_obtain_token_failed, Toast.LENGTH_SHORT).show();
-                break;
-                
-            default:
-                break;
-            }
-        };
-    };
     
     /**
      * 异步获取 Token。
@@ -202,27 +165,16 @@ public class WBAuthCodeActivity extends Activity {
      *                  不要直接暴露在程序中，此处仅作为一个DEMO来演示。
      */
     public void fetchTokenAsync(String authCode, String appSecret) {
-        /*
-        LinkedHashMap<String, String> requestParams = new LinkedHashMap<String, String>();
+        
+        WeiboParameters requestParams = new WeiboParameters();
         requestParams.put(WBConstants.AUTH_PARAMS_CLIENT_ID,     Constants.APP_KEY);
-        requestParams.put(WBConstants.AUTH_PARAMS_CLIENT_SECRET, appSecretConstantS.APP_SECRET);
+        requestParams.put(WBConstants.AUTH_PARAMS_CLIENT_SECRET, appSecret);
         requestParams.put(WBConstants.AUTH_PARAMS_GRANT_TYPE,    "authorization_code");
         requestParams.put(WBConstants.AUTH_PARAMS_CODE,          authCode);
         requestParams.put(WBConstants.AUTH_PARAMS_REDIRECT_URL,  Constants.REDIRECT_URL);
-        */
-        WeiboParameters requestParams = new WeiboParameters();
-        requestParams.add(WBConstants.AUTH_PARAMS_CLIENT_ID,     Constants.APP_KEY);
-        requestParams.add(WBConstants.AUTH_PARAMS_CLIENT_SECRET, appSecret);
-        requestParams.add(WBConstants.AUTH_PARAMS_GRANT_TYPE,    "authorization_code");
-        requestParams.add(WBConstants.AUTH_PARAMS_CODE,          authCode);
-        requestParams.add(WBConstants.AUTH_PARAMS_REDIRECT_URL,  Constants.REDIRECT_URL);
-    
-        /**
-         * 请注意：
-         * {@link RequestListener} 对应的回调是运行在后台线程中的，
-         * 因此，需要使用 Handler 来配合更新 UI。
-         */
-        AsyncWeiboRunner.request(OAUTH2_ACCESS_TOKEN_URL, requestParams, "POST", new RequestListener() {
+        
+        // 异步请求，获取 Token
+        AsyncWeiboRunner.requestAsync(OAUTH2_ACCESS_TOKEN_URL, requestParams, "POST", new RequestListener() {
             @Override
             public void onComplete(String response) {
                 LogUtil.d(TAG, "Response: " + response);
@@ -233,29 +185,25 @@ public class WBAuthCodeActivity extends Activity {
                     LogUtil.d(TAG, "Success! " + token.toString());
                     
                     mAccessToken = token;
-                    mHandler.obtainMessage(MSG_FETCH_TOKEN_SUCCESS).sendToTarget();
+                    String date = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(
+                            new java.util.Date(mAccessToken.getExpiresTime()));
+                    String format = getString(R.string.weibosdk_demo_token_to_string_format_1);
+                    mTokenText.setText(String.format(format, mAccessToken.getToken(), date));
+                    mAuthCodeButton.setEnabled(false);
+                    
+                    Toast.makeText(WBAuthCodeActivity.this, 
+                            R.string.weibosdk_demo_toast_obtain_token_success, Toast.LENGTH_SHORT).show();
                 } else {
                     LogUtil.d(TAG, "Failed to receive access token");
                 }
             }
-    
+
             @Override
-            public void onComplete4binary(ByteArrayOutputStream responseOS) {
-                LogUtil.e(TAG, "onComplete4binary...");
-                mHandler.obtainMessage(MSG_FETCH_TOKEN_FAILED).sendToTarget();
-            }
-    
-            @Override
-            public void onIOException(IOException e) {
-                LogUtil.e(TAG, "onIOException： " + e.getMessage());
-                mHandler.obtainMessage(MSG_FETCH_TOKEN_FAILED).sendToTarget();
-            }
-    
-            @Override
-            public void onError(WeiboException e) {
-                LogUtil.e(TAG, "WeiboException： " + e.getMessage());
-                mHandler.obtainMessage(MSG_FETCH_TOKEN_FAILED).sendToTarget();
-            }
+            public void onWeiboException(WeiboException e) {
+                LogUtil.e(TAG, "onWeiboException： " + e.getMessage());
+                Toast.makeText(WBAuthCodeActivity.this, 
+                        R.string.weibosdk_demo_toast_obtain_token_failed, Toast.LENGTH_SHORT).show();
+			}
         });
     }
 }

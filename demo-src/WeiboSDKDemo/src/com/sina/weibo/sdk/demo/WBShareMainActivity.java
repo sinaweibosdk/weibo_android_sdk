@@ -26,8 +26,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.sina.weibo.sdk.api.share.IWeiboShareAPI;
 import com.sina.weibo.sdk.api.share.IWeiboDownloadListener;
+import com.sina.weibo.sdk.api.share.IWeiboShareAPI;
 import com.sina.weibo.sdk.api.share.WeiboShareSDK;
 
 /**
@@ -40,6 +40,9 @@ public class WBShareMainActivity extends Activity {
 
     /** 微博分享的接口实例 */
     private IWeiboShareAPI mWeiboShareAPI;
+    
+    /** 微博分享按钮 */
+    private Button mShareButton;
 
     /**
      * @see {@link Activity#onCreate}
@@ -95,11 +98,15 @@ public class WBShareMainActivity extends Activity {
                 mWeiboShareAPI.registerApp();
                 Toast.makeText(WBShareMainActivity.this, 
                         R.string.weibosdk_demo_toast_register_app_to_weibo, Toast.LENGTH_LONG).show();
+                
+                mShareButton.setEnabled(true);
             }
         });
         
         // 设置分享按钮对应回调
-        ((Button) findViewById(R.id.share_to_weibo)).setOnClickListener(new OnClickListener() {
+        mShareButton = (Button) findViewById(R.id.share_to_weibo);
+        mShareButton.setEnabled(false);
+        mShareButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(WBShareMainActivity.this, WBShareActivity.class));

@@ -70,21 +70,21 @@ public class WBAuthActivity extends Activity {
         // 创建微博实例
         mWeiboAuth = new WeiboAuth(this, Constants.APP_KEY, Constants.REDIRECT_URL, Constants.SCOPE);
         
-        // 通过应用签名信息获取 Token
-        findViewById(R.id.obtain_token_via_signature).setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mWeiboAuth.anthorize(new AuthListener());
-                // 或者使用：mWeiboAuth.authorize(new AuthListener(), Weibo.OBTAIN_AUTH_TOKEN);
-            }
-        });
-        
-        // 通过单点登录 (SSO) 获取 Token
+        // SSO 授权
         findViewById(R.id.obtain_token_via_sso).setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 mSsoHandler = new SsoHandler(WBAuthActivity.this, mWeiboAuth);
                 mSsoHandler.authorize(new AuthListener());
+            }
+        });
+        
+        // Web 授权
+        findViewById(R.id.obtain_token_via_signature).setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mWeiboAuth.anthorize(new AuthListener());
+                // 或者使用：mWeiboAuth.authorize(new AuthListener(), Weibo.OBTAIN_AUTH_TOKEN);
             }
         });
         
@@ -142,7 +142,10 @@ public class WBAuthActivity extends Activity {
                 Toast.makeText(WBAuthActivity.this, 
                         R.string.weibosdk_demo_toast_auth_success, Toast.LENGTH_SHORT).show();
             } else {
-                // 当您注册的应用程序签名不正确时，就会收到 Code，请确保签名正确
+                // 以下几种情况，您会收到 Code：
+                // 1. 当您未在平台上注册的应用程序的包名与签名时；
+                // 2. 当您注册的应用程序包名与签名不正确时；
+                // 3. 当您在平台上注册的包名和签名与您当前测试的应用的包名和签名不匹配时。
                 String code = values.getString("code");
                 String message = getString(R.string.weibosdk_demo_toast_auth_failed);
                 if (!TextUtils.isEmpty(code)) {

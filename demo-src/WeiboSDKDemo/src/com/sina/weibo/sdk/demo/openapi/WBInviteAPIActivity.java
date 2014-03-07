@@ -16,9 +16,6 @@
 
 package com.sina.weibo.sdk.demo.openapi;
 
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -146,17 +143,7 @@ public class WBInviteAPIActivity extends Activity implements OnClickListener {
         }
 
         @Override
-        public void onComplete4binary(ByteArrayOutputStream responseOS) {
-            // Do nothing
-        }
-
-        @Override
-        public void onIOException(IOException e) {
-            showToast(false, e.getMessage());
-        }
-
-        @Override
-        public void onError(WeiboException e) {
+        public void onWeiboException(WeiboException e) {
             showToast(false, e.getMessage());
         }
     }

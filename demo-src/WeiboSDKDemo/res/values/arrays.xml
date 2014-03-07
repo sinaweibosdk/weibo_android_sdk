@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+	<string-array name="user_func_list">
+        <item>获取用户信息</item>
+        <item>批量获取用户的粉丝数、关注数、微博数</item>
+    </string-array>
+    
+    <string-array name="statuses_func_list">
+        <item>获取当前登录用户及其所关注用户的最新微博</item>
+        <item>获取 @ 当前用户的最新微博</item>
+        <item>调用 update 函数发送纯文本信息的微博</item>
+        <item>调用 upload 函数发送带本地图片的微博</item>
+        <item>调用 uploadUrlText 函数发送带网络图片的微博</item>
+    </string-array>
+    
+    <string-array name="comment_func_list">
+        <item>获取@到我的评论</item>
+        <item>获取我发出的评论列表</item>
+        <item>获取当前登录用户的最新评论</item>
+    </string-array>
+    
+    <string-array name="favorite_func_list">
+        <item>获取当前用户的收藏列表</item>
+        <item>获取当前登录用户的收藏标签</item>
+    </string-array>
+    
+</resources>

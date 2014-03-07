@@ -16,13 +16,13 @@
 
 package com.sina.weibo.sdk.demo;
 
-import com.sina.weibo.sdk.demo.openapi.WBOpenAPIActivity;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
+
+import com.sina.weibo.sdk.demo.openapi.WBOpenAPIActivity;
 
 /**
  * 该类是整个 DEMO 程序的入口。

@@ -49,8 +49,11 @@ public class WBOpenAPIActivity extends Activity implements OnItemClickListener {
      * 初始化用于存放 OpenAPI 名称以及对应的 DEMO Activity 名的 MAP。
      */
     static {
-        sAPIList.put("InviteAPI", "WBInviteAPIActivity");
-        sAPIList.put("LogoutAPI", "WBLogoutAPIActivity");
+        sAPIList.put("用户 - UserAPI",    "WBUserAPIActivity");
+        sAPIList.put("微博 - StatusAPI",  "WBStatusAPIActivity");
+        sAPIList.put("评论 - CommentAPI", "WBCommentAPIActivity");
+        sAPIList.put("邀请 - InviteAPI",  "WBInviteAPIActivity");
+        sAPIList.put("注销 - LogoutAPI",  "WBLogoutAPIActivity");
     }
     
     /** UI 元素：ListView */

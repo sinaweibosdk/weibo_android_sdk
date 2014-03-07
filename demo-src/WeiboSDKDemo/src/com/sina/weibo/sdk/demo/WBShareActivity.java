@@ -37,9 +37,9 @@ import com.sina.weibo.sdk.api.WebpageObject;
 import com.sina.weibo.sdk.api.WeiboMessage;
 import com.sina.weibo.sdk.api.WeiboMultiMessage;
 import com.sina.weibo.sdk.api.share.BaseResponse;
-import com.sina.weibo.sdk.api.share.IWeiboShareAPI;
 import com.sina.weibo.sdk.api.share.IWeiboDownloadListener;
 import com.sina.weibo.sdk.api.share.IWeiboHandler;
+import com.sina.weibo.sdk.api.share.IWeiboShareAPI;
 import com.sina.weibo.sdk.api.share.SendMessageToWeiboRequest;
 import com.sina.weibo.sdk.api.share.SendMultiMessageToWeiboRequest;
 import com.sina.weibo.sdk.api.share.WeiboShareSDK;
@@ -91,6 +91,11 @@ public class WBShareActivity extends Activity implements OnClickListener, IWeibo
 
         // 创建微博分享接口实例
         mWeiboShareAPI = WeiboShareSDK.createWeiboAPI(this, Constants.APP_KEY);
+        
+        // 注册第三方应用到微博客户端中，注册成功后该应用将显示在微博的应用列表中。
+        // 但该附件栏集成分享权限需要合作申请，详情请查看 Demo 提示
+        // NOTE：请务必提前注册，即界面初始化的时候或是应用程序初始化时，进行注册
+        mWeiboShareAPI.registerApp();
         
         // 如果未安装微博客户端，设置下载微博对应的回调
         if (!mWeiboShareAPI.isWeiboAppInstalled()) {
@@ -158,12 +163,7 @@ public class WBShareActivity extends Activity implements OnClickListener, IWeibo
         if (R.id.share_to_btn == v.getId()) {
             try {
                 // 检查微博客户端环境是否正常，如果未安装微博，弹出对话框询问用户下载微博客户端
-                if (mWeiboShareAPI.checkEnvironment(true)) {
-                    
-                    // 注册第三方应用 到微博客户端中，注册成功后该应用将显示在微博的应用列表中。
-                    // 但该附件栏集成分享权限需要合作申请，详情请查看 Demo 提示
-                    mWeiboShareAPI.registerApp();
-                    
+                if (mWeiboShareAPI.checkEnvironment(true)) {                    
                     sendMessage(mTextCheckbox.isChecked(), 
                             mImageCheckbox.isChecked(), 
                             mShareWebPageView.isChecked(),
