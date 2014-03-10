@@ -157,7 +157,7 @@ public class WBStatusAPIActivity extends Activity implements OnItemClickListener
                 if (response.startsWith("{\"statuses\"")) {
                     // 调用 StatusList#parse 解析字符串成微博列表对象
                     StatusList statuses = StatusList.parse(response);
-                    if (statuses != null) {
+                    if (statuses != null && statuses.total_number > 0) {
                         Toast.makeText(WBStatusAPIActivity.this, 
                                 "获取微博信息流成功, 条数: " + statuses.statusList.size(), 
                                 Toast.LENGTH_LONG).show();

@@ -118,7 +118,7 @@ public class WBCommentAPIActivity extends Activity implements OnItemClickListene
             LogUtil.i(TAG, response);
             if (!TextUtils.isEmpty(response)) {
                 CommentList comments = CommentList.parse(response);
-                if(comments != null && comments.commentList.size() > 0){
+                if(comments != null && comments.total_number > 0){
                     Toast.makeText(WBCommentAPIActivity.this,
                             "获取评论成功, 条数: " + comments.commentList.size(), 
                             Toast.LENGTH_LONG).show();
