@@ -12,7 +12,7 @@
 * Step 4：参照 [Demo][5] 进行开发  
 
 **如果您在使用过程中有些问题不清楚如何解决**，请先仔细阅读：[常见问题FAQ][2]，尝试能否找到对应的答案。  
-**如果您对 SDK 中提供的某个类、API 不明确**，请在 [WeiboSDK_API-V2.4.0.CHM][3] 中查找对应的注解。  
+**如果您对 SDK 中提供的某个类、API 不明确**，请在 [doc][4] 中查找对应的注解。  
 
 另外，关于 SDK 的 Bug 反馈、用户体验，以及建议与不足等，请大家尽量提交到 Github 上，充分利用好 Github 这一工具。
 目前 SDK 有很多不足之处，请给我们一些时间，我们会力争为第三方开发者提供一个规范、简单易用、稳定可靠、可扩展、可定制的 SDK。
@@ -253,3 +253,4 @@ AsyncWeiboRunner.requestAsync(
 [5]:https://github.com/sinaweibosdk/weibo_android_sdk/tree/master/demo-src
 [6]:https://github.com/sinaweibosdk/weibo_android_sdk/edit/master/README.md#%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82%E6%A1%86%E6%9E%B6%E7%9A%84%E4%BD%BF%E7%94%A8
 [7]:https://github.com/sinaweibosdk/weibo_android_sdk/edit/master/README.md#%E4%B8%BE%E4%BE%8B%E4%BD%BF%E7%94%A8%E5%BC%82%E6%AD%A5%E6%8E%A5%E5%8F%A3%E6%9D%A5%E5%8F%91%E9%80%81%E4%B8%80%E6%9D%A1%E5%B8%A6%E5%9B%BE%E7%89%87%E7%9A%84%E5%BE%AE%E5%8D%9A
+[8]:https://github.com/sinaweibosdk/weibo_android_sdk/tree/master/doc
