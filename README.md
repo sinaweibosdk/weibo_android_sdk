@@ -253,4 +253,4 @@ AsyncWeiboRunner.requestAsync(
 [5]:https://github.com/sinaweibosdk/weibo_android_sdk/tree/master/demo-src
 [6]:https://github.com/sinaweibosdk/weibo_android_sdk/edit/master/README.md#%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82%E6%A1%86%E6%9E%B6%E7%9A%84%E4%BD%BF%E7%94%A8
 [7]:https://github.com/sinaweibosdk/weibo_android_sdk/edit/master/README.md#%E4%B8%BE%E4%BE%8B%E4%BD%BF%E7%94%A8%E5%BC%82%E6%AD%A5%E6%8E%A5%E5%8F%A3%E6%9D%A5%E5%8F%91%E9%80%81%E4%B8%80%E6%9D%A1%E5%B8%A6%E5%9B%BE%E7%89%87%E7%9A%84%E5%BE%AE%E5%8D%9A
-[8]:https://github.com/sinaweibosdk/weibo_android_sdk/tree/master/doc
+[8]:http://sinaweibosdk.github.io/weibo_android_sdk/doc/
