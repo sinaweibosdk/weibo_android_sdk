@@ -19,7 +19,7 @@
 
 ------
 
-# Release-Note: Android SDK V3.0.0  
+# Release-Note: Android SDK V3.0.1  
 ## 版本变更：
 
 1. 优化网页授权
