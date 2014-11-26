@@ -1,14 +1,14 @@
 # ReadMe
 为了方便第三方开发者快速集成微博 SDK，我们提供了以下联系方式，协助开发者进行集成：  
 **QQ群：248982250**  
-**QQ群：284084420（已满）**  
+**QQ群：284084420**  
 **邮箱：sdk4wb@sina.cn**  
 **微博：移动新技术**  
 虽然我们提供了若干文档，但总有不尽人意的地方，为了快速上手，少走弯路，我们建议您采用以下方式来了解并集成微博SDK。  
 
 * Step 1：浏览 ReadMe 了解大致情况
 * Step 2：运行示例程序 [WeiboSDKDemo.apk][4] 或 [Demo][5] 了解 SDK 提供的所有功能
-* Step 3：查看 [微博Android平台SDK文档V2.5.0.pdf][1] 深入了解如何使用
+* Step 3：查看 [微博Android平台SDK文档V3.0.0.pdf][1] 深入了解如何使用
 * Step 4：参照 [Demo][5] 进行开发  
 
 **如果您在使用过程中有些问题不清楚如何解决**，请先仔细阅读：[常见问题FAQ][2]，尝试能否找到对应的答案。  
@@ -19,16 +19,13 @@
 
 ------
 
-# Release-Note: Android SDK V2.5.0  
+# Release-Note: Android SDK V3.0.0  
 ## 版本变更：
 
-1. 重构网络模块代码
-2. 提供同步和异步的网络请求接口
-3. 简化网络请求接口
-4. 提供网络模块常用接口，如获取用户信息
-5. 提供网络请求后的数据结构，如User、微博信息流等数据结构
-6. 修正若干BUG
-7. 简化文档
+1. 优化网页授权
+2. 优化网页分享
+3. 增加社会化评论组件
+4. 增加社会化关注组件
 
 ------
 
@@ -36,7 +33,7 @@
 
 ## 概述
 微博 Android 平台 SDK 为第三方应用提供了简单易用的微博API调用服务，使第三方客户端无需了解复杂的验证机制即可进行授权登陆，并提供微博分享功能，可直接通过微博官方客户端分享微博。
->本文档详细内容请查阅：[微博Android平台SDK文档V2.5.0.pdf][1]
+>本文档详细内容请查阅：[微博Android平台SDK文档V3.0.0.pdf][1]
 
 ------
 
@@ -98,7 +95,7 @@ http://sinaweibosdk.github.io/weibo_android_sdk/doc
 ## 运行示例代码
 为了方便第三方应用更快的集成微博 SDK，更清晰的了解目前微博 SDK 所提供的功能，我们在 GitHub 上提供了一个简单的 **示例工程** 以及对应的 **APK安装包** 。  
 **方式一：**通过 adb install 命令直接安装 WeiboSDKDemo.apk   
-**方式二：**在 Eclipse 中导入并运行 WeiboSDKDemo 工程（详情请查看[微博Android平台SDK文档V2.5.0.pdf][1]中：**运行示例代码**）  
+**方式二：**在 Eclipse 中导入并运行 WeiboSDKDemo 工程（详情请查看[微博Android平台SDK文档V3.0.0.pdf][1]中：**运行示例代码**）  
 ***注意：通过方式二运行工程时，请务必替换默认的 debug.keystore文件，否则无法正确的授权成功。另外，该debug.keysotre 是新浪官方的，除了编译运行官方 DEMO 外，请不要直接使用它，出于安全的考虑，您应该为自己的应用提供一份 keysotre。***  
 >在C:\Users\XXXXX\\.android目录下，把Android默认的debug.keystore替换成官方在GitHub上提供的debug.keystore。
 
@@ -120,15 +117,16 @@ http://sinaweibosdk.github.io/weibo_android_sdk/doc
 请注意：包名和签名未注册，或者签名注册不正确，都会导致无法授权。  
 应用程序包名：指`AndroidManifest.xml`文件中，`package`标签所代表的内容。  
 应用程序签名：该签名是通过官方提供的签名工具生成的MD5值。  
-详情请查看：[微博Android平台SDK文档V2.5.0.pdf][1] 中：**如何使用签名工具获取您应用的签名？**  
+详情请查看：[微博Android平台SDK文档V3.0.0.pdf][1] 中：**如何使用签名工具获取您应用的签名？**  
 
 ### 3. 选择您要集成的方式
 在集成微博SDK前，您有两种可选的方式来集成微博SDK：
 
 * 直接导入weibosdkcore.jar：适用于只需要授权、分享、网络请求框架功能的项目
+* **导入libs目录下的so**
 * 引用WeiboSDK工程（Library）：适用于授权、分享，以及需要登陆按钮、调用OpenAPI的项目  
 
-详情请查看：[微博Android平台SDK文档V2.5.0.pdf][1] 中：**选择您要集成的方式** 
+详情请查看：[微博Android平台SDK文档V3.0.0.pdf][1] 中：**选择您要集成的方式** 
 
 ### 4. 在您的应用中添加 SDK 所需要的权限
 ```java
@@ -136,6 +134,18 @@ http://sinaweibosdk.github.io/weibo_android_sdk/doc
 <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+```
+
+### 5. 在您的应用中注册 SDK 所需要的Activity,Service
+```java
+<activity android:name="com.sina.weibo.sdk.component.WeiboSdkBr     owser" 
+    android:configChanges="keyboardHidden|orientation"
+    android:windowSoftInputMode="adjustResize"
+    android:exported="false" >
+</activity>
+<service android:name="com.sina.weibo.sdk.net.DownloadService"
+    android:exported="false">
+</service>
 ```
 
 ------
@@ -250,12 +260,12 @@ AsyncWeiboRunner.requestAsync(
 上述代码中，请开发者自行补充`mAccessToken`和`mListener`
 
 ## 其它功能
-其它功能请相见文档：[微博Android平台SDK文档V2.5.0.pdf][1]
+其它功能请相见文档：[微博Android平台SDK文档V3.0.0.pdf][1]
 
-[1]:https://github.com/sinaweibosdk/weibo_android_sdk/blob/master/%E5%BE%AE%E5%8D%9AAndroid%E5%B9%B3%E5%8F%B0SDK%E6%96%87%E6%A1%A3V2.5.0.pdf
+[1]:https://github.com/sinaweibosdk/weibo_android_sdk/blob/master/%E5%BE%AE%E5%8D%9AAndroid%E5%B9%B3%E5%8F%B0SDK%E6%96%87%E6%A1%A3V3.0.0.pdf
 [2]:https://github.com/sinaweibosdk/weibo_android_sdk/blob/master/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%20FAQ.md
 [3]:https://github.com/sinaweibosdk/weibo_android_sdk/blob/master/WeiboSDK_API-V2.4.0.CHM
-[4]:https://github.com/sinaweibosdk/weibo_android_sdk/blob/master/WeiboSDKDemo.apk
+[4]:https://github.com/sinaweibosdk/weibo_android_sdk/blob/master/WeiboSDKDemo_v3.0.1.apk
 [5]:https://github.com/sinaweibosdk/weibo_android_sdk/tree/master/demo-src
 [6]:https://github.com/sinaweibosdk/weibo_android_sdk/edit/master/README.md#%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82%E6%A1%86%E6%9E%B6%E7%9A%84%E4%BD%BF%E7%94%A8
 [7]:https://github.com/sinaweibosdk/weibo_android_sdk/edit/master/README.md#%E4%B8%BE%E4%BE%8B%E4%BD%BF%E7%94%A8%E5%BC%82%E6%AD%A5%E6%8E%A5%E5%8F%A3%E6%9D%A5%E5%8F%91%E9%80%81%E4%B8%80%E6%9D%A1%E5%B8%A6%E5%9B%BE%E7%89%87%E7%9A%84%E5%BE%AE%E5%8D%9A
