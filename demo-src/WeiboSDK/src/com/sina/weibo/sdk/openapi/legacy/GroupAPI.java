@@ -16,8 +16,8 @@
 
 package com.sina.weibo.sdk.openapi.legacy;
 
+import android.content.Context;
 import android.text.TextUtils;
-
 import com.sina.weibo.sdk.auth.Oauth2AccessToken;
 import com.sina.weibo.sdk.net.RequestListener;
 import com.sina.weibo.sdk.net.WeiboParameters;
@@ -39,8 +39,8 @@ public class GroupAPI extends AbsOpenAPI {
     public static final int FEATURE_VIDEO     = 3;
     public static final int FEATURE_MUSICE    = 4;
 
-    public GroupAPI(Oauth2AccessToken accessToken) {
-        super(accessToken);
+    public GroupAPI(Context context, String appKey, Oauth2AccessToken accessToken) {
+        super(context, appKey, accessToken);
     }
 
     private static final String SERVER_URL_PRIX = API_SERVER + "/friendships/groups";
@@ -51,7 +51,7 @@ public class GroupAPI extends AbsOpenAPI {
      * @param listener  异步请求回调接口
      */
     public void groups(RequestListener listener) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         requestAsync(SERVER_URL_PRIX + ".json", params, HTTPMETHOD_GET, listener);
     }
 
@@ -74,7 +74,7 @@ public class GroupAPI extends AbsOpenAPI {
      */
     public void timeline(long list_id, long since_id, long max_id, int count, int page, boolean base_app,
             int featureType, RequestListener listener) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         params.put("list_id", list_id);
         params.put("since_id", since_id);
         params.put("max_id", max_id);
@@ -98,7 +98,7 @@ public class GroupAPI extends AbsOpenAPI {
      * @param listener  异步请求回调接口
      */
     public void members(long list_id, int count, int cursor, RequestListener listener) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         params.put("list_id", list_id);
         params.put("count", count);
         params.put("cursor", cursor);
@@ -135,7 +135,7 @@ public class GroupAPI extends AbsOpenAPI {
      * @param listener  异步请求回调接口
      */
     public void showGroup(long list_id, RequestListener listener) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         params.put("list_id", list_id);
         requestAsync(SERVER_URL_PRIX + "/show.json", params, HTTPMETHOD_GET, listener);
     }
@@ -161,7 +161,7 @@ public class GroupAPI extends AbsOpenAPI {
      * @param listener      异步请求回调接口
      */
     public void create(String name, String description, String tags, RequestListener listener) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         params.put("name", name);
         if (TextUtils.isEmpty(description) == false) {
             params.put("description", description);
@@ -182,7 +182,7 @@ public class GroupAPI extends AbsOpenAPI {
      * @param listener      异步请求回调接口
      */
     public void update(long list_id, String name, String description, String tags, RequestListener listener) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         params.put("list_id", list_id);
         if (TextUtils.isEmpty(name) == false) {
             params.put("name", name);
@@ -203,7 +203,7 @@ public class GroupAPI extends AbsOpenAPI {
      * @param listener  异步请求回调接口
      */
     public void deleteGroup(long list_id, RequestListener listener) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         params.put("list_id", list_id);
         requestAsync(SERVER_URL_PRIX + "/destroy.json", params, HTTPMETHOD_POST, listener);
     }
@@ -270,14 +270,14 @@ public class GroupAPI extends AbsOpenAPI {
      * @param listener  异步请求回调接口
      */
     public void order(String list_ids, int count, RequestListener listener) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         params.put("list_id", list_ids);
         params.put("count", count);
         requestAsync(SERVER_URL_PRIX + "/order.json", params, HTTPMETHOD_POST, listener);
     }
     
     private WeiboParameters buildeMembersParams(long list_id, long uid){
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         params.put("list_id", list_id);
         params.put("uid", uid);
         return params;

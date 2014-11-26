@@ -16,8 +16,8 @@
 
 package com.sina.weibo.sdk.openapi;
 
+import android.content.Context;
 import android.util.SparseArray;
-
 import com.sina.weibo.sdk.auth.Oauth2AccessToken;
 import com.sina.weibo.sdk.net.RequestListener;
 import com.sina.weibo.sdk.net.WeiboParameters;
@@ -81,8 +81,8 @@ public class CommentsAPI extends AbsOpenAPI {
      * 
      * @param accesssToken 访问令牌
      */
-	public CommentsAPI(Oauth2AccessToken accessToken) {
-        super(accessToken);
+	public CommentsAPI(Context context, String appKey, Oauth2AccessToken accessToken) {
+        super(context, appKey, accessToken);
     }
 
     /**
@@ -222,7 +222,7 @@ public class CommentsAPI extends AbsOpenAPI {
      * @param listener 异步请求回调接口
      */
     public void destroy(long cid, RequestListener listener) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         params.put("cid", cid);
         requestAsync(sAPIList.get(WRITE_API_DESTROY), params, HTTPMETHOD_POST, listener);
     }
@@ -328,7 +328,7 @@ public class CommentsAPI extends AbsOpenAPI {
      * @see #destroyBatch(long[], RequestListener)
      */
     public String destroySync(long cid) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         params.put("cid", cid);
         return requestSync(sAPIList.get(WRITE_API_DESTROY), params, HTTPMETHOD_POST);
     }
@@ -353,7 +353,7 @@ public class CommentsAPI extends AbsOpenAPI {
      * 组装TimeLines的参数
      */
     private WeiboParameters buildTimeLineParamsBase(long since_id, long max_id, int count, int page) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         params.put("since_id", since_id);
         params.put("max_id", max_id);
         params.put("count", count);
@@ -362,7 +362,7 @@ public class CommentsAPI extends AbsOpenAPI {
     }
 
     private WeiboParameters buildShowOrDestoryBatchParams(long[] cids) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         StringBuilder strb = new StringBuilder();
         for (long cid : cids) {
             strb.append(cid).append(",");
@@ -373,7 +373,7 @@ public class CommentsAPI extends AbsOpenAPI {
     }
 
     private WeiboParameters buildCreateParams(String comment, long id, boolean comment_ori) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         params.put("comment", comment);
         params.put("id", id);
         params.put("comment_ori", comment_ori ? 1: 0);
@@ -382,7 +382,7 @@ public class CommentsAPI extends AbsOpenAPI {
 
     private WeiboParameters buildReplyParams(long cid, long id, String comment, boolean without_mention,
             boolean comment_ori) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         params.put("cid", cid);
         params.put("id", id);
         params.put("comment", comment);

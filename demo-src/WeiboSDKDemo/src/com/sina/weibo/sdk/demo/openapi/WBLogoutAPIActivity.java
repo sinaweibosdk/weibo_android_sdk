@@ -31,6 +31,7 @@ import android.widget.TextView;
 
 import com.sina.weibo.sdk.auth.Oauth2AccessToken;
 import com.sina.weibo.sdk.demo.AccessTokenKeeper;
+import com.sina.weibo.sdk.demo.Constants;
 import com.sina.weibo.sdk.demo.R;
 import com.sina.weibo.sdk.exception.WeiboException;
 import com.sina.weibo.sdk.net.RequestListener;
@@ -76,7 +77,7 @@ public class WBLogoutAPIActivity extends Activity {
             @Override
             public void onClick(View v) {
                 if (mAccessToken != null && mAccessToken.isSessionValid()) {
-                    new LogoutAPI(mAccessToken).logout(mLogoutRequestListener);
+                    new LogoutAPI(WBLogoutAPIActivity.this, Constants.APP_KEY, mAccessToken).logout(mLogoutRequestListener);
                 } else {
                     mTokenView.setText(R.string.weibosdk_demo_logout_failed_1);
                 }

@@ -16,6 +16,7 @@
  
 package com.sina.weibo.sdk.openapi.legacy;
 
+import android.content.Context;
 import com.sina.weibo.sdk.auth.Oauth2AccessToken;
 import com.sina.weibo.sdk.net.RequestListener;
 import com.sina.weibo.sdk.net.WeiboParameters;
@@ -29,8 +30,8 @@ import com.sina.weibo.sdk.openapi.AbsOpenAPI;
  * @date 2014-03-03
  */
 public class TrendsAPI extends AbsOpenAPI {
-    public TrendsAPI(Oauth2AccessToken accessToken) {
-        super(accessToken);
+    public TrendsAPI(Context context, String appKey, Oauth2AccessToken accessToken) {
+        super(context, appKey, accessToken);
     }
 
     private static final String SERVER_URL_PRIX = API_SERVER + "/trends";
@@ -44,7 +45,7 @@ public class TrendsAPI extends AbsOpenAPI {
      * @param listener  异步请求回调接口
      */
     public void trends(long uid, int count, int page, RequestListener listener) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         params.put("uid", uid);
         params.put("count", count);
         params.put("page", page);
@@ -58,7 +59,7 @@ public class TrendsAPI extends AbsOpenAPI {
      * @param listener      异步请求回调接口
      */
     public void isFollow(String trend_name, RequestListener listener) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         params.put("trend_name", trend_name);
         requestAsync(SERVER_URL_PRIX + "/is_follow.json", params, HTTPMETHOD_GET, listener);
     }
@@ -70,7 +71,7 @@ public class TrendsAPI extends AbsOpenAPI {
      * @param listener  异步请求回调接口
      */
     public void hourly(boolean base_app, RequestListener listener) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         params.put("base_app", base_app ? 1 : 0);
         requestAsync(SERVER_URL_PRIX + "/hourly.json", params, HTTPMETHOD_GET, listener);
     }
@@ -82,7 +83,7 @@ public class TrendsAPI extends AbsOpenAPI {
      * @param listener  异步请求回调接口
      */
     public void daily(boolean base_app, RequestListener listener) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         params.put("base_app", base_app ? 1 : 0);
         requestAsync(SERVER_URL_PRIX + "/daily.json", params, HTTPMETHOD_GET, listener);
     }
@@ -94,7 +95,7 @@ public class TrendsAPI extends AbsOpenAPI {
      * @param listener  异步请求回调接口
      */
     public void weekly(boolean base_app, RequestListener listener) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         params.put("base_app", base_app ? 1 : 0);
         requestAsync(SERVER_URL_PRIX + "/weekly.json", params, HTTPMETHOD_GET, listener);
     }
@@ -106,7 +107,7 @@ public class TrendsAPI extends AbsOpenAPI {
      * @param listener      异步请求回调接口
      */
     public void follow(String trend_name, RequestListener listener) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         params.put("trend_name", trend_name);
         requestAsync(SERVER_URL_PRIX + "/follow.json", params, HTTPMETHOD_POST, listener);
     }
@@ -118,7 +119,7 @@ public class TrendsAPI extends AbsOpenAPI {
      * @param listener  异步请求回调接口
      */
     public void destroy(long trend_id, RequestListener listener) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         params.put("trend_id", trend_id);
         requestAsync(SERVER_URL_PRIX + "/destroy.json", params, HTTPMETHOD_POST, listener);
     }

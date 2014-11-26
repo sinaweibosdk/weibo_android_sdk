@@ -16,6 +16,7 @@
 
 package com.sina.weibo.sdk.openapi.legacy;
 
+import android.content.Context;
 import com.sina.weibo.sdk.auth.Oauth2AccessToken;
 import com.sina.weibo.sdk.net.RequestListener;
 import com.sina.weibo.sdk.net.WeiboParameters;
@@ -30,8 +31,8 @@ import com.sina.weibo.sdk.openapi.AbsOpenAPI;
  */
 public class FriendshipsAPI extends AbsOpenAPI {
 
-    public FriendshipsAPI(Oauth2AccessToken accessToken) {
-        super(accessToken);
+    public FriendshipsAPI(Context context, String appKey, Oauth2AccessToken accessToken) {
+        super(context, appKey, accessToken);
     }
 
     private static final String SERVER_URL_PRIX = API_SERVER + "/friendships";
@@ -46,7 +47,7 @@ public class FriendshipsAPI extends AbsOpenAPI {
      * @param listener      异步请求回调接口
      */
     public void friends(long uid, int count, int cursor, boolean trim_status, RequestListener listener) {
-        WeiboParameters params = new WeiboParameters(); params = buildFriendsParam(count, cursor, trim_status);
+        WeiboParameters params = new WeiboParameters(mAppKey); params = buildFriendsParam(count, cursor, trim_status);
         params.put("uid", uid);
         requestAsync(SERVER_URL_PRIX + "/friends.json", params, HTTPMETHOD_GET, listener);
     }
@@ -135,7 +136,7 @@ public class FriendshipsAPI extends AbsOpenAPI {
      * @param listener      异步请求回调接口
      */
     public void friendsIds(String screen_name, int count, int cursor, RequestListener listener) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         params.put("screen_name", screen_name);
         params.put("count", count);
         params.put("cursor", cursor);
@@ -196,7 +197,7 @@ public class FriendshipsAPI extends AbsOpenAPI {
      * @param listener      异步请求回调接口
      */
     public void followersIds(String screen_name, int count, int cursor, RequestListener listener) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         params.put("screen_name", screen_name);
         params.put("count", count);
         params.put("cursor", cursor);
@@ -237,7 +238,7 @@ public class FriendshipsAPI extends AbsOpenAPI {
      * @param listener      异步请求回调接口 
      */
     public void show(long source_id, long target_id, RequestListener listener) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         params.put("source_id", source_id);
         params.put("target_id", target_id);
         requestAsync(SERVER_URL_PRIX + "/show.json", params, HTTPMETHOD_GET, listener);
@@ -251,7 +252,7 @@ public class FriendshipsAPI extends AbsOpenAPI {
      * @param listener              异步请求回调接口
      */
     public void show(long source_id, String target_screen_name, RequestListener listener) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         params.put("source_id", source_id);
         params.put("target_screen_name", target_screen_name);
         requestAsync(SERVER_URL_PRIX + "/show.json", params, HTTPMETHOD_GET, listener);
@@ -265,7 +266,7 @@ public class FriendshipsAPI extends AbsOpenAPI {
      * @param listener              异步请求回调接口
      */
     public void show(String source_screen_name, long target_id, RequestListener listener) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         params.put("source_screen_name", source_screen_name);
         params.put("target_id", target_id);
         requestAsync(SERVER_URL_PRIX + "/show.json", params, HTTPMETHOD_GET, listener);
@@ -279,7 +280,7 @@ public class FriendshipsAPI extends AbsOpenAPI {
      * @param listener           异步请求回调接口
      */
     public void show(String source_screen_name, String target_screen_name, RequestListener listener) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         params.put("target_screen_name", target_screen_name);
         params.put("source_screen_name", source_screen_name);
         requestAsync(SERVER_URL_PRIX + "/show.json", params, HTTPMETHOD_GET, listener);
@@ -293,7 +294,7 @@ public class FriendshipsAPI extends AbsOpenAPI {
      * @param listener      异步请求回调接口
      */
     public void create(long uid, String screen_name, RequestListener listener) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         params.put("uid", uid);
         params.put("screen_name", screen_name);
         requestAsync(SERVER_URL_PRIX + "/create.json", params, HTTPMETHOD_POST, listener);
@@ -307,7 +308,7 @@ public class FriendshipsAPI extends AbsOpenAPI {
      */
     @Deprecated
     public void create(String screen_name, RequestListener listener) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         params.put("screen_name", screen_name);
         requestAsync(SERVER_URL_PRIX + "/create.json", params, HTTPMETHOD_POST, listener);
     }
@@ -320,7 +321,7 @@ public class FriendshipsAPI extends AbsOpenAPI {
      * @param listener      异步请求回调接口
      */
     public void destroy(long uid, String screen_name, RequestListener listener) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         params.put("uid", uid);
         params.put("screen_name", screen_name);
         requestAsync(SERVER_URL_PRIX + "/destroy.json", params, HTTPMETHOD_POST, listener);
@@ -334,14 +335,14 @@ public class FriendshipsAPI extends AbsOpenAPI {
      */
     @Deprecated
     public void destroy(String screen_name, RequestListener listener) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         params.put("screen_name", screen_name);
         requestAsync(SERVER_URL_PRIX + "/destroy.json", params, HTTPMETHOD_POST, listener);
     }
 
     /** 组装FriendsParam的参数 */
     private WeiboParameters buildFriendsParam(int count, int cursor, boolean trim_status) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         params.put("count", count);
         params.put("cursor", cursor);
         params.put("trim_status", trim_status ? 1: 0);
@@ -350,7 +351,7 @@ public class FriendshipsAPI extends AbsOpenAPI {
 
     /** 组装FriendsID的参数 */
     private WeiboParameters buildFriendIDParam(long uid, int count) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         params.put("uid", uid);
         params.put("count", count);
         return params;

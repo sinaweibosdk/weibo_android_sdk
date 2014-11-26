@@ -16,6 +16,7 @@
 
 package com.sina.weibo.sdk.openapi.legacy;
 
+import android.content.Context;
 import com.sina.weibo.sdk.auth.Oauth2AccessToken;
 import com.sina.weibo.sdk.net.RequestListener;
 import com.sina.weibo.sdk.net.WeiboParameters;
@@ -40,8 +41,8 @@ public class SuggestionsAPI extends AbsOpenAPI {
         ENTERTAINMENT, FUNNY, BEAUTY, VIDEO, CONSTELLATION, LOVELY, FASHION, CARS, CATE, MUSIC
     }
 
-    public SuggestionsAPI(Oauth2AccessToken accessToken) {
-        super(accessToken);
+    public SuggestionsAPI(Context context, String appKey, Oauth2AccessToken accessToken) {
+        super(context, appKey, accessToken);
     }
 
     private static final String SERVER_URL_PRIX = API_SERVER + "/suggestions";
@@ -57,7 +58,7 @@ public class SuggestionsAPI extends AbsOpenAPI {
      * @param listener  异步请求回调接口
      */
     public void usersHot(USER_CATEGORY category, RequestListener listener) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         params.put("category", category.name());
         requestAsync(SERVER_URL_PRIX + "/users/hot.json", params, HTTPMETHOD_GET, listener);
     }
@@ -82,7 +83,7 @@ public class SuggestionsAPI extends AbsOpenAPI {
      * @param listener  异步请求回调接口
      */
     public void byStatus(String content, int num, RequestListener listener) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         params.put("content", content);
         params.put("num", num);
         requestAsync(SERVER_URL_PRIX + "/users/may_interested.json", params, HTTPMETHOD_GET, listener);
@@ -123,13 +124,13 @@ public class SuggestionsAPI extends AbsOpenAPI {
      * @param listener  异步请求回调接口
      */
     public void notInterested(long uid, RequestListener listener) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         params.put("uid", uid);
         requestAsync(SERVER_URL_PRIX + "/users/not_interested.json", params, HTTPMETHOD_POST, listener);
     }
     
     private WeiboParameters builderCountPage(int count, int page) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         params.put("count", count);
         params.put("page", page);
         return params;

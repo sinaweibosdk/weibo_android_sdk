@@ -33,6 +33,7 @@ import android.widget.Toast;
 
 import com.sina.weibo.sdk.auth.Oauth2AccessToken;
 import com.sina.weibo.sdk.demo.AccessTokenKeeper;
+import com.sina.weibo.sdk.demo.Constants;
 import com.sina.weibo.sdk.demo.R;
 import com.sina.weibo.sdk.exception.WeiboException;
 import com.sina.weibo.sdk.net.RequestListener;
@@ -110,7 +111,7 @@ public class WBInviteAPIActivity extends Activity implements OnClickListener {
         Oauth2AccessToken accessToken = AccessTokenKeeper.readAccessToken(WBInviteAPIActivity.this);
         if (accessToken != null && accessToken.isSessionValid()) {
             // 调用 OpenAPI 接口发送邀请
-            new InviteAPI(accessToken).sendInvite(uid, jsonObject, mInviteRequestListener);
+            new InviteAPI(this, Constants.APP_KEY, accessToken).sendInvite(uid, jsonObject, mInviteRequestListener);
         } else {
             Toast.makeText(WBInviteAPIActivity.this, R.string.weibosdk_demo_access_token_is_empty, Toast.LENGTH_LONG).show();
         }

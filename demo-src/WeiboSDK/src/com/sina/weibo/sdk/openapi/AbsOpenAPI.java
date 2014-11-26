@@ -16,8 +16,8 @@
 
 package com.sina.weibo.sdk.openapi;
 
+import android.content.Context;
 import android.text.TextUtils;
-
 import com.sina.weibo.sdk.auth.Oauth2AccessToken;
 import com.sina.weibo.sdk.net.AsyncWeiboRunner;
 import com.sina.weibo.sdk.net.RequestListener;
@@ -44,13 +44,17 @@ public abstract class AbsOpenAPI {
     
     /** 当前的 Token */
     protected Oauth2AccessToken mAccessToken;
-
+    protected Context mContext;
+    protected String mAppKey;
+    
     /**
      * 构造函数，使用各个 API 接口提供的服务前必须先获取 Token。
      * 
      * @param accesssToken 访问令牌
      */
-    public AbsOpenAPI(Oauth2AccessToken accessToken) {
+    public AbsOpenAPI(Context context, String appKey, Oauth2AccessToken accessToken) {
+        mContext = context;
+        mAppKey = appKey;
         mAccessToken = accessToken;
     }
 
@@ -73,7 +77,7 @@ public abstract class AbsOpenAPI {
         }
         
         params.put(KEY_ACCESS_TOKEN, mAccessToken.getToken());
-        AsyncWeiboRunner.requestAsync(url, params, httpMethod, listener);
+        new AsyncWeiboRunner(mContext).requestAsync(url, params, httpMethod, listener);
     }
     
     /**
@@ -95,6 +99,6 @@ public abstract class AbsOpenAPI {
         }
         
         params.put(KEY_ACCESS_TOKEN, mAccessToken.getToken());
-        return AsyncWeiboRunner.request(url, params, httpMethod);
+        return new AsyncWeiboRunner(mContext).request(url, params, httpMethod);
     }
 }

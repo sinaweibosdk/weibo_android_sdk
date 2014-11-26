@@ -16,9 +16,9 @@
  
 package com.sina.weibo.sdk.openapi.legacy;
 
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.text.TextUtils;
-
 import com.sina.weibo.sdk.auth.Oauth2AccessToken;
 import com.sina.weibo.sdk.net.RequestListener;
 import com.sina.weibo.sdk.net.WeiboParameters;
@@ -74,8 +74,8 @@ public class StatusesAPI extends AbsOpenAPI {
     public static final String LANGUAGE_CNNAME = "cnname";
     public static final String LANGUAGE_TWNAME = "twname";
 
-    public StatusesAPI(Oauth2AccessToken accessToken) {
-        super(accessToken);
+    public StatusesAPI(Context context, String appKey, Oauth2AccessToken accessToken) {
+        super(context, appKey, accessToken);
     }
 
     private static final String SERVER_URL_PRIX = API_SERVER + "/statuses";
@@ -89,7 +89,7 @@ public class StatusesAPI extends AbsOpenAPI {
      * @param listener  异步请求回调接口
      */
     public void publicTimeline(int count, int page, boolean base_app, RequestListener listener) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         params.put("count", count);
         params.put("page", page);
         params.put("base_app", base_app ? 1 : 0);
@@ -439,7 +439,7 @@ public class StatusesAPI extends AbsOpenAPI {
      * @param listener  异步请求回调接口
      */
     public void show(long id, RequestListener listener) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         params.put("id", id);
         requestAsync(SERVER_URL_PRIX + "/show.json", params, HTTPMETHOD_GET, listener);
     }
@@ -455,7 +455,7 @@ public class StatusesAPI extends AbsOpenAPI {
      * @param listener  异步请求回调接口
      */
     public void queryMID(long[] ids, int type, RequestListener listener) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         if (1 == ids.length) {
             params.put("id", ids[0]);
         } else {
@@ -484,7 +484,7 @@ public class StatusesAPI extends AbsOpenAPI {
      * @param listener  异步请求回调接口
      */
     public void queryID(String[] mids, int type, boolean inbox, boolean isBase62, RequestListener listener) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         if (mids != null) {
             if (1 == mids.length) {
                 params.put("mid", mids[0]);
@@ -560,7 +560,7 @@ public class StatusesAPI extends AbsOpenAPI {
      * @param listener  异步请求回调接口
      */
     public void count(String[] ids, RequestListener listener) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         StringBuilder strb = new StringBuilder();
         for (String id : ids) {
             strb.append(id).append(",");
@@ -583,7 +583,7 @@ public class StatusesAPI extends AbsOpenAPI {
      * @param listener      异步请求回调接口
      */
     public void repost(long id, String status, int commentType, RequestListener listener) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         params.put("id", id);
         params.put("status", status);
         params.put("is_comment", commentType);
@@ -597,7 +597,7 @@ public class StatusesAPI extends AbsOpenAPI {
      * @param listener  异步请求回调接口
      */
     public void destroy(long id, RequestListener listener) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         params.put("id", id);
         requestAsync(SERVER_URL_PRIX + "/destroy.json", params, HTTPMETHOD_POST, listener);
     }
@@ -662,7 +662,7 @@ public class StatusesAPI extends AbsOpenAPI {
      * @param listener  异步请求回调接口
      */
     public void emotions(String type, String language, RequestListener listener) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         params.put("type", type);
         params.put("language", language);
         requestAsync(API_SERVER + "/emotions.json", params, HTTPMETHOD_GET, listener);
@@ -670,7 +670,7 @@ public class StatusesAPI extends AbsOpenAPI {
 
     // 组装TimeLines的参数
     private WeiboParameters buildTimeLineBase(long since_id, long max_id, int count, int page) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         params.put("since_id", since_id);
         params.put("max_id", max_id);
         params.put("count", count);
@@ -694,7 +694,7 @@ public class StatusesAPI extends AbsOpenAPI {
     }
 
     private WeiboParameters buildHotParams(int count, boolean base_app) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         params.put("count", count);
         params.put("base_app", base_app ? 1 : 0);
         return params;
@@ -702,7 +702,7 @@ public class StatusesAPI extends AbsOpenAPI {
 
     // 组装微博请求参数
     private WeiboParameters buildUpdateParams(String content, String lat, String lon) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         params.put("status", content);
         if (!TextUtils.isEmpty(lon)) {
             params.put("long", lon);

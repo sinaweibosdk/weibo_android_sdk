@@ -31,8 +31,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.sina.weibo.sdk.auth.AuthInfo;
 import com.sina.weibo.sdk.auth.Oauth2AccessToken;
-import com.sina.weibo.sdk.auth.WeiboAuth.AuthInfo;
 import com.sina.weibo.sdk.auth.WeiboAuthListener;
 import com.sina.weibo.sdk.exception.WeiboException;
 import com.sina.weibo.sdk.net.RequestListener;
@@ -71,6 +71,8 @@ public class WBLoginLogoutActivity extends Activity {
      */
     private Button mCurrentClickedButton;
     
+    private AuthInfo mAuthInfo;
+    
     /**
      * @see {@link Activity#onCreate}
      */
@@ -81,25 +83,25 @@ public class WBLoginLogoutActivity extends Activity {
         mTokenView = (TextView) findViewById(R.id.result);
 
         // 创建授权认证信息
-        AuthInfo authInfo = new AuthInfo(this, Constants.APP_KEY, Constants.REDIRECT_URL, Constants.SCOPE);
+        mAuthInfo = new AuthInfo(this, Constants.APP_KEY, Constants.REDIRECT_URL, Constants.SCOPE);
 
         /**
          * 登陆按钮
          */
         // 登陆按钮（默认样式）
         mLoginBtnDefault = (LoginButton) findViewById(R.id.login_button_default);
-        mLoginBtnDefault.setWeiboAuthInfo(authInfo, mLoginListener);
+        mLoginBtnDefault.setWeiboAuthInfo(mAuthInfo, mLoginListener);
         //mLoginBtnStyle2.setStyle(LoginButton.LOGIN_INCON_STYLE_1);
 
         // 登陆按钮（样式二）
         mLoginBtnStyle2 = (LoginButton) findViewById(R.id.login_button_style1);
-        mLoginBtnStyle2.setWeiboAuthInfo(authInfo, mLoginListener);
+        mLoginBtnStyle2.setWeiboAuthInfo(mAuthInfo, mLoginListener);
         mLoginBtnStyle2.setStyle(LoginButton.LOGIN_INCON_STYLE_2);
         
         // 登陆按钮（样式三）:
         // 请注意：该样式没有按下的效果
         mLoginBtnStyle3 = (LoginButton) findViewById(R.id.login_button_style2);
-        mLoginBtnStyle3.setWeiboAuthInfo(authInfo, mLoginListener);
+        mLoginBtnStyle3.setWeiboAuthInfo(mAuthInfo, mLoginListener);
         mLoginBtnStyle3.setStyle(LoginButton.LOGIN_INCON_STYLE_3);
         
         /**
@@ -107,12 +109,12 @@ public class WBLoginLogoutActivity extends Activity {
          */
         // 登录/注销按钮（默认样式：蓝色）
         mLoginoutBtnDefault = (LoginoutButton) findViewById(R.id.login_out_button_default);
-        mLoginoutBtnDefault.setWeiboAuthInfo(authInfo, mLoginListener);
+        mLoginoutBtnDefault.setWeiboAuthInfo(mAuthInfo, mLoginListener);
         mLoginoutBtnDefault.setLogoutListener(mLogoutListener);
         
         // 登陆按钮（样式二：银灰色）
         mLoginoutBtnSilver = (LoginoutButton) findViewById(R.id.login_out_button_silver);
-        mLoginoutBtnSilver.setWeiboAuthInfo(authInfo, mLoginListener);
+        mLoginoutBtnSilver.setWeiboAuthInfo(mAuthInfo, mLoginListener);
         mLoginoutBtnSilver.setLogoutListener(mLogoutListener);
         // 由于 LoginLogouButton 并不保存 Token 信息，因此，如果您想在初次
         // 进入该界面时就想让该按钮显示"注销"，请放开以下代码
@@ -126,7 +128,8 @@ public class WBLoginLogoutActivity extends Activity {
         logoutButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                new LogoutAPI(AccessTokenKeeper.readAccessToken(WBLoginLogoutActivity.this)).logout(mLogoutListener);
+                new LogoutAPI(WBLoginLogoutActivity.this, Constants.APP_KEY, 
+                        AccessTokenKeeper.readAccessToken(WBLoginLogoutActivity.this)).logout(mLogoutListener);
             }
         });
         
@@ -254,9 +257,9 @@ public class WBLoginLogoutActivity extends Activity {
             }
         }     
 
-		@Override
-		public void onWeiboException(WeiboException e) {
-			mTokenView.setText(R.string.weibosdk_demo_logout_failed);
-		}
+        @Override
+        public void onWeiboException(WeiboException e) {
+            mTokenView.setText(R.string.weibosdk_demo_logout_failed);
+        }
     }
 }

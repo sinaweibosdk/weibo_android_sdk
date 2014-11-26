@@ -34,9 +34,8 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 
 import com.sina.weibo.sdk.R;
+import com.sina.weibo.sdk.auth.AuthInfo;
 import com.sina.weibo.sdk.auth.Oauth2AccessToken;
-import com.sina.weibo.sdk.auth.WeiboAuth;
-import com.sina.weibo.sdk.auth.WeiboAuth.AuthInfo;
 import com.sina.weibo.sdk.auth.WeiboAuthListener;
 import com.sina.weibo.sdk.auth.sso.SsoHandler;
 import com.sina.weibo.sdk.exception.WeiboException;
@@ -245,8 +244,7 @@ public class LoginoutButton extends Button implements OnClickListener {
 		LogUtil.i(TAG, "Click to login");
 		
 		if (null == mSsoHandler && mAuthInfo != null) {
-			WeiboAuth weiboAuth = new WeiboAuth(mContext, mAuthInfo);
-			mSsoHandler = new SsoHandler((Activity)mContext, weiboAuth);
+			mSsoHandler = new SsoHandler((Activity)mContext, mAuthInfo);
 		}
 		
 		if (mSsoHandler != null) {
@@ -291,7 +289,7 @@ public class LoginoutButton extends Button implements OnClickListener {
 		if (mAccessToken != null && mAccessToken.isSessionValid()) {
 			LogUtil.i(TAG, "Click to logout");
 			
-			new LogoutAPI(mAccessToken).logout(new RequestListener() {
+			new LogoutAPI(mContext, mAuthInfo.getAppKey(), mAccessToken).logout(new RequestListener() {
 	            @Override
 	            public void onComplete(String response) {
 		            if (!TextUtils.isEmpty(response)) {

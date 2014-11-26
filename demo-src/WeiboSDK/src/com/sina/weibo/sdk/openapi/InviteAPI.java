@@ -18,8 +18,8 @@ package com.sina.weibo.sdk.openapi;
 
 import org.json.JSONObject;
 
+import android.content.Context;
 import android.text.TextUtils;
-
 import com.sina.weibo.sdk.auth.Oauth2AccessToken;
 import com.sina.weibo.sdk.net.RequestListener;
 import com.sina.weibo.sdk.net.WeiboParameters;
@@ -52,8 +52,8 @@ public class InviteAPI extends AbsOpenAPI {
      * 
      * @param oauth2AccessToken Token 实例
      */
-    public InviteAPI(Oauth2AccessToken oauth2AccessToken) {
-        super(oauth2AccessToken);
+    public InviteAPI(Context context, String appKey, Oauth2AccessToken accessToken) {
+        super(context, appKey, accessToken);
     }
     
     /**
@@ -68,7 +68,7 @@ public class InviteAPI extends AbsOpenAPI {
                 && jsonData != null 
                 && !TextUtils.isEmpty(jsonData.toString())) {
             
-        	WeiboParameters params = new WeiboParameters();
+            WeiboParameters params = new WeiboParameters(mAppKey);
             params.put("uid", uid);
             params.put("data", jsonData.toString());
             requestAsync(INVITE_URL, params, HTTPMETHOD_POST, listener);

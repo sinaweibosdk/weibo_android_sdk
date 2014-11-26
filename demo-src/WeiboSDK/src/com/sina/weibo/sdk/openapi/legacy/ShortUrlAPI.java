@@ -16,6 +16,7 @@
  
 package com.sina.weibo.sdk.openapi.legacy;
 
+import android.content.Context;
 import com.sina.weibo.sdk.auth.Oauth2AccessToken;
 import com.sina.weibo.sdk.net.RequestListener;
 import com.sina.weibo.sdk.net.WeiboParameters;
@@ -29,8 +30,8 @@ import com.sina.weibo.sdk.openapi.AbsOpenAPI;
  * @date 2014-03-03
  */
 public class ShortUrlAPI extends AbsOpenAPI {
-    public ShortUrlAPI(Oauth2AccessToken accessToken) {
-        super(accessToken);
+    public ShortUrlAPI(Context context, String appKey, Oauth2AccessToken accessToken) {
+        super(context, appKey, accessToken);
     }
 
     private static final String SERVER_URL_PRIX = API_SERVER + "/short_url";
@@ -80,7 +81,7 @@ public class ShortUrlAPI extends AbsOpenAPI {
      * @param listener      异步请求回调接口
      */
     public void referers(String url_short, RequestListener listener) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         params.put("url_short", url_short);
         requestAsync(SERVER_URL_PRIX + "/referers.json", params, HTTPMETHOD_GET, listener);
     }
@@ -92,7 +93,7 @@ public class ShortUrlAPI extends AbsOpenAPI {
      * @param listener      异步请求回调接口
      */
     public void locations(String url_short, RequestListener listener) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         params.put("url_short", url_short);
         requestAsync(SERVER_URL_PRIX + "/locations.json", params, HTTPMETHOD_GET, listener);
     }
@@ -152,7 +153,7 @@ public class ShortUrlAPI extends AbsOpenAPI {
 
     // 组装URL参数
     private WeiboParameters buildRequestParams(String url_short, long since_id, long max_id, int count, int page) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         params.put("url_short", url_short);
         params.put("since_id", since_id);
         params.put("max_id", max_id);
@@ -163,7 +164,7 @@ public class ShortUrlAPI extends AbsOpenAPI {
 
     // 组装URL参数
     private WeiboParameters buildURLRequest(String[] url, String type) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         if (url != null) {
             int length = url.length;
             for (int i = 0; i < length; i++) {

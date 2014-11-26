@@ -16,6 +16,7 @@
  
 package com.sina.weibo.sdk.openapi.legacy;
 
+import android.content.Context;
 import com.sina.weibo.sdk.auth.Oauth2AccessToken;
 import com.sina.weibo.sdk.net.RequestListener;
 import com.sina.weibo.sdk.net.WeiboParameters;
@@ -29,8 +30,8 @@ import com.sina.weibo.sdk.openapi.AbsOpenAPI;
  * @date 2014-03-03
  */
 public class TagsAPI extends AbsOpenAPI {
-    public TagsAPI(Oauth2AccessToken accessToken) {
-        super(accessToken);
+    public TagsAPI(Context context, String appKey, Oauth2AccessToken accessToken) {
+        super(context, appKey, accessToken);
     }
 
     private static final String SERVER_URL_PRIX = API_SERVER + "/tags";
@@ -44,7 +45,7 @@ public class TagsAPI extends AbsOpenAPI {
      * @param listener  异步请求回调接口
      */
     public void tags(long uid, int count, int page, RequestListener listener) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         params.put("uid", uid);
         params.put("count", count);
         params.put("page", page);
@@ -58,7 +59,7 @@ public class TagsAPI extends AbsOpenAPI {
      * @param listener  异步请求回调接口
      */
     public void tagsBatch(String[] uids, RequestListener listener) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         StringBuilder strb = new StringBuilder();
         for (String uid : uids) {
             strb.append(uid).append(",");
@@ -75,7 +76,7 @@ public class TagsAPI extends AbsOpenAPI {
      * @param listener  异步请求回调接口
      */
     public void suggestions(int count, RequestListener listener) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         params.put("count", count);
         requestAsync(SERVER_URL_PRIX + "/suggestions.json", params, HTTPMETHOD_GET, listener);
     }
@@ -87,7 +88,7 @@ public class TagsAPI extends AbsOpenAPI {
      * @param listener  异步请求回调接口
      */
     public void create(String[] tags, RequestListener listener) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         StringBuilder strb = new StringBuilder();
         for (String tag : tags) {
             strb.append(tag).append(",");
@@ -104,7 +105,7 @@ public class TagsAPI extends AbsOpenAPI {
      * @param listener  异步请求回调接口
      */
     public void destroy(long tag_id, RequestListener listener) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         params.put("tag_id", tag_id);
         requestAsync(SERVER_URL_PRIX + "/destroy.json", params, HTTPMETHOD_POST, listener);
     }
@@ -116,7 +117,7 @@ public class TagsAPI extends AbsOpenAPI {
      * @param listener  异步请求回调接口
      */
     public void destroyBatch(String[] ids, RequestListener listener) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         StringBuilder strb = new StringBuilder();
         for (String id : ids) {
             strb.append(id).append(",");

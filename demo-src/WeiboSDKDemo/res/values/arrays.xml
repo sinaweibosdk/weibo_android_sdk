@@ -2,7 +2,7 @@
 
 <resources>
 
-	<string-array name="user_func_list">
+    <string-array name="user_func_list">
         <item>获取用户信息</item>
         <item>批量获取用户的粉丝数、关注数、微博数</item>
     </string-array>

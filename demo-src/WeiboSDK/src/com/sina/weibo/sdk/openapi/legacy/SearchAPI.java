@@ -16,6 +16,7 @@
  
 package com.sina.weibo.sdk.openapi.legacy;
 
+import android.content.Context;
 import com.sina.weibo.sdk.auth.Oauth2AccessToken;
 import com.sina.weibo.sdk.net.RequestListener;
 import com.sina.weibo.sdk.net.WeiboParameters;
@@ -46,8 +47,8 @@ public class SearchAPI extends AbsOpenAPI {
     public static final int RANGE_ATTENTION_TAGS = 1;
     public static final int RANGE_ALL            = 2;
 
-    public SearchAPI(Oauth2AccessToken accessToken) {
-        super(accessToken);
+    public SearchAPI(Context context, String appKey, Oauth2AccessToken accessToken) {
+        super(context, appKey, accessToken);
     }
 
     private static final String SERVER_URL_PRIX = API_SERVER + "/search";
@@ -134,7 +135,7 @@ public class SearchAPI extends AbsOpenAPI {
      * @param listener  异步请求回调接口
      */
     public void atUsers(String q, int count, int type, int range, RequestListener listener) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         params.put("q", q);
         params.put("count", count);
         params.put("type", type);
@@ -143,7 +144,7 @@ public class SearchAPI extends AbsOpenAPI {
     }
 
     private WeiboParameters buildBaseParams(String q, int count) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         params.put("q", q);
         params.put("count", count);
         return params;

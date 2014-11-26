@@ -16,6 +16,7 @@
 
 package com.sina.weibo.sdk.openapi.legacy;
 
+import android.content.Context;
 import com.sina.weibo.sdk.auth.Oauth2AccessToken;
 import com.sina.weibo.sdk.net.RequestListener;
 import com.sina.weibo.sdk.net.WeiboParameters;
@@ -29,8 +30,8 @@ import com.sina.weibo.sdk.openapi.AbsOpenAPI;
  * @date 2014-03-03
  */
 public class RegisterAPI extends AbsOpenAPI {
-    public RegisterAPI(Oauth2AccessToken accessToken) {
-        super(accessToken);
+    public RegisterAPI(Context context, String appKey, Oauth2AccessToken accessToken) {
+        super(context, appKey, accessToken);
     }
 
     private static final String SERVER_URL_PRIX = API_SERVER + "/register";
@@ -42,7 +43,7 @@ public class RegisterAPI extends AbsOpenAPI {
      * @param listener  异步请求回调接口
      */
     public void suggestions(String nickname, RequestListener listener) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         params.put("nickname", nickname);
         requestAsync(SERVER_URL_PRIX + "/verify_nickname.json", params, HTTPMETHOD_GET, listener);
     }

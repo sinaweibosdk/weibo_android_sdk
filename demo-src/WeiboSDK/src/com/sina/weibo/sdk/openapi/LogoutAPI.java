@@ -16,6 +16,7 @@
 
 package com.sina.weibo.sdk.openapi;
 
+import android.content.Context;
 import com.sina.weibo.sdk.auth.Oauth2AccessToken;
 import com.sina.weibo.sdk.net.RequestListener;
 import com.sina.weibo.sdk.net.WeiboParameters;
@@ -36,8 +37,8 @@ public class LogoutAPI extends AbsOpenAPI {
      * 
      * @param oauth2AccessToken Token 实例
      */
-    public LogoutAPI(Oauth2AccessToken oauth2AccessToken) {
-        super(oauth2AccessToken);
+    public LogoutAPI(Context context, String appKey, Oauth2AccessToken accessToken) {
+        super(context, appKey, accessToken);
     }
 
     /**
@@ -46,6 +47,6 @@ public class LogoutAPI extends AbsOpenAPI {
      * @param listener 异步请求回调接口
      */
     public void logout(RequestListener listener) {
-        requestAsync(REVOKE_OAUTH_URL, new WeiboParameters(), HTTPMETHOD_POST, listener);
+        requestAsync(REVOKE_OAUTH_URL, new WeiboParameters(mAppKey), HTTPMETHOD_POST, listener);
     }
 }

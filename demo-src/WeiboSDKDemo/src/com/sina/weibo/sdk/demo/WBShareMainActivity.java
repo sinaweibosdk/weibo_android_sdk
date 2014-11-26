@@ -25,8 +25,6 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.sina.weibo.sdk.api.share.IWeiboDownloadListener;
 import com.sina.weibo.sdk.api.share.IWeiboShareAPI;
 import com.sina.weibo.sdk.api.share.WeiboShareSDK;
 
@@ -43,6 +41,9 @@ public class WBShareMainActivity extends Activity {
     
     /** 微博分享按钮 */
     private Button mShareButton;
+    
+    /** 微博 ALL IN ONE 分享按钮 */
+    private Button mShareAllInOneButton;
 
     /**
      * @see {@link Activity#onCreate}
@@ -66,18 +67,6 @@ public class WBShareMainActivity extends Activity {
         boolean isInstalledWeibo = mWeiboShareAPI.isWeiboAppInstalled();
         int supportApiLevel = mWeiboShareAPI.getWeiboAppSupportAPI(); 
         
-        // 如果未安装微博客户端，设置下载微博对应的回调
-        if (!isInstalledWeibo) {
-            mWeiboShareAPI.registerWeiboDownloadListener(new IWeiboDownloadListener() {
-                @Override
-                public void onCancel() {
-                    Toast.makeText(WBShareMainActivity.this, 
-                            R.string.weibosdk_demo_cancel_download_weibo, 
-                            Toast.LENGTH_SHORT).show();
-                }
-            });
-        }
-        
         /**
          * 初始化 UI
          */
@@ -100,6 +89,7 @@ public class WBShareMainActivity extends Activity {
                         R.string.weibosdk_demo_toast_register_app_to_weibo, Toast.LENGTH_LONG).show();
                 
                 mShareButton.setEnabled(true);
+                mShareAllInOneButton.setEnabled(true);
             }
         });
         
@@ -109,7 +99,21 @@ public class WBShareMainActivity extends Activity {
         mShareButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(WBShareMainActivity.this, WBShareActivity.class));
+                Intent i = new Intent(WBShareMainActivity.this, WBShareActivity.class);
+                i.putExtra(WBShareActivity.KEY_SHARE_TYPE, WBShareActivity.SHARE_CLIENT);
+                startActivity(i);
+            }
+        });
+        
+        // 设置ALL IN ONE分享按钮对应回调
+        mShareAllInOneButton = (Button) findViewById(R.id.share_to_weibo_all_in_one);
+        mShareAllInOneButton.setEnabled(false);
+        mShareAllInOneButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(WBShareMainActivity.this, WBShareActivity.class);
+                i.putExtra(WBShareActivity.KEY_SHARE_TYPE, WBShareActivity.SHARE_ALL_IN_ONE);
+                startActivity(i);
             }
         });
     }

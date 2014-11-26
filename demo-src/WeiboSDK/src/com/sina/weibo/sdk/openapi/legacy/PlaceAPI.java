@@ -16,6 +16,7 @@
 
 package com.sina.weibo.sdk.openapi.legacy;
 
+import android.content.Context;
 import com.sina.weibo.sdk.auth.Oauth2AccessToken;
 import com.sina.weibo.sdk.net.RequestListener;
 import com.sina.weibo.sdk.net.WeiboParameters;
@@ -66,8 +67,8 @@ public class PlaceAPI extends AbsOpenAPI {
 
     private static final String SERVER_URL_PRIX = API_SERVER + "/place";
 
-    public PlaceAPI(Oauth2AccessToken accessToken) {
-        super(accessToken);
+    public PlaceAPI(Context context, String appKey, Oauth2AccessToken accessToken) {
+        super(context, appKey, accessToken);
     }
 
     /**
@@ -77,7 +78,7 @@ public class PlaceAPI extends AbsOpenAPI {
      * @param base_app  是否只获取当前应用的数据。0为否（所有数据），1为是（仅当前应用），默认为0
      */
     public void pulicTimeline(long count, boolean base_app, RequestListener listener) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         params.put("count", count);
         params.put("base_app", base_app ? 1 : 0);
         requestAsync(SERVER_URL_PRIX + "/public_timelin.json", params, HTTPMETHOD_GET, listener);
@@ -171,7 +172,7 @@ public class PlaceAPI extends AbsOpenAPI {
      * @param listener  异步请求回调接口
      */
     public void statusesShow(long id, RequestListener listener) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         params.put("id", id);
         requestAsync(SERVER_URL_PRIX + "/statuses/show.json", params, HTTPMETHOD_GET, listener);
     }
@@ -184,7 +185,7 @@ public class PlaceAPI extends AbsOpenAPI {
      * @param listener  异步请求回调接口
      */
     public void usersShow(long uid, boolean base_app, RequestListener listener) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         params.put("uid", uid);
         params.put("base_app", base_app ? 1 : 0);
         requestAsync(SERVER_URL_PRIX + "/users/show.json", params, HTTPMETHOD_GET, listener);
@@ -254,7 +255,7 @@ public class PlaceAPI extends AbsOpenAPI {
      * @param listener  异步请求回调接口
      */
     public void poisShow(String poiid, boolean base_app, RequestListener listener) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         params.put("poiid", poiid);
         params.put("base_app", base_app ? 1 : 0);
         requestAsync(SERVER_URL_PRIX + "/pois/show.json", params, HTTPMETHOD_GET, listener);
@@ -321,7 +322,7 @@ public class PlaceAPI extends AbsOpenAPI {
      * @param listener  异步请求回调接口
      */
     public void poisSearch(String keyword, String city, String category, int count, int page, RequestListener listener) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         params.put("keyword", keyword);
         params.put("city", city);
         params.put("category", category);
@@ -338,7 +339,7 @@ public class PlaceAPI extends AbsOpenAPI {
      * @param listener  异步请求回调接口
      */
     public void poisCategory(int pid, boolean returnALL, RequestListener listener) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         params.put("pid", pid);
         params.put("flag", returnALL ? 1 : 0);
         requestAsync(SERVER_URL_PRIX + "/pois/category.json", params, HTTPMETHOD_GET, listener);
@@ -476,7 +477,7 @@ public class PlaceAPI extends AbsOpenAPI {
      */
     public void poisCreate(String title, String address, String category, String lat, String lon, String city,
             String province, String country, String phone, String postCode, String extra, RequestListener listener) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         params.put("title", title);
         params.put("address", address);
         params.put("category", category);
@@ -555,7 +556,7 @@ public class PlaceAPI extends AbsOpenAPI {
      * @param listener  异步请求回调接口
      */
     public void nearbyUsersCreate(String lat, String lon, RequestListener listener) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         params.put("lat", lat);
         params.put("long", lon);
         requestAsync(SERVER_URL_PRIX + "/nearby_users/create.json", params, HTTPMETHOD_POST, listener);
@@ -567,13 +568,13 @@ public class PlaceAPI extends AbsOpenAPI {
      * @param listener  异步请求回调接口
      */
     public void nearbyUsersDestroy(RequestListener listener) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         requestAsync(SERVER_URL_PRIX + "/nearby_users/destory.json", params, HTTPMETHOD_POST, listener);
     }
 
     // 组装TimeLines的参数
     private WeiboParameters buildTimeLineParamsBase(long since_id, long max_id, int count, int page) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         params.put("since_id", since_id);
         params.put("max_id", max_id);
         params.put("count", count);
@@ -583,7 +584,7 @@ public class PlaceAPI extends AbsOpenAPI {
 
     // 组装UserParams的参数
     private WeiboParameters buildUserParams(long uid, int count, int page, boolean base_app) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         params.put("uid", uid);
         params.put("count", count);
         params.put("page", page);
@@ -594,7 +595,7 @@ public class PlaceAPI extends AbsOpenAPI {
     // 组装UserParams的参数
     private WeiboParameters buildNearbyParams(String lat, String lon, int range, int count, int page,
             int sortType, boolean offset) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         params.put("lat", lat);
         params.put("long", lon);
         params.put("range", range);
@@ -606,7 +607,7 @@ public class PlaceAPI extends AbsOpenAPI {
     }
 
     private WeiboParameters buildPoiis(String poiid, String status, boolean isPublic) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         params.put("poiid", poiid);
         params.put("status", status);
         params.put("public", isPublic ? 1 : 0);
@@ -614,7 +615,7 @@ public class PlaceAPI extends AbsOpenAPI {
     }
 
     private WeiboParameters buildPoisParams(String poiid, int count, int page, boolean base_app) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         params.put("poiid", poiid);
         params.put("base_app", base_app ? 1 : 0);
         params.put("count", count);

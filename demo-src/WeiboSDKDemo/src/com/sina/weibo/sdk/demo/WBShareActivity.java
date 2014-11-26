@@ -27,7 +27,6 @@ import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.sina.weibo.sdk.api.ImageObject;
 import com.sina.weibo.sdk.api.MusicObject;
 import com.sina.weibo.sdk.api.TextObject;
@@ -37,14 +36,16 @@ import com.sina.weibo.sdk.api.WebpageObject;
 import com.sina.weibo.sdk.api.WeiboMessage;
 import com.sina.weibo.sdk.api.WeiboMultiMessage;
 import com.sina.weibo.sdk.api.share.BaseResponse;
-import com.sina.weibo.sdk.api.share.IWeiboDownloadListener;
 import com.sina.weibo.sdk.api.share.IWeiboHandler;
 import com.sina.weibo.sdk.api.share.IWeiboShareAPI;
 import com.sina.weibo.sdk.api.share.SendMessageToWeiboRequest;
 import com.sina.weibo.sdk.api.share.SendMultiMessageToWeiboRequest;
 import com.sina.weibo.sdk.api.share.WeiboShareSDK;
+import com.sina.weibo.sdk.auth.AuthInfo;
+import com.sina.weibo.sdk.auth.Oauth2AccessToken;
+import com.sina.weibo.sdk.auth.WeiboAuthListener;
 import com.sina.weibo.sdk.constant.WBConstants;
-import com.sina.weibo.sdk.exception.WeiboShareException;
+import com.sina.weibo.sdk.exception.WeiboException;
 import com.sina.weibo.sdk.utils.Utility;
 
 /**
@@ -58,6 +59,10 @@ public class WBShareActivity extends Activity implements OnClickListener, IWeibo
     @SuppressWarnings("unused")
     private static final String TAG = "WBShareActivity";
 
+    public static final String KEY_SHARE_TYPE = "key_share_type";
+    public static final int SHARE_CLIENT = 1;
+    public static final int SHARE_ALL_IN_ONE = 2;
+    
     /** 界面标题 */
     private TextView        mTitleView;
     /** 分享图片 */
@@ -80,6 +85,8 @@ public class WBShareActivity extends Activity implements OnClickListener, IWeibo
     /** 微博微博分享接口实例 */
     private IWeiboShareAPI  mWeiboShareAPI = null;
 
+    private int mShareType = SHARE_CLIENT;
+    
     /**
      * @see {@link Activity#onCreate}
      */
@@ -89,6 +96,8 @@ public class WBShareActivity extends Activity implements OnClickListener, IWeibo
         setContentView(R.layout.activity_share);
         initViews();
 
+        mShareType = getIntent().getIntExtra(KEY_SHARE_TYPE, SHARE_CLIENT);
+        
         // 创建微博分享接口实例
         mWeiboShareAPI = WeiboShareSDK.createWeiboAPI(this, Constants.APP_KEY);
         
@@ -96,18 +105,6 @@ public class WBShareActivity extends Activity implements OnClickListener, IWeibo
         // 但该附件栏集成分享权限需要合作申请，详情请查看 Demo 提示
         // NOTE：请务必提前注册，即界面初始化的时候或是应用程序初始化时，进行注册
         mWeiboShareAPI.registerApp();
-        
-        // 如果未安装微博客户端，设置下载微博对应的回调
-        if (!mWeiboShareAPI.isWeiboAppInstalled()) {
-            mWeiboShareAPI.registerWeiboDownloadListener(new IWeiboDownloadListener() {
-                @Override
-                public void onCancel() {
-                    Toast.makeText(WBShareActivity.this, 
-                            R.string.weibosdk_demo_cancel_download_weibo, 
-                            Toast.LENGTH_SHORT).show();
-                }
-            });
-        }
         
 		// 当 Activity 被重新初始化时（该 Activity 处于后台时，可能会由于内存不足被杀掉了），
         // 需要调用 {@link IWeiboShareAPI#handleWeiboResponse} 来接收微博客户端返回的数据。
@@ -161,20 +158,12 @@ public class WBShareActivity extends Activity implements OnClickListener, IWeibo
     @Override
     public void onClick(View v) {
         if (R.id.share_to_btn == v.getId()) {
-            try {
-                // 检查微博客户端环境是否正常，如果未安装微博，弹出对话框询问用户下载微博客户端
-                if (mWeiboShareAPI.checkEnvironment(true)) {                    
-                    sendMessage(mTextCheckbox.isChecked(), 
-                            mImageCheckbox.isChecked(), 
-                            mShareWebPageView.isChecked(),
-                            mShareMusicView.isChecked(), 
-                            mShareVideoView.isChecked(), 
-                            mShareVoiceView.isChecked());
-                }
-            } catch (WeiboShareException e) {
-                e.printStackTrace();
-                Toast.makeText(WBShareActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
-            }
+            sendMessage(mTextCheckbox.isChecked(), 
+                    mImageCheckbox.isChecked(), 
+                    mShareWebPageView.isChecked(),
+                    mShareMusicView.isChecked(), 
+                    mShareVideoView.isChecked(), 
+                    mShareVoiceView.isChecked());
         }
     }
 
@@ -251,15 +240,20 @@ public class WBShareActivity extends Activity implements OnClickListener, IWeibo
     private void sendMessage(boolean hasText, boolean hasImage, 
 			boolean hasWebpage, boolean hasMusic, boolean hasVideo, boolean hasVoice) {
         
-        if (mWeiboShareAPI.isWeiboAppSupportAPI()) {
-            int supportApi = mWeiboShareAPI.getWeiboAppSupportAPI();
-            if (supportApi >= 10351 /*ApiUtils.BUILD_INT_VER_2_2*/) {
-                sendMultiMessage(hasText, hasImage, hasWebpage, hasMusic, hasVideo, hasVoice);
+        if (mShareType == SHARE_CLIENT) {
+            if (mWeiboShareAPI.isWeiboAppSupportAPI()) {
+                int supportApi = mWeiboShareAPI.getWeiboAppSupportAPI();
+                if (supportApi >= 10351 /*ApiUtils.BUILD_INT_VER_2_2*/) {
+                    sendMultiMessage(hasText, hasImage, hasWebpage, hasMusic, hasVideo, hasVoice);
+                } else {
+                    sendSingleMessage(hasText, hasImage, hasWebpage, hasMusic, hasVideo/*, hasVoice*/);
+                }
             } else {
-                sendSingleMessage(hasText, hasImage, hasWebpage, hasMusic, hasVideo/*, hasVoice*/);
+                Toast.makeText(this, R.string.weibosdk_demo_not_support_api_hint, Toast.LENGTH_SHORT).show();
             }
-        } else {
-            Toast.makeText(this, R.string.weibosdk_demo_not_support_api_hint, Toast.LENGTH_SHORT).show();
+        }
+        else if (mShareType == SHARE_ALL_IN_ONE) {
+            sendMultiMessage(hasText, hasImage, hasWebpage, hasMusic, hasVideo, hasVoice);
         }
     }
 
@@ -309,7 +303,35 @@ public class WBShareActivity extends Activity implements OnClickListener, IWeibo
         request.multiMessage = weiboMessage;
         
         // 3. 发送请求消息到微博，唤起微博分享界面
-        mWeiboShareAPI.sendRequest(request);
+        if (mShareType == SHARE_CLIENT) {
+            mWeiboShareAPI.sendRequest(WBShareActivity.this, request);
+        }
+        else if (mShareType == SHARE_ALL_IN_ONE) {
+            AuthInfo authInfo = new AuthInfo(this, Constants.APP_KEY, Constants.REDIRECT_URL, Constants.SCOPE);
+            Oauth2AccessToken accessToken = AccessTokenKeeper.readAccessToken(getApplicationContext());
+            String token = "";
+            if (accessToken != null) {
+                token = accessToken.getToken();
+            }
+            mWeiboShareAPI.sendRequest(this, request, authInfo, token, new WeiboAuthListener() {
+                
+                @Override
+                public void onWeiboException( WeiboException arg0 ) {
+                }
+                
+                @Override
+                public void onComplete( Bundle bundle ) {
+                    // TODO Auto-generated method stub
+                    Oauth2AccessToken newToken = Oauth2AccessToken.parseAccessToken(bundle);
+                    AccessTokenKeeper.writeAccessToken(getApplicationContext(), newToken);
+                    Toast.makeText(getApplicationContext(), "onAuthorizeComplete token = " + newToken.getToken(), 0).show();
+                }
+                
+                @Override
+                public void onCancel() {
+                }
+            });
+        }
     }
 
     /**
@@ -355,7 +377,7 @@ public class WBShareActivity extends Activity implements OnClickListener, IWeibo
         request.message = weiboMessage;
         
         // 3. 发送请求消息到微博，唤起微博分享界面
-        mWeiboShareAPI.sendRequest(request);
+        mWeiboShareAPI.sendRequest(WBShareActivity.this, request);
     }
 
     /**

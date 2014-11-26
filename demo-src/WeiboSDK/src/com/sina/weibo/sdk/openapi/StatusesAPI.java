@@ -16,10 +16,10 @@
 
 package com.sina.weibo.sdk.openapi;
 
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.text.TextUtils;
 import android.util.SparseArray;
-
 import com.sina.weibo.sdk.auth.Oauth2AccessToken;
 import com.sina.weibo.sdk.net.RequestListener;
 import com.sina.weibo.sdk.net.WeiboParameters;
@@ -87,8 +87,8 @@ public class StatusesAPI extends AbsOpenAPI {
      * 
      * @param accesssToken 访问令牌
      */
-    public StatusesAPI(Oauth2AccessToken accessToken) {
-        super(accessToken);
+    public StatusesAPI(Context context, String appKey, Oauth2AccessToken accessToken) {
+        super(context, appKey, accessToken);
     }
     
     /**
@@ -245,7 +245,7 @@ public class StatusesAPI extends AbsOpenAPI {
     // 组装TimeLines的参数
     private WeiboParameters buildTimeLineParamsBase(long since_id, long max_id, int count, int page,
             boolean base_app, boolean trim_user, int featureType) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         params.put("since_id", since_id);
         params.put("max_id", max_id);
         params.put("count", count);
@@ -258,7 +258,7 @@ public class StatusesAPI extends AbsOpenAPI {
 
     // 组装微博请求参数
     private WeiboParameters buildUpdateParams(String content, String lat, String lon) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         params.put("status", content);
         if (!TextUtils.isEmpty(lon)) {
             params.put("long", lon);
@@ -271,7 +271,7 @@ public class StatusesAPI extends AbsOpenAPI {
     
     private WeiboParameters buildMentionsParams(long since_id, long max_id, int count, int page,
             int authorType, int sourceType, int filterType, boolean trim_user) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         params.put("since_id", since_id);
         params.put("max_id", max_id);
         params.put("count", count);

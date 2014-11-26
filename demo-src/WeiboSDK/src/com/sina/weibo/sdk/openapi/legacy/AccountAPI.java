@@ -16,8 +16,8 @@
 
 package com.sina.weibo.sdk.openapi.legacy;
 
+import android.content.Context;
 import android.text.TextUtils;
-
 import com.sina.weibo.sdk.auth.Oauth2AccessToken;
 import com.sina.weibo.sdk.net.RequestListener;
 import com.sina.weibo.sdk.net.WeiboParameters;
@@ -45,8 +45,8 @@ public class AccountAPI extends AbsOpenAPI {
 
     private static final String SERVER_URL_PRIX = API_SERVER + "/account";
 
-    public AccountAPI(Oauth2AccessToken accessToken) {
-        super(accessToken);
+    public AccountAPI(Context context, String appKey, Oauth2AccessToken accessToken) {
+        super(context, appKey, accessToken);
     }
 
     /**
@@ -55,7 +55,7 @@ public class AccountAPI extends AbsOpenAPI {
      * @param listener 异步请求回调接口
      */
     public void getPrivacy(RequestListener listener) {
-        requestAsync(SERVER_URL_PRIX + "/get_privacy.json", new WeiboParameters(), HTTPMETHOD_GET, listener);
+        requestAsync(SERVER_URL_PRIX + "/get_privacy.json", new WeiboParameters(mAppKey), HTTPMETHOD_GET, listener);
     }
 
     /**
@@ -78,7 +78,7 @@ public class AccountAPI extends AbsOpenAPI {
      */
     public void schoolList(int province, int city, int area, int schoolType, CAPITAL capital, String keyword,
             int count, RequestListener listener) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         params.put("province", province);
         params.put("city", city);
         params.put("area", area);
@@ -98,7 +98,7 @@ public class AccountAPI extends AbsOpenAPI {
      * @param listener 异步请求回调接口
      */
     public void rateLimitStatus(RequestListener listener) {
-        requestAsync(SERVER_URL_PRIX + "/rate_limit_status.json", new WeiboParameters(), HTTPMETHOD_GET, listener);
+        requestAsync(SERVER_URL_PRIX + "/rate_limit_status.json", new WeiboParameters(mAppKey), HTTPMETHOD_GET, listener);
     }
 
     /**
@@ -107,7 +107,7 @@ public class AccountAPI extends AbsOpenAPI {
      * @param listener 异步请求回调接口
      */
     public void getUid(RequestListener listener) {
-        requestAsync(SERVER_URL_PRIX + "/get_uid.json", new WeiboParameters(), HTTPMETHOD_GET, listener);
+        requestAsync(SERVER_URL_PRIX + "/get_uid.json", new WeiboParameters(mAppKey), HTTPMETHOD_GET, listener);
     }
 
     /**
@@ -116,6 +116,6 @@ public class AccountAPI extends AbsOpenAPI {
      * @param listener 异步请求回调接口
      */
     public void endSession(RequestListener listener) {
-        requestAsync(SERVER_URL_PRIX + "/end_session.json", new WeiboParameters(), HTTPMETHOD_POST, listener);
+        requestAsync(SERVER_URL_PRIX + "/end_session.json", new WeiboParameters(mAppKey), HTTPMETHOD_POST, listener);
     }
 }

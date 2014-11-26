@@ -29,8 +29,12 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.sina.weibo.sdk.demo.R;
+import com.sina.weibo.sdk.exception.WeiboException;
+import com.sina.weibo.sdk.net.RequestListener;
+import com.sina.weibo.sdk.net.openapi.RefreshTokenApi;
 
 /**
  * 该类是所有 OpenAPI Demo 的入口 Activity。
@@ -49,6 +53,7 @@ public class WBOpenAPIActivity extends Activity implements OnItemClickListener {
      * 初始化用于存放 OpenAPI 名称以及对应的 DEMO Activity 名的 MAP。
      */
     static {
+        sAPIList.put("授权 - RefreshToken",  "refreshtoken");
         sAPIList.put("用户 - UserAPI",    "WBUserAPIActivity");
         sAPIList.put("微博 - StatusAPI",  "WBStatusAPIActivity");
         sAPIList.put("评论 - CommentAPI", "WBCommentAPIActivity");
@@ -80,17 +85,35 @@ public class WBOpenAPIActivity extends Activity implements OnItemClickListener {
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         if (view instanceof TextView) {
             String className = sAPIList.get(((TextView)view).getText().toString());
-            
-            Intent intent = new Intent();
-            intent.setClassName(getPackageName(), DEST_ACTIVITY_PACKAGE_NAME + "." + className);
-            try {
-                startActivity(intent);
-            } catch (Exception e) {
-                e.printStackTrace();
+            if ("refreshtoken".equals(className)) {
+                refreshTokenRequest();
+            } else {
+                Intent intent = new Intent();
+                intent.setClassName(getPackageName(), DEST_ACTIVITY_PACKAGE_NAME + "." + className);
+                try {
+                    startActivity(intent);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         }
     }
 
+    private void refreshTokenRequest() {
+        RefreshTokenApi.create(getApplicationContext()).refreshToken(
+                "211160679", "2.00L9mCRC06XASO0a5822eb2egmkUJD", new RequestListener() {
+            @Override
+            public void onWeiboException( WeiboException arg0 ) {
+            }
+            
+            @Override
+            public void onComplete( String arg0 ) {
+                Toast.makeText(WBOpenAPIActivity.this, "RefreshToken Result : " + arg0, 0).show();
+            }
+        });
+    }
+    
+    
     /**
      * 获取 OpenAPI 名称列表。
      * 

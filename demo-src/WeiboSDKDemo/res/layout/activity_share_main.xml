@@ -29,6 +29,13 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="@string/weibosdk_demo_share_to_weibo" />
+    
+    <Button
+        android:id="@+id/share_to_weibo_all_in_one"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/weibosdk_demo_share_to_weibo_all_in_one" />
 
     <ScrollView
         android:layout_width="wrap_content"

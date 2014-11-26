@@ -16,8 +16,8 @@
 
 package com.sina.weibo.sdk.openapi.legacy;
 
+import android.content.Context;
 import android.util.SparseArray;
-
 import com.sina.weibo.sdk.auth.Oauth2AccessToken;
 import com.sina.weibo.sdk.net.RequestListener;
 import com.sina.weibo.sdk.net.WeiboParameters;
@@ -56,8 +56,8 @@ public class LocationAPI extends AbsOpenAPI {
      * 
      * @param accesssToken 访问令牌
      */
-    public LocationAPI(Oauth2AccessToken accessToken) {
-        super(accessToken);
+    public LocationAPI(Context context, String appKey, Oauth2AccessToken accessToken) {
+        super(context, appKey, accessToken);
     }
 
     /**
@@ -122,14 +122,14 @@ public class LocationAPI extends AbsOpenAPI {
     }
 
     private WeiboParameters buildGPS2OffsetParams(Double longtitude, Double latitude) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         String coordinate = longtitude + "," + latitude;
         params.put("coordinate", coordinate);
         return params;
     }
 
     private WeiboParameters buildSerarPoiByGeoParmas(Double longtitude, Double latitude, String keyWord) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         String coordinate = longtitude + "," + latitude;
         params.put("coordinate", coordinate);
         params.put("q", keyWord);
@@ -137,7 +137,7 @@ public class LocationAPI extends AbsOpenAPI {
     }
 
     private WeiboParameters buildGeo2AddressParam(Double longtitude, Double latitude) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         String coordinate = longtitude + "," + latitude;
         params.put("coordinate", coordinate);
         return params;

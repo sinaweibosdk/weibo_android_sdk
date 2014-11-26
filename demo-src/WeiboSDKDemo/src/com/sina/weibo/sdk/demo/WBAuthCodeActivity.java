@@ -28,8 +28,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.sina.weibo.sdk.auth.AuthInfo;
 import com.sina.weibo.sdk.auth.Oauth2AccessToken;
-import com.sina.weibo.sdk.auth.WeiboAuth;
 import com.sina.weibo.sdk.auth.WeiboAuthListener;
 import com.sina.weibo.sdk.constant.WBConstants;
 import com.sina.weibo.sdk.exception.WeiboException;
@@ -52,6 +52,7 @@ import com.sina.weibo.sdk.utils.UIUtils;
  * @author SINA
  * @since 2013-10-18
  */
+@SuppressWarnings("unused")
 public class WBAuthCodeActivity extends Activity {
 
     private static final String TAG = "WBAuthCodeActivity";
@@ -73,7 +74,7 @@ public class WBAuthCodeActivity extends Activity {
     private Button mAuthCodeButton;
     
     /** 微博 Web 授权接口类，提供登陆等功能  */
-    private WeiboAuth mWeiboAuth;
+    private AuthInfo mAuthInfo;
     /** 获取到的 Code */
     private String mCode;
     /** 获取到的 Token */
@@ -97,13 +98,13 @@ public class WBAuthCodeActivity extends Activity {
         mAuthCodeButton.setEnabled(false);
 
         // 初始化微博对象
-        mWeiboAuth = new WeiboAuth(this, Constants.APP_KEY, Constants.REDIRECT_URL, Constants.SCOPE);
+        mAuthInfo = new AuthInfo(this, Constants.APP_KEY, Constants.REDIRECT_URL, Constants.SCOPE);
 
         // 第一步：获取 Code
         mCodeButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                mWeiboAuth.authorize(new AuthListener(), WeiboAuth.OBTAIN_AUTH_CODE);
+                //mWeiboAuth.authorize(new AuthListener(), WeiboAuth.OBTAIN_AUTH_CODE);
             }
         });
         
@@ -166,7 +167,7 @@ public class WBAuthCodeActivity extends Activity {
      */
     public void fetchTokenAsync(String authCode, String appSecret) {
         
-        WeiboParameters requestParams = new WeiboParameters();
+        WeiboParameters requestParams = new WeiboParameters(Constants.APP_KEY);
         requestParams.put(WBConstants.AUTH_PARAMS_CLIENT_ID,     Constants.APP_KEY);
         requestParams.put(WBConstants.AUTH_PARAMS_CLIENT_SECRET, appSecret);
         requestParams.put(WBConstants.AUTH_PARAMS_GRANT_TYPE,    "authorization_code");
@@ -174,7 +175,7 @@ public class WBAuthCodeActivity extends Activity {
         requestParams.put(WBConstants.AUTH_PARAMS_REDIRECT_URL,  Constants.REDIRECT_URL);
         
         // 异步请求，获取 Token
-        AsyncWeiboRunner.requestAsync(OAUTH2_ACCESS_TOKEN_URL, requestParams, "POST", new RequestListener() {
+        new AsyncWeiboRunner(getApplicationContext()).requestAsync(OAUTH2_ACCESS_TOKEN_URL, requestParams, "POST", new RequestListener() {
             @Override
             public void onComplete(String response) {
                 LogUtil.d(TAG, "Response: " + response);

@@ -29,6 +29,7 @@ import android.widget.Toast;
 
 import com.sina.weibo.sdk.auth.Oauth2AccessToken;
 import com.sina.weibo.sdk.demo.AccessTokenKeeper;
+import com.sina.weibo.sdk.demo.Constants;
 import com.sina.weibo.sdk.demo.R;
 import com.sina.weibo.sdk.exception.WeiboException;
 import com.sina.weibo.sdk.net.RequestListener;
@@ -77,7 +78,7 @@ public class WBUserAPIActivity extends Activity implements OnItemClickListener {
         // 获取当前已保存过的 Token
         mAccessToken = AccessTokenKeeper.readAccessToken(this);
         // 获取用户信息接口
-        mUsersAPI = new UsersAPI(mAccessToken);
+        mUsersAPI = new UsersAPI(this, Constants.APP_KEY, mAccessToken);
     }
     
     /**

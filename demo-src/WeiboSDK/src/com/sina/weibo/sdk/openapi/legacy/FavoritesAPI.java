@@ -16,6 +16,7 @@
 
 package com.sina.weibo.sdk.openapi.legacy;
 
+import android.content.Context;
 import com.sina.weibo.sdk.auth.Oauth2AccessToken;
 import com.sina.weibo.sdk.net.RequestListener;
 import com.sina.weibo.sdk.net.WeiboParameters;
@@ -31,8 +32,8 @@ import com.sina.weibo.sdk.openapi.AbsOpenAPI;
 public class FavoritesAPI extends AbsOpenAPI {
     private static final String SERVER_URL_PRIX = API_SERVER + "/favorites";
 
-    public FavoritesAPI(Oauth2AccessToken accessToken) {
-        super(accessToken);
+    public FavoritesAPI(Context context, String appKey, Oauth2AccessToken accessToken) {
+        super(context, appKey, accessToken);
     }
 
     /**
@@ -66,7 +67,7 @@ public class FavoritesAPI extends AbsOpenAPI {
      * @param listener  异步请求回调接口
      */
     public void show(long id, RequestListener listener) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         params.put("id", id);
         requestAsync(SERVER_URL_PRIX + "/show.json", params, HTTPMETHOD_GET, listener);
     }
@@ -118,7 +119,7 @@ public class FavoritesAPI extends AbsOpenAPI {
      * @param listener  异步请求回调接口
      */
     public void create(long id, RequestListener listener) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         params.put("id", id);
         requestAsync(SERVER_URL_PRIX + "/create.json", params, HTTPMETHOD_POST, listener);
     }
@@ -130,7 +131,7 @@ public class FavoritesAPI extends AbsOpenAPI {
      * @param listener  异步请求回调接口
      */
     public void destroy(long id, RequestListener listener) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         params.put("id", id);
         requestAsync(SERVER_URL_PRIX + "/destroy.json", params, HTTPMETHOD_POST, listener);
     }
@@ -142,7 +143,7 @@ public class FavoritesAPI extends AbsOpenAPI {
      * @param listener  异步请求回调接口
      */
     public void destroyBatch(long[] ids, RequestListener listener) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         StringBuilder strb = new StringBuilder();
         for (long id : ids) {
             strb.append(id).append(",");
@@ -160,7 +161,7 @@ public class FavoritesAPI extends AbsOpenAPI {
      * @param listener  异步请求回调接口
      */
     public void tagsUpdate(long id, String[] tags, RequestListener listener) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         params.put("id", id);
         StringBuilder strb = new StringBuilder();
         for (String tag : tags) {
@@ -179,7 +180,7 @@ public class FavoritesAPI extends AbsOpenAPI {
      * @param listener  异步请求回调接口
      */
     public void tagsUpdateBatch(long id, String tag, RequestListener listener) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         params.put("tid", id);
         params.put("tag", tag);
         requestAsync(SERVER_URL_PRIX + "/tags/update_batch.json", params, HTTPMETHOD_POST, listener);
@@ -192,13 +193,13 @@ public class FavoritesAPI extends AbsOpenAPI {
      * @param listener  异步请求回调接口
      */
     public void tagsDestroyBatch(long tid, RequestListener listener) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         params.put("tid", tid);
         requestAsync(SERVER_URL_PRIX + "/tags/destroy_batch.json", params, HTTPMETHOD_POST, listener);
     }
 
     private WeiboParameters buildCountPage(int count, int page) {
-        WeiboParameters params = new WeiboParameters();
+        WeiboParameters params = new WeiboParameters(mAppKey);
         params.put("count", count);
         params.put("page", page);
         return params;

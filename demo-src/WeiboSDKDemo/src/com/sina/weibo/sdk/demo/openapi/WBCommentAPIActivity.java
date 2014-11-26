@@ -29,6 +29,7 @@ import android.widget.Toast;
 
 import com.sina.weibo.sdk.auth.Oauth2AccessToken;
 import com.sina.weibo.sdk.demo.AccessTokenKeeper;
+import com.sina.weibo.sdk.demo.Constants;
 import com.sina.weibo.sdk.demo.R;
 import com.sina.weibo.sdk.exception.WeiboException;
 import com.sina.weibo.sdk.net.RequestListener;
@@ -75,7 +76,7 @@ public class WBCommentAPIActivity extends Activity implements OnItemClickListene
         // 获取当前已保存过的 Token
         mAccessToken = AccessTokenKeeper.readAccessToken(this);
         // 获取微博评论信息接口
-        mCommentsAPI = new CommentsAPI(mAccessToken);
+        mCommentsAPI = new CommentsAPI(this, Constants.APP_KEY, mAccessToken);
     }
     
     /**

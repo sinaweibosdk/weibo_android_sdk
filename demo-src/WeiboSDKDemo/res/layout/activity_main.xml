@@ -19,6 +19,13 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:text="@string/weibosdk_demo_feature_share" />
+    
+    <Button
+        android:id="@+id/social_component"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="@string/weibosdk_demo_social_component" />
 
     <Button
         android:id="@+id/feature_login_logout"

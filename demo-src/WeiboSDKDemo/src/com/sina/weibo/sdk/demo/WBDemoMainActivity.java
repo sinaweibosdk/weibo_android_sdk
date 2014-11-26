@@ -23,6 +23,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 
 import com.sina.weibo.sdk.demo.openapi.WBOpenAPIActivity;
+import com.sina.weibo.sdk.utils.LogUtil;
 
 /**
  * 该类是整个 DEMO 程序的入口。
@@ -39,6 +40,7 @@ public class WBDemoMainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        LogUtil.sIsLogEnable = true;
         
         // 微博授权功能
         this.findViewById(R.id.feature_oauth).setOnClickListener(new OnClickListener() {
@@ -55,6 +57,14 @@ public class WBDemoMainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(WBDemoMainActivity.this, WBShareMainActivity.class));
+            }
+        });
+        
+        // 社会化组件
+        this.findViewById(R.id.social_component).setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(WBDemoMainActivity.this, WBSocialActivity.class));
             }
         });
         

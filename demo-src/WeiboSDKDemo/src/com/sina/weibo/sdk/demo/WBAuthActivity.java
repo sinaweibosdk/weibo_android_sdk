@@ -17,7 +17,6 @@
 package com.sina.weibo.sdk.demo;
 
 import java.text.SimpleDateFormat;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -27,9 +26,8 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import com.sina.weibo.sdk.auth.AuthInfo;
 import com.sina.weibo.sdk.auth.Oauth2AccessToken;
-import com.sina.weibo.sdk.auth.WeiboAuth;
 import com.sina.weibo.sdk.auth.WeiboAuthListener;
 import com.sina.weibo.sdk.auth.sso.SsoHandler;
 import com.sina.weibo.sdk.exception.WeiboException;
@@ -41,12 +39,13 @@ import com.sina.weibo.sdk.exception.WeiboException;
  * @since 2013-09-29
  */
 public class WBAuthActivity extends Activity {
+    
+    private static final String TAG = "weibosdk";
 
     /** 显示认证后的信息，如 AccessToken */
     private TextView mTokenText;
     
-    /** 微博 Web 授权类，提供登陆等功能  */
-    private WeiboAuth mWeiboAuth;
+    private AuthInfo mAuthInfo;
     
     /** 封装了 "access_token"，"expires_in"，"refresh_token"，并提供了他们的管理功能  */
     private Oauth2AccessToken mAccessToken;
@@ -68,23 +67,42 @@ public class WBAuthActivity extends Activity {
         hintView.setMovementMethod(new ScrollingMovementMethod());
 
         // 创建微博实例
-        mWeiboAuth = new WeiboAuth(this, Constants.APP_KEY, Constants.REDIRECT_URL, Constants.SCOPE);
+        //mWeiboAuth = new WeiboAuth(this, Constants.APP_KEY, Constants.REDIRECT_URL, Constants.SCOPE);
+        // 快速授权时，请不要传入 SCOPE，否则可能会授权不成功
+        mAuthInfo = new AuthInfo(this, Constants.APP_KEY, Constants.REDIRECT_URL, Constants.SCOPE);
+        mSsoHandler = new SsoHandler(WBAuthActivity.this, mAuthInfo);
         
-        // SSO 授权
+        // SSO 授权, 仅客户端
         findViewById(R.id.obtain_token_via_sso).setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                mSsoHandler = new SsoHandler(WBAuthActivity.this, mWeiboAuth);
+                mSsoHandler.authorizeClientSso(new AuthListener());
+            }
+        });
+        
+        // SSO 授权, 仅Web
+        findViewById(R.id.obtain_token_via_web).setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mSsoHandler.authorizeWeb(new AuthListener());
+            }
+        });
+        
+        // SSO 授权, ALL IN ONE
+        findViewById(R.id.obtain_token_via_signature).setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 mSsoHandler.authorize(new AuthListener());
             }
         });
         
-        // Web 授权
-        findViewById(R.id.obtain_token_via_signature).setOnClickListener(new OnClickListener() {
+        // 用户登出
+        findViewById(R.id.logout).setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                mWeiboAuth.anthorize(new AuthListener());
-                // 或者使用：mWeiboAuth.authorize(new AuthListener(), Weibo.OBTAIN_AUTH_TOKEN);
+                AccessTokenKeeper.clear(getApplicationContext());
+                mAccessToken = new Oauth2AccessToken();
+                updateTokenView(false);
             }
         });
         
