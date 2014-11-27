@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">WeiboSDKDemo</string>
+
+    <!-- 功能列表 -->
+    <string name="weibosdk_demo_feature_oauth">微博授权</string>
+    <string name="weibosdk_demo_feature_share">分享到微博</string>
+    <string name="weibosdk_demo_feature_pay">微博支付</string>
+    <string name="weibosdk_demo_social_component">社会化组件</string>
+    <string name="weibosdk_demo_feature_login_logout">登录注销按钮</string>
+    <string name="weibosdk_demo_feature_nick_name_login">昵称登录</string>
+    <string name="weibosdk_demo_feature_open_api">开放接口（Open API）</string>
+    <string name="weibosdk_demo_feature_open_device_id">获取设备 ID</string>
+
+    <!-- 获取 Token -->
+    <string name="weibosdk_demo_obtain_token_via_sso_all_in_one">SSO 授权（ALL IN ONE）</string>
+    <string name="weibosdk_demo_obtain_token_via_web">SSO 授权（Web）</string>
+    <string name="weibosdk_demo_obtain_token_via_sso">SSO 授权（仅客户端）</string>
+    <string name="weibosdk_demo_obtain_token_via_signature">Web 授权</string>
+    <string name="weibosdk_demo_obtain_token_via_quick_sso">通过微博客户端快速授权</string>
+    <string name="weibosdk_demo_obtain_token_via_code">通过 Code 获取 Token</string>
+    <string name="weibosdk_demo_obtain_token_logout">用户登出</string>
+    <string name="weibosdk_demo_token_info">Token 信息：</string>
+    <string name="weibosdk_demo_token_has_existed">Token 仍在有效期内，无需再次登录。</string>
+    <string name="weibosdk_demo_obtain_token_hint"><b>请注意：</b>\n<li>SSO 登录需要微博客户端的支持，目前仅 3.0.0 及以上微博客户端版本支持 SSO；如果未安装，将自动转为 Oauth2.0 Web 授权认证（即第一种认证方式）</li>\n<li>如果您通过方式一和方式二获取不到 Token，而是获取到 code，那说明您的包名和签名存在问题，请到开放平台注册包名和签名。详情请查看 FAQ 文档</li></string>
+    <string name="weibosdk_demo_obtain_token_via_sso_hint">使用 SSO 登录前，请检查手机上是否已经安装新浪微博客户端，目前仅 3.0.0 及以上微博客户端版本支持 SSO；如果未安装，将自动转为 Oauth2.0 进行认证。</string>
+    <string name="weibosdk_demo_obtain_token_via_code_hint"><b>请注意：</b>基于以下几点原因，您可能不想使用前面的两种授权方式：\n<li>出于安全性的考虑，您不信任目前使用应用的包名和签名来获取 Token 的方式</li>\n<li>您不想安装微博客户端</li>\n您可以自行通过 Code 来获取 Token。通过这种方式需要使用到 APP_SECRET，请务必妥善保管好自己的 APP_SECRET，<b>不要直接暴露在程序中，泄露有风险</b>。\n<b>更多细节请查看：</b><a href="http://open.weibo.com/wiki/%E6%8E%88%E6%9D%83%E6%9C%BA%E5%88%B6%E8%AF%B4%E6%98%8E#Web.E5.BA.94.E7.94.A8.E7.9A.84.E9.AA.8C.E8.AF.81.E6.8E.88.E6.9D.83">验证授权步骤</a></string>
+    <string name="weibosdk_demo_step_to_obtain_code">第一步：获取 Code</string>
+    <string name="weibosdk_demo_step_to_obtain_token">第二步：通过 Code 获取 Token</string>
+    <string name="weibosdk_demo_code_text_hint">第一步获取到的 Code：（一次性有效）</string>
+    <string name="weibosdk_demo_token_text_hint">第二步获取到的 Token：</string>
+    <string name="weibosdk_demo_token_to_string_format">Token：%1$s \nRefresh Token：%2$s \nexpires_in：%3$s</string>
+    <string name="weibosdk_demo_token_to_string_format_1">Token：%1$s \n有效期：%2$s</string>
+    <string name="weibosdk_demo_toast_auth_success">授权成功</string>
+    <string name="weibosdk_demo_toast_auth_failed">授权失败</string>
+    <string name="weibosdk_demo_toast_auth_canceled">取消授权</string>
+    <string name="weibosdk_demo_toast_obtain_code_success">获取 Code 成功</string>
+    <string name="weibosdk_demo_toast_obtain_code_failed">获取 Code 失败</string>
+    <string name="weibosdk_demo_toast_obtain_token_success">获取 Token 成功</string>
+    <string name="weibosdk_demo_toast_obtain_token_failed">获取 Token 失败</string>    
+
+    <!-- 分享微博入口界面 -->
+    <string name="weibosdk_demo_is_support_sdk">当前微博客户端是否支持 SDK</string>
+    <string name="weibosdk_demo_register_app_to_weibo">注册应用到微博</string>
+    <string name="weibosdk_demo_share_to_weibo">分享到微博（仅客户端）</string>
+    <string name="weibosdk_demo_share_to_weibo_all_in_one">分享到微博（ALL IN ONE）</string>
+    <string name="weibosdk_demo_register_app_to_weibo_hint"><li>如何查看是否注册成功？打开微博客户端->点击发搏器->点击右下角的＋号->点击添加应用，看看能否看到该 DEMO 应用。</li>\n<li>当您的应用成功的注册到微博后，您可以通过从微博客户端唤起您的应用，实现分享（即微博附件栏集成分享）。</li>\n<li>该附件栏集成分享权限需要合作申请。<b>详情请见：</b><a href="http://open.weibo.com/wiki/%E7%A7%BB%E5%8A%A8%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%8E%A5%E5%85%A5">2、微博原生分享 --> b) 集成分享</a></li>\n<b>请注意：</b>目前该 DEMO 应用已申请过权限，默认情况下，第三方应用没有对应权限。</string>
+    <string name="weibosdk_demo_obtain_client_abstract_info_hint">当前微博客户端信息如下：</string>
+    <string name="weibosdk_demo_is_installed_weibo">1. 是否安装了微博客户端？</string>
+    <string name="weibosdk_demo_support_api_level">2. 当前微博客户端支持的 SDK 版本号：</string>
+    <string name="weibosdk_demo_support_api_level_hint"><b>请注意：</b>\n<li>目前第三方分享微博需要客户端的支持，请确保已安装微博客户端。如果不想使用微博客户端进行分享，请参照：<a href="http://open.weibo.com/wiki/2/statuses/upload">OpenAPI</a></li>\n<li>SupportApi >= 10351时，微博客户端支持同时分享多条数据，即同时可以分享文本、图片以及其它媒体资源（网页、音乐、视频、声音）中的一种；</li>\n<li>SupportApi &lt; 10351，微博客户端只支持分享单条数据，即只能分享文本、图片、网页、音乐、视频中的一种，不支持声音（Voice）消息；</li>\n<li>SupportApi = -1，微博客户端不支持 SDK 分享或微博客户端未安装或微博客户端是非官方版本。</li></string>
+    <string name="weibosdk_demo_not_support_api_hint">微博客户端不支持 SDK 分享或微博客户端未安装或微博客户端是非官方版本。</string>
+    <string name="weibosdk_demo_has_installed_weibo">\t已安装</string>
+    <string name="weibosdk_demo_has_not_installed_weibo">\t未安装</string>
+    <string name="weibosdk_demo_cancel_download_weibo">\t取消下载</string>
+    <string name="weibosdk_demo_toast_register_app_to_weibo">已注册，请打开微博客户端查看是否注册成功。</string>
+
+    <!-- 分享微博主界面 -->
+    <string name="weibosdk_demo_share_to_weibo_title">从本应用->微博->本应用</string>
+    <string name="weibosdk_demo_share_to_weibo_title_all_in_one">分享微博ALL IN ONE</string>
+    <string name="weibosdk_demo_share_from_weibo_title">从微博->本应用->微博</string>
+    <string name="weibosdk_demo_share_default_text">欢迎使用新浪微博 SDK</string>
+    <string name="weibosdk_demo_share_to">分  享</string>
+    <string name="weibosdk_demo_share_text_title">分享文字</string>
+    <string name="weibosdk_demo_share_image_title">分享图片</string>
+    <string name="weibosdk_demo_share_webpage_title">分享网页</string>
+    <string name="weibosdk_demo_share_music_title">分享音乐</string>
+    <string name="weibosdk_demo_share_video_title">分享视频</string>
+    <string name="weibosdk_demo_share_voice_title">分享声音</string>
+
+    <!-- 分享所用的测试数据 -->
+    <string name="weibosdk_demo_share_webpage_desc">网页描述：XXX</string>
+    <string name="weibosdk_demo_share_music_desc">音乐描述：XXX</string>
+    <string name="weibosdk_demo_share_video_desc">视频描述：XXX</string>
+    <string name="weibosdk_demo_share_voice_desc">声音描述：XXX</string>
+    <string name="weibosdk_demo_app_url">https://github.com/mobileresearch/weibo_android_sdk/blob/master/WeiboSDKDemo.apk</string>
+    <string name="weibosdk_demo_test_webpage_url">http://news.sina.com.cn/c/2013-10-22/021928494669.shtml</string>
+    <string name="weibosdk_demo_test_music_url">http://music.sina.com.cn/yueku/i/2850305.html</string>
+    <string name="weibosdk_demo_test_video_url">http://video.sina.com.cn/p/sports/cba/v/2013-10-22/144463050817.html</string>
+    <!-- NOTE: Voice 的 URL 与 Music 一样 -->
+    <string name="weibosdk_demo_test_voice_url">http://music.sina.com.cn/yueku/i/2850305.html</string>
+
+    <!-- 分享示例模板 -->
+    <string name="weibosdk_demo_share_text_template">我正在使用微博客户端发博器分享文字</string>
+    <string name="weibosdk_demo_share_webpage_template">【%1$s】（分享自 WeiboSDKDemo %2$s）</string>
+    <string name="weibosdk_demo_share_music_template">我正在听 %1$s（分享自 WeiboSDKDemo %2$s）</string>
+    <string name="weibosdk_demo_share_video_template">我正在看 %1$s（分享自 WeiboSDKDemo %2$s）</string>
+    <string name="weibosdk_demo_share_voice_template">我分享了 %1$s（分享自 WeiboSDKDemo %2$s）</string>
+    <string name="weibosdk_demo_share_webpage_demo">XXX 新闻</string>
+    <string name="weibosdk_demo_share_music_demo">XXX 音乐</string>
+    <string name="weibosdk_demo_share_video_demo">XXX 视频</string>
+    <string name="weibosdk_demo_share_voice_demo">XXX 声音</string>
+
+    <!-- 分享成功失败的 Toast -->
+    <string name="weibosdk_demo_toast_share_success">分享成功</string>
+    <string name="weibosdk_demo_toast_share_failed">分享失败</string>
+    <string name="weibosdk_demo_toast_share_canceled">取消分享</string>
+    <string name="weibosdk_demo_toast_share_response_args_success">收到微博发起的请求成功</string>
+    <string name="weibosdk_demo_toast_share_response_args_failed">收到客户端请求消息失败</string>
+    
+    <!-- 微博支付 -->
+    <string name="weibosdk_demo_weibo_pay">微博支付</string>
+    <string name="weibosdk_demo_support_weibo_pay">2. 当前微博客户端是否支持支付？</string>
+
+    <!-- 登录/注销按钮 -->
+    <string name="weibosdk_demo_login_hint"><b>一键登录按钮：</b>\n（有以下三种样式，第一种为默认效果）</string>
+    <string name="weibosdk_demo_login_with_text_hint"><b>登录/注销按钮：</b>\n（有以下两种样式，第一种为默认效果，可修改）</string>
+    <string name="weibosdk_demo_logout_hint"><b>注销按钮：</b>\n（注意：该按钮不再进行封装，第三方可直接调用 LogoutAPI，<b>一个 token 不能重复注销多次</b>）</string>
+    <string name="weibosdk_demo_logout">注销</string>
+    <string name="weibosdk_demo_logout_success">已注销</string>
+    <string name="weibosdk_demo_logout_failed">注销失败</string>
+    <string name="weibosdk_demo_logout_failed_1">注销失败，请检查 Token 是否正确（一个 token 不能重复注销多次）</string>
+    
+    <!-- OpenAPI -->
+	<string name="weibosdk_demo_openapi_revoke_auth_success">授权回收成功</string>
+	<string name="weibosdk_demo_openapi_revoke_auth_failed">授权回收失败</string>
+    <string name="weibosdk_demo_openapi_invite_uid_hint">请输入被邀请人的uid</string>
+    <string name="weibosdk_demo_openapi_invite">邀请</string>
+    <string name="weibosdk_demo_openapi_invite_success">发送邀请成功</string>
+    <string name="weibosdk_demo_openapi_invite_failed">发送邀请失败</string>
+    <string name="weibosdk_demo_access_token_is_empty">Access Token 不存在，请先登录</string>
+   
+    <!-- 其它 -->
+    <string name="weibosdk_demo_launch_post_weibo">发送微博</string>
+    <string name="weibosdk_demo_launch_nearby_people">周边的人</string>
+    <string name="weibosdk_demo_launch_nearby_weibo">周边的微博</string>
+    <string name="weibosdk_demo_launch_user_info">个人资料</string>
+    <string name="weibosdk_demo_launch_page_info">位置（page）介绍面</string>
+    <string name="weibosdk_demo_launch_page_product_list">图书（page）产品列表</string>
+    <string name="weibosdk_demo_launch_page_user_list">位置用户列表</string>
+    <string name="weibosdk_demo_launch_page_weibo_list">位置微博列表</string>
+    <string name="weibosdk_demo_launch_page_photo_list">位置图片列表</string>
+    <string name="weibosdk_demo_launch_page_detail_info">位置详细资料页</string>
+    <string name="weibosdk_demo_launch_user_trends">话题列表</string>
+    <string name="weibosdk_demo_launch_weibo_browser">内置浏览器打开</string>
+    <string name="weibosdk_demo_launch_weibo_map">地图页面</string>
+    <string name="weibosdk_demo_launch_near_photo_list">xy周边热图</string>
+    <string name="weibosdk_demo_launch_poi_photo_list">poi周边热图</string>
+    <string name="weibosdk_demo_launch_poi_page">POI页面</string>
+    <string name="weibosdk_demo_launch_mblog_detail">查看微博正文</string>
+    <string name="weibosdk_demo_launch_qrcode">扫描二维码界面</string>
+</resources>

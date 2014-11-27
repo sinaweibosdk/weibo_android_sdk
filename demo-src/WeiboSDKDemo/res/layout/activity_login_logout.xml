@@ -1,0 +1,96 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin" >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/weibosdk_demo_login_hint" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal" >
+
+        <!-- 默认效果，带图片文字的登陆按钮 -->
+        <com.sina.weibo.sdk.widget.LoginButton
+            android:id="@+id/login_button_default"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+            <!-- android:background="@drawable/com_sina_weibo_sdk_login_button_with_account_text" /> -->
+
+        <com.sina.weibo.sdk.widget.LoginButton
+            android:id="@+id/login_button_style1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp" />
+            <!-- android:background="@drawable/com_sina_weibo_sdk_login_button_with_frame_logo" /> -->
+
+        <com.sina.weibo.sdk.widget.LoginButton
+            android:id="@+id/login_button_style2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/weibosdk_demo_login_with_text_hint" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical" >
+
+        <!-- 默认效果，其 style 为：@style/com_sina_weibo_sdk_loginview_default_style -->
+        <com.sina.weibo.sdk.widget.LoginoutButton
+            android:id="@+id/login_out_button_default"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <com.sina.weibo.sdk.widget.LoginoutButton
+            android:id="@+id/login_out_button_silver"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            style="@style/com_sina_weibo_sdk_loginview_silver_style" />
+    </LinearLayout>
+    
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/weibosdk_demo_logout_hint" />
+        
+    <Button
+        android:id="@+id/logout_button"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/weibosdk_demo_logout" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:text="@string/weibosdk_demo_token_info" />
+        
+    <TextView
+        android:id="@+id/result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp" />
+
+</LinearLayout>
