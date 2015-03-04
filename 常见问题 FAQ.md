@@ -54,7 +54,7 @@
 **Q：**官方 SDK DEMO 中的 **onComplete(Bundle values)** 函数，怎么取不到 token，Bundle 中只包含 code，为什么？  
 >**A：**原因同上。
 
-**Q：**使用SDK的时候报了“java.lang.UnsatisfiedLinkError: Couldn't load weibosdkcore: findLibrary returned null”的错误如何处理。   
+**Q：**使用SDK的时候报了**“java.lang.UnsatisfiedLinkError: Couldn't load weibosdkcore: findLibrary returned null”**的错误如何处理。   
 >**A：**请将**libs**中的文件添加到工程中。Eclipse添加到libs目录下，Android Studio用户添加到src/main/jniLibs目录下。
 
 **Q：**没审核通过的应用，能取到 Token 吗？  
