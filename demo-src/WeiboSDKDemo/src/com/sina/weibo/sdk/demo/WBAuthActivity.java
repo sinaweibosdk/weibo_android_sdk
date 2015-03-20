@@ -88,7 +88,7 @@ public class WBAuthActivity extends Activity {
             }
         });
         
-        // SSO 授权, ALL IN ONE  如果手机安装了微博客户端则使用客户端授权,没有则进行网页授权
+        // SSO 授权, ALL IN ONE   如果手机安装了微博客户端则使用客户端授权,没有则进行网页授权
         findViewById(R.id.obtain_token_via_signature).setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
