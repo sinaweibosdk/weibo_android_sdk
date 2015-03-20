@@ -53,7 +53,7 @@
 ### 1. 认证授权
  - SSO 授权：在**有客户端**的情况下，使用 SSO 授权登陆；无客户端的情况下，自动唤起 Web 授权（**推荐使用**）
  - Web 授权：在**没有客户端**的情况下，可直接使用该授权
- - Code 码授权：无须应用的包名和签名，通过应用的`APP_KEY`和`APP_SECRET` 授权（**不推荐使用，有安全隐患**），详情请查看Demo中`WBAuthCodeActivity`中说明
+ - SSO 授权+Web 授权 混合授权，( 如果手机安装了微博客户端则使用客户端授权,没有则进行网页授权 )   详情请查看Demo中`WBAuthCodeActivity`中说明
 
 ### 2. 微博分享
 通过微博SDK，第三方应用能够分享文字、图片、视频、音乐等内容，目前分享有三种方式：    
@@ -122,9 +122,10 @@ http://sinaweibosdk.github.io/weibo_android_sdk/doc
 ### 3. 选择您要集成的方式
 在集成微博SDK前，您有两种可选的方式来集成微博SDK：
 
-* 直接导入weibosdkcore.jar：适用于只需要授权、分享、网络请求框架功能的项目
-* **导入libs目录下的so**
-* 引用WeiboSDK工程（Library）：适用于授权、分享，以及需要登陆按钮、调用OpenAPI的项目  
+* 1直接导入weibosdkcore.jar：适用于只需要授权、分享、网络请求框架功能的项目
+* 1.1**导入libs目录下三个文件夹包中的so文件，直接按照对应目录拷贝即可**   **非常重要！！**
+
+* 2 直接引用WeiboSDK工程（Library）：适用于授权、分享，以及需要登陆按钮、调用OpenAPI的项目  
 
 详情请查看：[微博Android平台SDK文档3.0.1.pdf][1] 中：**选择您要集成的方式** 
 
@@ -138,7 +139,7 @@ http://sinaweibosdk.github.io/weibo_android_sdk/doc
 
 ### 5. 在您的应用中注册 SDK 所需要的Activity,Service
 ```java
-<activity android:name="com.sina.weibo.sdk.component.WeiboSdkBr     owser" 
+<activity android:name="com.sina.weibo.sdk.component.WeiboSdkBrowser" 
     android:configChanges="keyboardHidden|orientation"
     android:windowSoftInputMode="adjustResize"
     android:exported="false" >
@@ -179,14 +180,14 @@ public interface Constants {
 
 ### 2. 创建微博API接口类对象
 ```java
-mWeiboAuth = new WeiboAuth(this, Constants.APP_KEY, Constants.REDIRECT_URL, Constants.SCOPE);
+mAuthInfo = new AuthInfo(this, Constants.APP_KEY, Constants.REDIRECT_URL, Constants.SCOPE);
 ```
 其中：APP_KEY、 REDIRECT_URL、 SCOPE需要替换成第三方应用申请的内容。
 
 ### 3. 实现WeiboAuthListener接口
 
 ```java
-class AuthDialogListener implements WeiboAuthListener {
+class AuthListener  implements WeiboAuthListener {
     
     @Override
     public void onComplete(Bundle values) {
@@ -213,24 +214,38 @@ class AuthDialogListener implements WeiboAuthListener {
 }
 ```
 ### 4. 调用方法，认证授权
-Web 授权，直接调用以下函数：
+* 1  Web 授权，直接调用以下函数：*
 ```java
-mWeiboAuth.anthorize(new AuthListener());
+mSsoHandler = new SsoHandler(WBAuthActivity.this, mAuthInfo);
+mSsoHandler.authorizeWeb(new AuthListener());
 ```
-SSO授权，需要调用以下函数：
+* 2 SSO授权，需要调用以下函数：*
 ```java
-mSsoHandler = new SsoHandler(WBAuthActivity.this, mWeiboAuth);
-mSsoHandler.authorize(new AuthListener());
+mSsoHandler = new SsoHandler(WBAuthActivity.this, mAuthInfo);
+mSsoHandler. authorizeClientSso(new AuthListener());
 ```
-并在Activity的`onActivityResult`函数中，调用以下方法：
+
+* 3 all In one方式授权，需要调用以下函数：*
 ```java
-if (mSsoHandler != null) {
-    mSsoHandler.authorizeCallBack(requestCode, resultCode, data);
+mSsoHandler = new SsoHandler(WBAuthActivity.this, mAuthInfo);
+mSsoHandler. authorize(new AuthListener());
+```
+* 注：此种授权方式会根据手机是否安装微博客户端来决定使用sso授权还是网页授权，如果安装有微博客户端 则调用微博客户端授权，否则调用Web页面方式授权  参见pdf文档说明 *
+
+以上三种授权需要在Activity的`onActivityResult`函数中，调用以下方法：
+```java
+@Override
+protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    super.onActivityResult(requestCode, resultCode, data);
+    if (mSsoHandler != null) {
+        mSsoHandler.authorizeCallBack(requestCode, resultCode, data);
+    }
 }
+
 ```
 
 ## 网络请求框架的使用
-在V2.5.0，我们重构了网络模块，提供了同步和异步的网络请求接口。  
+在V2.5.0以后的版本，我们重构了网络模块，提供了同步和异步的网络请求接口。  
 **异步接口：**`AsyncWeiboRunner#requestAsync(String, WeiboParameters, String, RequestListener)`  
 **同步接口：**`AsyncWeiboRunner#request(String, WeiboParameters, String)`  
 其中，同步接口用于开发者有自己的异步请求机制。
