@@ -31,6 +31,9 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.sina.weibo.sdk.auth.Oauth2AccessToken;
+import com.sina.weibo.sdk.demo.AccessTokenKeeper;
+import com.sina.weibo.sdk.demo.Constants;
 import com.sina.weibo.sdk.demo.R;
 import com.sina.weibo.sdk.exception.WeiboException;
 import com.sina.weibo.sdk.net.RequestListener;
@@ -100,15 +103,19 @@ public class WBOpenAPIActivity extends Activity implements OnItemClickListener {
     }
 
     private void refreshTokenRequest() {
+        Oauth2AccessToken   token  =  AccessTokenKeeper.readAccessToken(WBOpenAPIActivity.this);
         RefreshTokenApi.create(getApplicationContext()).refreshToken(
-                "211160679", "2.00L9mCRC06XASO0a5822eb2egmkUJD", new RequestListener() {
+                Constants.APP_KEY, token.getRefreshToken(), new RequestListener() {
+                   
             @Override
             public void onWeiboException( WeiboException arg0 ) {
+                Toast.makeText(WBOpenAPIActivity.this, "RefreshToken Result : " + arg0.getMessage(), Toast.LENGTH_LONG).show();
+               
             }
             
             @Override
             public void onComplete( String arg0 ) {
-                Toast.makeText(WBOpenAPIActivity.this, "RefreshToken Result : " + arg0, 0).show();
+                Toast.makeText(WBOpenAPIActivity.this, "RefreshToken Result : " + arg0, Toast.LENGTH_LONG).show();
             }
         });
     }

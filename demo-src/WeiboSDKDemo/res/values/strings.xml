@@ -12,11 +12,13 @@
     <string name="weibosdk_demo_feature_nick_name_login">昵称登录</string>
     <string name="weibosdk_demo_feature_open_api">开放接口（Open API）</string>
     <string name="weibosdk_demo_feature_open_device_id">获取设备 ID</string>
-
+    <string name="weibosdk_demo_feature_scheme_page">scheme 调用微博指定页面</string>
+    
     <!-- 获取 Token -->
     <string name="weibosdk_demo_obtain_token_via_sso_all_in_one">SSO 授权（ALL IN ONE）</string>
     <string name="weibosdk_demo_obtain_token_via_web">SSO 授权（Web）</string>
     <string name="weibosdk_demo_obtain_token_via_sso">SSO 授权（仅客户端）</string>
+    <string name="weibosdk_demo_obtain_token_via_mobile">手机短信注册登录</string>
     <string name="weibosdk_demo_obtain_token_via_signature">Web 授权</string>
     <string name="weibosdk_demo_obtain_token_via_quick_sso">通过微博客户端快速授权</string>
     <string name="weibosdk_demo_obtain_token_via_code">通过 Code 获取 Token</string>
@@ -121,6 +123,14 @@
     <string name="weibosdk_demo_openapi_invite_failed">发送邀请失败</string>
     <string name="weibosdk_demo_access_token_is_empty">Access Token 不存在，请先登录</string>
    
+        <!-- scheme 调用 -->
+	<string name="goto_profile">查看某人主页面</string>
+	<string name="goto_home_message">进入微博主页消息页面</string>
+    <string name="goto_hot_weibo">进入热门微博</string>
+    <string name="goto_hot_topic">进入热门话题</string>
+    <string name="goto_send_weibo">进入发微薄页面</string>
+
+    
     <!-- 其它 -->
     <string name="weibosdk_demo_launch_post_weibo">发送微博</string>
     <string name="weibosdk_demo_launch_nearby_people">周边的人</string>

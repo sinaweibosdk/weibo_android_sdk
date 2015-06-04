@@ -49,6 +49,15 @@
         android:visibility="gone"
         android:text="@string/weibosdk_demo_obtain_token_via_code" />    
     
+    <Button
+        android:id="@+id/obtain_token_via_mobile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left|center_vertical"
+        android:layout_marginTop="10dip"
+        android:text="@string/weibosdk_demo_obtain_token_via_mobile" />
+    
+    
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -56,7 +65,7 @@
         android:textSize="16sp"
         android:textStyle="bold"
         android:text="@string/weibosdk_demo_token_info" />
-    
+
     <TextView
         android:id="@+id/token_text_view"
         android:layout_width="fill_parent"

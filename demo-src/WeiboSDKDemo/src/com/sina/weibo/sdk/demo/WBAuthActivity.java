@@ -76,7 +76,17 @@ public class WBAuthActivity extends Activity {
         findViewById(R.id.obtain_token_via_sso).setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                mSsoHandler.authorizeClientSso(new AuthListener());
+               mSsoHandler.authorizeClientSso(new AuthListener());
+            }
+        });
+        
+        // 手机短信授权 
+        //  title 短信注册页面title，可选，不传时默认为""验证码登录""。此处WeiboAuthListener 对象 listener 
+        //可以是和sso 同一个 listener   回调对象 也可以是不同的。开发者根据需要选择
+        findViewById(R.id.obtain_token_via_mobile).setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mSsoHandler.registerOrLoginByMobile("验证码登录",new AuthListener());
             }
         });
         
@@ -132,10 +142,11 @@ public class WBAuthActivity extends Activity {
         super.onActivityResult(requestCode, resultCode, data);
         
         // SSO 授权回调
-        // 重要：发起 SSO 登陆的 Activity 必须重写 onActivityResult
+        // 重要：发起 SSO 登陆的 Activity 必须重写 onActivityResults
         if (mSsoHandler != null) {
             mSsoHandler.authorizeCallBack(requestCode, resultCode, data);
         }
+        
     }
 
     /**
@@ -151,6 +162,8 @@ public class WBAuthActivity extends Activity {
         public void onComplete(Bundle values) {
             // 从 Bundle 中解析 Token
             mAccessToken = Oauth2AccessToken.parseAccessToken(values);
+            //从这里获取用户输入的 电话号码信息 
+            String  phoneNum =  mAccessToken.getPhoneNum();
             if (mAccessToken.isSessionValid()) {
                 // 显示 Token
                 updateTokenView(false);
@@ -176,7 +189,7 @@ public class WBAuthActivity extends Activity {
         @Override
         public void onCancel() {
             Toast.makeText(WBAuthActivity.this, 
-                    R.string.weibosdk_demo_toast_auth_canceled, Toast.LENGTH_LONG).show();
+                   R.string.weibosdk_demo_toast_auth_canceled, Toast.LENGTH_LONG).show();
         }
 
         @Override

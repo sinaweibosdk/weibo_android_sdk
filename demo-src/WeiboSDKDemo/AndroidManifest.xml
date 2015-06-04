@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.sina.weibo.sdk.demo"
     android:versionCode="8"
-    android:versionName="3.0.1" >
+    android:versionName="3.1.1" >
 
     <uses-sdk
         android:minSdkVersion="8"
@@ -17,7 +17,6 @@
 
     <application
         android:allowBackup="true"
-        android:debuggable="true"
         android:icon="@drawable/ic_logo"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
@@ -78,6 +77,22 @@
             android:windowSoftInputMode="adjustResize"
             android:exported="false" >
         </activity>
+        
+        <!-- 手机短信注册页面 -->
+        <activity android:name="com.sina.weibo.sdk.register.mobile.MobileRegisterActivity" 
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize"
+            android:exported="false" >
+        </activity>
+        
+         <!-- 注册选择国家页面 -->
+        <activity android:name="com.sina.weibo.sdk.register.mobile.SelectCountryActivity" 
+            android:configChanges="keyboardHidden|orientation"
+            android:windowSoftInputMode="adjustResize"
+            android:exported="false" >
+        </activity>
+       
         <service android:name="com.sina.weibo.sdk.net.DownloadService"
             android:exported="false"></service>
     </application>

@@ -36,7 +36,6 @@ public class AccessTokenKeeper {
     private static final String KEY_EXPIRES_IN    = "expires_in";
     private static final String KEY_REFRESH_TOKEN    = "refresh_token";
     
-    
     /**
      * 保存 Token 对象到 SharedPreferences。
      * 
