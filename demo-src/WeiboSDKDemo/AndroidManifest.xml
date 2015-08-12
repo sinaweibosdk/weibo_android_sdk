@@ -92,7 +92,14 @@
             android:windowSoftInputMode="adjustResize"
             android:exported="false" >
         </activity>
-       
+        
+      <!-- 游戏入口  -->
+        <activity android:name="com.sina.weibo.sdk.demo.WBGameActivity" 
+            android:configChanges="keyboardHidden|orientation"
+            android:windowSoftInputMode="adjustResize"
+            android:exported="false" >
+        </activity>
+        
         <service android:name="com.sina.weibo.sdk.net.DownloadService"
             android:exported="false"></service>
     </application>

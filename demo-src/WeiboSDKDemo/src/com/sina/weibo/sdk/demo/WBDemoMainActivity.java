@@ -85,5 +85,13 @@ public class WBDemoMainActivity extends Activity {
                 startActivity(new Intent(WBDemoMainActivity.this, WBOpenAPIActivity.class));
             }
         });
+        // 游戏入口
+        this.findViewById(R.id.feature_game).setOnClickListener(new OnClickListener() {
+            
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(WBDemoMainActivity.this, WBGameActivity.class));
+            }
+        });
     }
 }

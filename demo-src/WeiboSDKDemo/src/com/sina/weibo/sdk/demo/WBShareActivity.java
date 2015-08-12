@@ -16,8 +16,13 @@
 
 package com.sina.weibo.sdk.demo;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.view.View;
@@ -27,6 +32,7 @@ import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.sina.weibo.sdk.api.ImageObject;
 import com.sina.weibo.sdk.api.MusicObject;
 import com.sina.weibo.sdk.api.TextObject;
@@ -46,6 +52,7 @@ import com.sina.weibo.sdk.auth.Oauth2AccessToken;
 import com.sina.weibo.sdk.auth.WeiboAuthListener;
 import com.sina.weibo.sdk.constant.WBConstants;
 import com.sina.weibo.sdk.exception.WeiboException;
+import com.sina.weibo.sdk.utils.LogUtil;
 import com.sina.weibo.sdk.utils.Utility;
 
 /**
@@ -432,7 +439,9 @@ public class WBShareActivity extends Activity implements OnClickListener, IWeibo
     private ImageObject getImageObj() {
         ImageObject imageObject = new ImageObject();
         BitmapDrawable bitmapDrawable = (BitmapDrawable) mImageView.getDrawable();
-        imageObject.setImageObject(bitmapDrawable.getBitmap());
+        //        设置缩略图。 注意：最终压缩过的缩略图大小不得超过 32kb。
+        Bitmap  bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_logo);
+        imageObject.setImageObject(bitmap);
         return imageObject;
     }
 
@@ -447,8 +456,9 @@ public class WBShareActivity extends Activity implements OnClickListener, IWeibo
         mediaObject.title = mShareWebPageView.getTitle();
         mediaObject.description = mShareWebPageView.getShareDesc();
         
-        // 设置 Bitmap 类型的图片到视频对象里
-        mediaObject.setThumbImage(mShareWebPageView.getThumbBitmap());
+        Bitmap  bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_logo);
+        // 设置 Bitmap 类型的图片到视频对象里         设置缩略图。 注意：最终压缩过的缩略图大小不得超过 32kb。
+        mediaObject.setThumbImage(bitmap);
         mediaObject.actionUrl = mShareWebPageView.getShareUrl();
         mediaObject.defaultText = "Webpage 默认文案";
         return mediaObject;
@@ -466,8 +476,12 @@ public class WBShareActivity extends Activity implements OnClickListener, IWeibo
         musicObject.title = mShareMusicView.getTitle();
         musicObject.description = mShareMusicView.getShareDesc();
         
-        // 设置 Bitmap 类型的图片到视频对象里
-        musicObject.setThumbImage(mShareMusicView.getThumbBitmap());
+        Bitmap  bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_logo);
+        
+
+        
+        // 设置 Bitmap 类型的图片到视频对象里        设置缩略图。 注意：最终压缩过的缩略图大小不得超过 32kb。
+        musicObject.setThumbImage(bitmap);
         musicObject.actionUrl = mShareMusicView.getShareUrl();
         musicObject.dataUrl = "www.weibo.com";
         musicObject.dataHdUrl = "www.weibo.com";
@@ -487,9 +501,30 @@ public class WBShareActivity extends Activity implements OnClickListener, IWeibo
         videoObject.identify = Utility.generateGUID();
         videoObject.title = mShareVideoView.getTitle();
         videoObject.description = mShareVideoView.getShareDesc();
+        Bitmap  bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_share_video_thumb); 
+        // 设置 Bitmap 类型的图片到视频对象里  设置缩略图。 注意：最终压缩过的缩略图大小不得超过 32kb。
         
-        // 设置 Bitmap 类型的图片到视频对象里
-        videoObject.setThumbImage(mShareVideoView.getThumbBitmap());
+        
+        ByteArrayOutputStream os = null;
+        try {
+            os = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 85, os);
+            System.out.println("kkkkkkk    size  "+ os.toByteArray().length );
+        } catch (Exception e) {
+            e.printStackTrace();
+            LogUtil.e("Weibo.BaseMediaObject", "put thumb failed");
+        } finally {
+            try {
+                if (os != null) {
+                    os.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        
+        
+        videoObject.setThumbImage(bitmap);
         videoObject.actionUrl = mShareVideoView.getShareUrl();
         videoObject.dataUrl = "www.weibo.com";
         videoObject.dataHdUrl = "www.weibo.com";
@@ -509,9 +544,9 @@ public class WBShareActivity extends Activity implements OnClickListener, IWeibo
         voiceObject.identify = Utility.generateGUID();
         voiceObject.title = mShareVoiceView.getTitle();
         voiceObject.description = mShareVoiceView.getShareDesc();
-        
-        // 设置 Bitmap 类型的图片到视频对象里
-        voiceObject.setThumbImage(mShareVoiceView.getThumbBitmap());
+        Bitmap  bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_logo);
+        // 设置 Bitmap 类型的图片到视频对象里      设置缩略图。 注意：最终压缩过的缩略图大小不得超过 32kb。
+        voiceObject.setThumbImage(bitmap);
         voiceObject.actionUrl = mShareVoiceView.getShareUrl();
         voiceObject.dataUrl = "www.weibo.com";
         voiceObject.dataHdUrl = "www.weibo.com";

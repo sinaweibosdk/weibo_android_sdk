@@ -49,6 +49,12 @@
         android:layout_margin="10dp"
         android:visibility="gone"
         android:text="@string/weibosdk_demo_feature_scheme_page" />
-    
+     
+     <Button
+        android:id="@+id/feature_game"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="@string/weibosdk_demo_feature_game_page" />
 
 </LinearLayout>

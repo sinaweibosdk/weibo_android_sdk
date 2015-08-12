@@ -14,6 +14,8 @@
     <string name="weibosdk_demo_feature_open_device_id">获取设备 ID</string>
     <string name="weibosdk_demo_feature_scheme_page">scheme 调用微博指定页面</string>
     
+    <string name="weibosdk_demo_feature_game_page">游戏接口 </string>
+    
     <!-- 获取 Token -->
     <string name="weibosdk_demo_obtain_token_via_sso_all_in_one">SSO 授权（ALL IN ONE）</string>
     <string name="weibosdk_demo_obtain_token_via_web">SSO 授权（Web）</string>
@@ -40,7 +42,20 @@
     <string name="weibosdk_demo_toast_obtain_code_success">获取 Code 成功</string>
     <string name="weibosdk_demo_toast_obtain_code_failed">获取 Code 失败</string>
     <string name="weibosdk_demo_toast_obtain_token_success">获取 Token 成功</string>
-    <string name="weibosdk_demo_toast_obtain_token_failed">获取 Token 失败</string>    
+    <string name="weibosdk_demo_toast_obtain_token_failed">获取 Token 失败</string>   
+        
+    <string name="weibosdk_demo_game_achievement_add">后台游戏成就对象入库</string>
+    <string name="weibosdk_demo_game_achievement_update">后台游戏成就对象更新</string> 
+    <string name="weibosdk_demo_game_relation_add">用户获得游戏成就关系入库</string> 
+    <string name="weibosdk_demo_game_relation_update">用户获得游戏成就关系更新</string> 
+    
+    <string name="weibosdk_demo_game_score_add">得分关系入库</string> 
+    <string name="weibosdk_demo_game_read_player_score">读取玩家游戏分数</string> 
+    <string name="weibosdk_demo_game_read_player_friend_score">读取玩家好友的游戏分数 </string> 
+    <string name="weibosdk_demo_game_read_achievement_user_gain">读取玩家在某个游戏下的成就 </string> 
+    <string name="weibosdk_demo_game_invatation_friend_list">邀请好友列表 </string> 
+    <string name="weibosdk_demo_game_invatation_one_friend">邀请好友  单个h5页面 </string>  
+    <string name="weibosdk_demo_game_result_msg">接口请求结果 </string>   
 
     <!-- 分享微博入口界面 -->
     <string name="weibosdk_demo_is_support_sdk">当前微博客户端是否支持 SDK</string>
@@ -102,9 +117,11 @@
     <string name="weibosdk_demo_toast_share_response_args_failed">收到客户端请求消息失败</string>
     
     <!-- 微博支付 -->
+    <string name="weibosdk_demo_weibo_pay_get_order_uri">http://180.149.139.199:8081/v2/pay/paydemo</string>
+    <string name="weibosdk_demo_weibo_pay_get_order">获取订单</string>
     <string name="weibosdk_demo_weibo_pay">微博支付</string>
-    <string name="weibosdk_demo_support_weibo_pay">2. 当前微博客户端是否支持支付？</string>
-
+    <string name="weibosdk_demo_support_weibo_pay"> 当前微博客户端是否支持支付？</string>
+    
     <!-- 登录/注销按钮 -->
     <string name="weibosdk_demo_login_hint"><b>一键登录按钮：</b>\n（有以下三种样式，第一种为默认效果）</string>
     <string name="weibosdk_demo_login_with_text_hint"><b>登录/注销按钮：</b>\n（有以下两种样式，第一种为默认效果，可修改）</string>
