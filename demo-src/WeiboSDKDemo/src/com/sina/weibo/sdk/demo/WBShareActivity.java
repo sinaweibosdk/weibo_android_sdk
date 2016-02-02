@@ -25,6 +25,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -144,18 +145,21 @@ public class WBShareActivity extends Activity implements OnClickListener, IWeibo
      */
     @Override
     public void onResponse(BaseResponse baseResp) {
-        switch (baseResp.errCode) {
-        case WBConstants.ErrorCode.ERR_OK:
-            Toast.makeText(this, R.string.weibosdk_demo_toast_share_success, Toast.LENGTH_LONG).show();
-            break;
-        case WBConstants.ErrorCode.ERR_CANCEL:
-            Toast.makeText(this, R.string.weibosdk_demo_toast_share_canceled, Toast.LENGTH_LONG).show();
-            break;
-        case WBConstants.ErrorCode.ERR_FAIL:
-            Toast.makeText(this, 
-                    getString(R.string.weibosdk_demo_toast_share_failed) + "Error Message: " + baseResp.errMsg, 
-                    Toast.LENGTH_LONG).show();
-            break;
+        Log.i("zhangqi", "Demo   WB Shear  Activity onResponse ");
+        if(baseResp!= null){
+            switch (baseResp.errCode) {
+            case WBConstants.ErrorCode.ERR_OK:
+                Toast.makeText(this, R.string.weibosdk_demo_toast_share_success, Toast.LENGTH_LONG).show();
+                break;
+            case WBConstants.ErrorCode.ERR_CANCEL:
+                Toast.makeText(this, R.string.weibosdk_demo_toast_share_canceled, Toast.LENGTH_LONG).show();
+                break;
+            case WBConstants.ErrorCode.ERR_FAIL:
+                Toast.makeText(this, 
+                        getString(R.string.weibosdk_demo_toast_share_failed) + "Error Message: " + baseResp.errMsg, 
+                        Toast.LENGTH_LONG).show();
+                break;
+            }
         }
     }
 

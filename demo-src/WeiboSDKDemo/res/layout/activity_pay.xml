@@ -12,6 +12,7 @@
         android:id="@+id/get_order_uri"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+           android:visibility="gone"
          android:text="@string/weibosdk_demo_weibo_pay_get_order_uri" />
 
     <Button
@@ -23,6 +24,7 @@
 
     <EditText
         android:id="@+id/order"
+        android:visibility="gone"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content" />
 
@@ -36,6 +38,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+           android:visibility="gone"
         android:text="@string/weibosdk_demo_support_weibo_pay"
         android:textSize="14sp" />
 

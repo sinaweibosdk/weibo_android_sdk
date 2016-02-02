@@ -12,6 +12,16 @@
         android:gravity="center"
         android:text="@string/weibosdk_demo_share_to_weibo_title"
         android:textSize="20sp" />
+    
+    
+        <Button
+        android:id="@+id/share_pay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/weibosdk_demo_share_to_weibo_title"
+        android:textSize="20sp" />
+
 
     <ScrollView
         android:layout_width="match_parent"

@@ -26,7 +26,7 @@ public interface Constants {
 
     /** 当前 DEMO 应用的 APP_KEY，第三方应用应该使用自己的 APP_KEY 替换该 APP_KEY */
     public static final String APP_KEY      = "2045436852";
-    
+
     /** 
      * 当前 DEMO 应用的回调页，第三方应用可以使用自己的回调页。
      * 

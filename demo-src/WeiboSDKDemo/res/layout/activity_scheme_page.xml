@@ -10,45 +10,19 @@
     tools:context=".WBAuthActivity" >
     
     <Button
-        android:id="@+id/goto_profile"
+        android:id="@+id/shear_card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="left|center_vertical"
-        android:text="@string/goto_profile" />
+        android:text="@string/share_card" />
     
     
     <Button
-        android:id="@+id/goto_hot_weibo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:gravity="left|center_vertical"
-        android:text="@string/goto_hot_weibo" />
-    
-    <Button
-        android:id="@+id/goto_hot_topic"
+        android:id="@+id/shear_url"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:gravity="left|center_vertical"
-        android:text="@string/goto_hot_topic" />
-    
-    <Button
-        android:id="@+id/goto_send_weibo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:gravity="left|center_vertical"
-        android:text="@string/goto_send_weibo" />    
-        
-    
-    <Button
-	    android:id="@+id/goto_home_message"
-	    android:layout_width="match_parent"
-	    android:layout_height="wrap_content"
-	    android:layout_marginTop="10dp"
-	    android:gravity="left|center_vertical"
-	    android:text="@string/goto_home_message" />
-   
+        android:text="@string/share_url" />
 
 </LinearLayout>

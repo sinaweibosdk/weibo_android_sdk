@@ -1,0 +1,11 @@
+com.sina.weibo.sdk.api
+com.sina.weibo.sdk.api.share
+com.sina.weibo.sdk.auth
+com.sina.weibo.sdk.auth.sso
+com.sina.weibo.sdk.component.view
+com.sina.weibo.sdk.constant
+com.sina.weibo.sdk.exception
+com.sina.weibo.sdk.net
+com.sina.weibo.sdk.net.openapi
+com.sina.weibo.sdk.openapi
+com.sina.weibo.sdk.openapi.models

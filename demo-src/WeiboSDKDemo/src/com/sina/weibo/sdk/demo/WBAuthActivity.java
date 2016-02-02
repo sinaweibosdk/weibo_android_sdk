@@ -20,6 +20,7 @@ import java.text.SimpleDateFormat;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.text.method.ScrollingMovementMethod;
@@ -89,6 +90,12 @@ public class WBAuthActivity extends Activity {
             public void onClick(View v) {
 //                AidInfo  aidInfo   =   AidTask4Plug.getInstance(WBAuthActivity.this, "123456").getAid4PlugSync( "123456", "pak", "hash");
                   mSsoHandler.authorizeClientSso(new AuthListener());
+                  
+//                  Intent intent = new Intent();
+//                  intent.setAction(Intent.ACTION_VIEW);
+//                  intent.setData(Uri.parse("sinaweibo://browser?url=http://www.baidu.com"));
+//                  startActivity(intent);
+                  
             }
         });
         

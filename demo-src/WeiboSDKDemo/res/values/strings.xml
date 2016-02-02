@@ -13,8 +13,11 @@
     <string name="weibosdk_demo_feature_open_api">开放接口（Open API）</string>
     <string name="weibosdk_demo_feature_open_device_id">获取设备 ID</string>
     <string name="weibosdk_demo_feature_scheme_page">scheme 调用微博指定页面</string>
-    
     <string name="weibosdk_demo_feature_game_page">游戏接口 </string>
+    <string name="weibosdk_demo_feature_pay_page">支付接口 </string>
+    <string name="weibosdk_demo_shear_message">分享到私信 </string>
+    <string name="weibosdk_demo_feature_upload_log">上传统计日志</string>
+    
     
     <!-- 获取 Token -->
     <string name="weibosdk_demo_obtain_token_via_sso_all_in_one">SSO 授权（ALL IN ONE）</string>
@@ -86,6 +89,14 @@
     <string name="weibosdk_demo_share_video_title">分享视频</string>
     <string name="weibosdk_demo_share_voice_title">分享声音</string>
 
+    
+   <!-- 分享到私信消息--> 
+   <string name="weibosdk_demo_share_to_weibo_weiyou">分享到微博私信好友</string>
+   	<string name="share_card">card分享到私信</string>
+   	<string name="share_url">url分享到私信</string>
+   
+    
+    
     <!-- 分享所用的测试数据 -->
     <string name="weibosdk_demo_share_webpage_desc">网页描述：XXX</string>
     <string name="weibosdk_demo_share_music_desc">音乐描述：XXX</string>
@@ -147,6 +158,18 @@
     <string name="goto_hot_topic">进入热门话题</string>
     <string name="goto_send_weibo">进入发微薄页面</string>
 
+    
+    
+    	<!-- 统计上传页 -->
+	<string name="weibosdk_demo_fragment_title">This is a fragment page</string>
+    <string name="weibosdk_demo_log_upload">强制上传</string>
+    <string name="weibosdk_demo_log_event">click event</string>
+    <string name="weibosdk_demo_fragment_create">dynamic create fragment</string>
+    <string name="weibosdk_demo_fragment_destroy">dynamic destroy fragment</string>
+    <string name="weibosdk_demo_fragment_remove">remove fragment</string>
+    <string name="weibosdk_demo_fragment_event">click fragment</string>
+    <string name="weibosdk_demo_fragment_btn">fragment click</string>
+    
     
     <!-- 其它 -->
     <string name="weibosdk_demo_launch_post_weibo">发送微博</string>
