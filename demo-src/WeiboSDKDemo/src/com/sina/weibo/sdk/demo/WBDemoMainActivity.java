@@ -18,7 +18,6 @@ package com.sina.weibo.sdk.demo;
 
 import java.util.HashMap;
 import java.util.Map;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -45,8 +44,6 @@ public class WBDemoMainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         LogUtil.sIsLogEnable = true;
-        
-
         
         // 微博授权功能
         this.findViewById(R.id.feature_oauth).setOnClickListener(new OnClickListener() {
@@ -106,8 +103,6 @@ public class WBDemoMainActivity extends Activity {
             
             @Override
             public void onClick(View v) {
-//                startActivity(new Intent(WBDemoMainActivity.this, WBPayActivity.class));
-//                startActivity(new Intent(WBDemoMainActivity.this, WBPayActivityOld.class));
                 startActivity(new Intent(WBDemoMainActivity.this, WBPayActivity.class));
             }
         });
@@ -178,10 +173,5 @@ public class WBDemoMainActivity extends Activity {
             e.printStackTrace();
         }
         
-    }
-    
-    
-    
-    
-    
+    }  
 }

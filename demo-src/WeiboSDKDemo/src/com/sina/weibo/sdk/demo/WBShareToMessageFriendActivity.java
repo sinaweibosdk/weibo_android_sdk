@@ -32,7 +32,6 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.sina.weibo.sdk.WeiboAppManager;
 import com.sina.weibo.sdk.WeiboAppManager.WeiboInfo;
 import com.sina.weibo.sdk.api.share.IWeiboShareAPI;
 import com.sina.weibo.sdk.api.share.WeiboShareSDK;

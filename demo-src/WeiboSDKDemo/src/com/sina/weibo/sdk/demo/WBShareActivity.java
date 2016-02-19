@@ -145,7 +145,6 @@ public class WBShareActivity extends Activity implements OnClickListener, IWeibo
      */
     @Override
     public void onResponse(BaseResponse baseResp) {
-        Log.i("zhangqi", "Demo   WB Shear  Activity onResponse ");
         if(baseResp!= null){
             switch (baseResp.errCode) {
             case WBConstants.ErrorCode.ERR_OK:
@@ -443,7 +442,7 @@ public class WBShareActivity extends Activity implements OnClickListener, IWeibo
     private ImageObject getImageObj() {
         ImageObject imageObject = new ImageObject();
         BitmapDrawable bitmapDrawable = (BitmapDrawable) mImageView.getDrawable();
-        //        设置缩略图。 注意：最终压缩过的缩略图大小不得超过 32kb。
+        //设置缩略图。 注意：最终压缩过的缩略图大小不得超过 32kb。
         Bitmap  bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_logo);
         imageObject.setImageObject(bitmap);
         return imageObject;

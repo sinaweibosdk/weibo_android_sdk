@@ -18,7 +18,6 @@
     <string name="weibosdk_demo_shear_message">分享到私信 </string>
     <string name="weibosdk_demo_feature_upload_log">上传统计日志</string>
     
-    
     <!-- 获取 Token -->
     <string name="weibosdk_demo_obtain_token_via_sso_all_in_one">SSO 授权（ALL IN ONE）</string>
     <string name="weibosdk_demo_obtain_token_via_web">SSO 授权（Web）</string>

@@ -59,7 +59,7 @@ public class WBSocialActivity extends Activity {
                     }
                     @Override
                     public void onComplete( Bundle arg0 ) {
-                        Toast.makeText(WBSocialActivity.this, "auth   acess_token:"+Oauth2AccessToken.parseAccessToken(arg0).getToken(), 
+                        Toast.makeText(WBSocialActivity.this, "auth acess_token:"+Oauth2AccessToken.parseAccessToken(arg0).getToken(), 
                                 0).show();
                     }
                     @Override
@@ -76,7 +76,7 @@ public class WBSocialActivity extends Activity {
                     }
                     @Override
                     public void onComplete( Bundle arg0 ) {
-                        Toast.makeText(WBSocialActivity.this, "auth  acess_token:"+Oauth2AccessToken.parseAccessToken(arg0).getToken(), 
+                        Toast.makeText(WBSocialActivity.this, "auth acess_token:"+Oauth2AccessToken.parseAccessToken(arg0).getToken(), 
                                 0).show();
                     }
                     @Override
