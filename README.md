@@ -78,29 +78,7 @@ http://sinaweibosdk.github.io/weibo_android_sdk/doc
 为了方便第三方应用更快的集成微博 SDK，更清晰的了解目前微博 SDK 所提供的功能，我们在 GitHub 上提供了一个简单的 **示例工程** 以及对应的 **APK安装包** 。  
 **方式一：**通过 adb install 命令直接安装 app_debug.apk   (在新文档文件夹下面)
 **方式二：**在 Android Studio 中导入并运行 weibosdkdemo 工程（详情请查看[微博Android平台SDK文档3.2.pdf][1]中：**运行示例代码**）  
-***注意：通过方式二运行工程时，请务必替换默认的 debug.keystore文件，否则无法正确的授权成功。另外，该debug.keysotre 是新浪官方的，除了编译运行官方 DEMO 外，请不要直接使用它，出于安全的考虑，您应该为自己的应用提供一份 keysotre。***  
->在C:\Users\XXXXX\\.android目录下，把Android默认的debug.keystore替换成官方在GitHub上提供的debug.keystore。
-Android Studio项目可直接在module的build.gradle中修改签名文件，修改如下:
-```java
- signingConfigs {
-        debug {
-            storeFile file('签名文件地址')
-            storePassword "android"
-            keyAlias "androiddebugkey"
-            keyPassword "android"
 
-        }
-    }
-
-     buildTypes {
-        debug {
-            debuggable true
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.debug
-        }
-    }
-```
 
 ## 微博SDK及DEMO工程目录结构及分析
 微博SDK目前以是**部分开源**的形式提供给第三方开发者的，简单来说，可以分为以下三部分：  
