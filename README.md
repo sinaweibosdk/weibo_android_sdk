@@ -81,6 +81,7 @@ http://sinaweibosdk.github.io/weibo_android_sdk/doc
 ***注意：通过方式二运行工程时，请务必替换默认的 debug.keystore文件，否则无法正确的授权成功。另外，该debug.keysotre 是新浪官方的，除了编译运行官方 DEMO 外，请不要直接使用它，出于安全的考虑，您应该为自己的应用提供一份 keysotre。***  
 >在C:\Users\XXXXX\\.android目录下，把Android默认的debug.keystore替换成官方在GitHub上提供的debug.keystore。
 Android Studio项目可直接在module的build.gradle中修改签名文件，修改如下:
+```java
  signingConfigs {
         debug {
             storeFile file('签名文件地址')
@@ -99,6 +100,7 @@ Android Studio项目可直接在module的build.gradle中修改签名文件，修
             signingConfig signingConfigs.debug
         }
     }
+```
 
 ## 微博SDK及DEMO工程目录结构及分析
 微博SDK目前以是**部分开源**的形式提供给第三方开发者的，简单来说，可以分为以下三部分：  
