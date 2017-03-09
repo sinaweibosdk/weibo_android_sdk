@@ -253,7 +253,7 @@ public class WBShareActivity extends Activity implements OnClickListener, IWeibo
         ImageObject imageObject = new ImageObject();
         BitmapDrawable bitmapDrawable = (BitmapDrawable) mImageView.getDrawable();
         //设置缩略图。 注意：最终压缩过的缩略图大小不得超过 32kb。
-        Bitmap  bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_logo);
+        Bitmap  bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.test);
         imageObject.setImageObject(bitmap);
         return imageObject;
     }
