@@ -99,7 +99,14 @@ http://sinaweibosdk.github.io/weibo_android_sdk/doc
 ### 3. 集成sdk
     在你工程的主模块下面修改build.gradle文件，添加微博sdk的依赖
 ```java
-compile 'com.sina.weibo.sdk:openDefault:1.0.0:openDefaultRelease@aar'
+allprojects {
+    repositories {
+        jcenter()
+        mavenCentral()
+        maven { url "https://dl.bintray.com/thelasterstar/maven/" }
+    }
+}
+compile 'com.sina.weibo.sdk:core:1.0.0:openDefaultRelease@aar'
 ```
 或者将新文档目录下的openDefault-1.0.0.aar复制到工程libs目录下，修改build.gradle文件如下：
 ```java
