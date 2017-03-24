@@ -97,19 +97,26 @@ http://sinaweibosdk.github.io/weibo_android_sdk/doc
 详情请查看：[微博Android平台SDK文档V3.2pdf][1] 中：**如何使用签名工具获取您应用的签名？**  
 
 ### 3. 集成sdk
-    在你工程的主模块下面修改build.gradle文件，添加微博sdk的依赖
-```java
+#### Gradle 自动集成
+在 `项目根目录` 的 `build.gradle` 添加微博sdk的仓库地址
+``` gradle
 allprojects {
     repositories {
         jcenter()
-        mavenCentral()
         maven { url "https://dl.bintray.com/thelasterstar/maven/" }
     }
 }
+```
+
+然后在模块的 `build.gradle` 中加入依赖
+``` gradle
 compile 'com.sina.weibo.sdk:core:1.0.0:openDefaultRelease@aar'
 ```
-或者将新文档目录下的openDefault-1.0.0.aar复制到工程libs目录下，修改build.gradle文件如下：
-```java
+
+#### Gradle 手动集成
+将新文档目录下的 `openDefault-1.0.0.aar` 复制到模块 `libs` 目录下，  
+修改模块的 `build.gradle` 文件如下：
+``` gradle
 repositories{
     flatDir {
         dirs 'libs'
@@ -118,11 +125,8 @@ repositories{
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:24.2.1'
     compile(name: 'openDefault-1.0.0', ext: 'aar')
-
 }
-
 ```
 
 ------
