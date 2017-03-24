@@ -135,7 +135,7 @@ dependencies {
 
 ### 1. 替换成自己应用的 APP_KEY 等参数
 鉴于目前有很多第三方开发直接拷贝并使用Demo中的Constants类，因此，有必要说明，第三方开发者需要将Constants类中的各种参数替换成自己应用的参数，请仔细阅读代码注释。
-```java
+``` java
 public interface Constants {
     /** 当前 DEMO 应用的 APP_KEY，第三方应用应该使用自己的 APP_KEY 替换该 APP_KEY */
     public static final String APP_KEY      = "2045436852";
@@ -155,18 +155,17 @@ public interface Constants {
             + "friendships_groups_read,friendships_groups_write,statuses_to_me_read,"
             + "follow_app_official_microblog," + "invitation_write";
 }
-
 ```
 
 ### 2. 创建微博API接口类对象
-```java
+``` java
 mAuthInfo = new AuthInfo(this, Constants.APP_KEY, Constants.REDIRECT_URL, Constants.SCOPE);
 ```
 其中：APP_KEY、 REDIRECT_URL、 SCOPE需要替换成第三方应用申请的内容。
 
 ### 3. 实现WeiboAuthListener接口
 
-```java
+``` java
 class AuthListener  implements WeiboAuthListener {
     
     @Override
@@ -195,25 +194,25 @@ class AuthListener  implements WeiboAuthListener {
 ```
 ### 4. 调用方法，认证授权
 * 1  Web 授权，直接调用以下函数：*
-```java
+``` java
 mSsoHandler = new SsoHandler(WBAuthActivity.this, mAuthInfo);
 mSsoHandler.authorizeWeb(new AuthListener());
 ```
 * 2 SSO授权，需要调用以下函数：*
-```java
+``` java
 mSsoHandler = new SsoHandler(WBAuthActivity.this, mAuthInfo);
 mSsoHandler. authorizeClientSso(new AuthListener());
 ```
 
 * 3 all In one方式授权，需要调用以下函数：*
-```java
+``` java
 mSsoHandler = new SsoHandler(WBAuthActivity.this, mAuthInfo);
 mSsoHandler. authorize(new AuthListener());
 ```
 * 注：此种授权方式会根据手机是否安装微博客户端来决定使用sso授权还是网页授权，如果安装有微博客户端 则调用微博客户端授权，否则调用Web页面方式授权  参见pdf文档说明 *
 
 以上三种授权需要在Activity的`onActivityResult`函数中，调用以下方法：
-```java
+``` java
 @Override
 protected void onActivityResult(int requestCode, int resultCode, Intent data) {
     super.onActivityResult(requestCode, resultCode, data);
@@ -221,7 +220,6 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         mSsoHandler.authorizeCallBack(requestCode, resultCode, data);
     }
 }
-
 ```
 
 
