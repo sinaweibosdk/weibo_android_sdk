@@ -11,7 +11,7 @@
 
 * Step 1：浏览 ReadMe 了解大致情况
 * Step 2：运行示例程序 [WeiboSDKDemo.apk][4] 或 [Demo][5] 了解 SDK 提供的所有功能
-* Step 3：查看 [微博Android平台SDK文档V3.2.pdf][1] 深入了解如何使用
+* Step 3：查看 [微博Android平台SDK文档V4.0.pdf][1] 深入了解如何使用
 * Step 4：参照 [Demo][5] 进行开发  
 
 **如果您在使用过程中有些问题不清楚如何解决**，请先仔细阅读：[常见问题FAQ][2]，尝试能否找到对应的答案。  
@@ -235,7 +235,7 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 ## 其它功能
 其它功能请相见文档：[微博Android平台SDK文档V3.2.pdf][1]
 
-[1]:https://github.com/sinaweibosdk/weibo_android_sdk/blob/master/%E6%96%B0%E6%96%87%E6%A1%A3/%E5%BE%AE%E5%8D%9ASDK%203.2%E6%96%87%E6%A1%A3.pdf
+[1]:https://github.com/sinaweibosdk/weibo_android_sdk/blob/master/%E6%96%B0%E6%96%87%E6%A1%A3/%E5%BE%AE%E5%8D%9ASDK%204.0%E6%96%87%E6%A1%A3.pdf
 [2]:https://github.com/sinaweibosdk/weibo_android_sdk/blob/master/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%20FAQ.md
 [3]:https://github.com/sinaweibosdk/weibo_android_sdk/blob/master/WeiboSDK_API-V2.4.0.CHM
 [4]:https://github.com/sinaweibosdk/weibo_android_sdk/blob/master/%E6%96%B0%E6%96%87%E6%A1%A3/app-debug.apk
