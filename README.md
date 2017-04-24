@@ -233,7 +233,7 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
 
 ## 其它功能
-其它功能请相见文档：[微博Android平台SDK文档V3.2.pdf][1]
+其它功能请相见文档：[微博Android平台SDK文档V4.0.pdf][1]
 
 [1]:https://github.com/sinaweibosdk/weibo_android_sdk/blob/master/%E6%96%B0%E6%96%87%E6%A1%A3/%E5%BE%AE%E5%8D%9ASDK%204.0%E6%96%87%E6%A1%A3.pdf
 [2]:https://github.com/sinaweibosdk/weibo_android_sdk/blob/master/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%20FAQ.md
