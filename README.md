@@ -15,16 +15,21 @@
 * Step 4：参照 [Demo][5] 进行开发  
 
 **如果您在使用过程中有些问题不清楚如何解决**，请先仔细阅读：[常见问题FAQ][2]，尝试能否找到对应的答案。  
-**如果您对 SDK 中提供的某个类、API 不明确**，请在 [API文档说明][8] 中查找对应的注解。  
+//**如果您对 SDK 中提供的某个类、API 不明确**，请在 [API文档说明][8] 中查找对应的注解。  
 
 另外，关于 SDK 的 Bug 反馈、用户体验，以及建议与不足等，请大家尽量提交到 Github 上，充分利用好 Github 这一工具。
 目前 SDK 有很多不足之处，请给我们一些时间，我们会力争为第三方开发者提供一个规范、简单易用、稳定可靠、可扩展、可定制的 SDK。
 
 ------
 
-# Release-Note: Android SDK V3.2 
+# Release-Note: Android SDK V4.0 
 ## 版本变更：
 
+v4.0
+1.新的授权和分享逻辑，使你的接入更明确
+2.修改了一些已知的问题
+
+v3.2
 1. 新的网页授权和分享
 3. 移除open api相关文档，如果你还想继续使用open api请参考旧版本目录 demo-src接入放自己维护
 4. 移除LinkCard模式分享，当前只支持文字和图片混合（我们不建议你继续使用老的sdk接入微博进行LinkCard分享，微博客户端可能会在未来取消该功能，对你的程序可能会造成异常）
@@ -37,7 +42,7 @@
 
 ## 概述
 微博 Android 平台 SDK 为第三方应用提供了简单易用的微博API调用服务，使第三方客户端无需了解复杂的验证机制即可进行授权登陆，并提供微博分享功能，可直接通过微博官方客户端分享微博。
->本文档详细内容请查阅：[微博Android平台SDK文档V3.2.pdf][1]
+>本文档详细内容请查阅：[微博Android平台SDK文档V4.0.pdf][1]
 
 ------
 
@@ -50,6 +55,7 @@
 | AccessToken | 表示用户身份的 token，用于微博 API 的调用。| 
 | Web 授权    | 通过WebView进行授权，并返回Token信息。| 
 | SSO 授权    | 通过唤起微博客户端进行授权，并返回Token信息。| 
+使用微博sdk授权和分享时，请确保你的AppKey、RedirectURI、Scope、PackageName和开发者官网中填写的一致.
 
 ------
 
@@ -64,11 +70,9 @@
 **有微博客户端情况**  
 * 通过第三方应用唤起微博客户端进行分享（该分享方式为第三方客户端通常的使用方式）    
 **无微博客户端情况**  
-* 通过`OpenAPI`进行分享，如果你要接入openAPI 进行分享，请参考开放平台接口[微博开放平台api][9]。
 
-------
-## API文档说明
-http://sinaweibosdk.github.io/weibo_android_sdk/doc
+OpenApi openApi已经不在微博sdk中维护，如果你想使用OpenApi,请参考开发者网站使用自己的网络接入
+* 通过`OpenAPI`进行分享，如果你要接入openAPI 进行分享，请参考开放平台接口[微博开放平台api][9]。
 
 
 ------
@@ -77,7 +81,7 @@ http://sinaweibosdk.github.io/weibo_android_sdk/doc
 ## 运行示例代码
 为了方便第三方应用更快的集成微博 SDK，更清晰的了解目前微博 SDK 所提供的功能，我们在 GitHub 上提供了一个简单的 **示例工程** 以及对应的 **APK安装包** 。  
 **方式一：**通过 adb install 命令直接安装 app_debug.apk   (在新文档文件夹下面)
-**方式二：**在 Android Studio 中导入并运行 weibosdkdemo 工程（详情请查看[微博Android平台SDK文档3.2.pdf][1]中：**运行示例代码**）  
+**方式二：**在 Android Studio 中导入并运行 weibosdkdemo 工程（详情请查看[微博Android平台SDK文档4.0.pdf][1]中：**运行示例代码**）  
 
 
 ## 微博SDK及DEMO工程目录结构及分析
@@ -94,7 +98,7 @@ http://sinaweibosdk.github.io/weibo_android_sdk/doc
 请注意：包名和签名未注册，或者签名注册不正确，都会导致无法授权。  
 应用程序包名：指`AndroidManifest.xml`文件中，`package`标签所代表的内容。  
 应用程序签名：该签名是通过官方提供的签名工具生成的MD5值。  
-详情请查看：[微博Android平台SDK文档V3.2pdf][1] 中：**如何使用签名工具获取您应用的签名？**  
+详情请查看：[微博Android平台SDK文档V4.0pdf][1] 中：**如何使用签名工具获取您应用的签名？**  
 
 ### 3. 集成sdk
     在你工程的主模块下面修改build.gradle文件，添加微博sdk的依赖
@@ -106,9 +110,9 @@ allprojects {
         maven { url "https://dl.bintray.com/thelasterstar/maven/" }
     }
 }
-compile 'com.sina.weibo.sdk:core:1.0.0:openDefaultRelease@aar'
+compile 'com.sina.weibo.sdk:core:2.0.0:openDefaultRelease@aar'
 ```
-或者将新文档目录下的openDefault-1.0.0.aar复制到工程libs目录下，修改build.gradle文件如下：
+或者将新文档目录下的openDefault-2.0.0.aar复制到工程libs目录下，修改build.gradle文件如下：
 ```java
 repositories{
     flatDir {
@@ -119,7 +123,7 @@ repositories{
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:24.2.1'
-    compile(name: 'openDefault-1.0.0', ext: 'aar')
+    compile(name: 'openDefault-2.0.0', ext: 'aar')
 
 }
 
@@ -157,54 +161,60 @@ public interface Constants {
 ### 2. 创建微博API接口类对象
 ```java
 mAuthInfo = new AuthInfo(this, Constants.APP_KEY, Constants.REDIRECT_URL, Constants.SCOPE);
+WbSdk.install(this,mAuthInfo);
 ```
 其中：APP_KEY、 REDIRECT_URL、 SCOPE需要替换成第三方应用申请的内容。
 
-### 3. 实现WeiboAuthListener接口
+### 3. 实现WbAuthListener接口
 
 ```java
-class AuthListener  implements WeiboAuthListener {
-    
-    @Override
-    public void onComplete(Bundle values) {
-        // 从 Bundle 中解析 Token
-        mAccessToken = Oauth2AccessToken.parseAccessToken(values);
-        if (mAccessToken.isSessionValid()) {
-            // 保存 Token 到 SharedPreferences
-            AccessTokenKeeper.writeAccessToken(WBAuthActivity.this, mAccessToken);
-            .........
-        } else {
-        // 当您注册的应用程序签名不正确时，就会收到 Code，请确保签名正确
-            String code = values.getString("code", "");
-            .........
+private class SelfWbAuthListener implements com.sina.weibo.sdk.auth.WbAuthListener{
+        @Override
+        public void onSuccess(final Oauth2AccessToken token) {
+            WBAuthActivity.this.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    mAccessToken = token;
+                    if (mAccessToken.isSessionValid()) {
+                        // 显示 Token
+                        updateTokenView(false);
+                        // 保存 Token 到 SharedPreferences
+                        AccessTokenKeeper.writeAccessToken(WBAuthActivity.this, mAccessToken);
+                        Toast.makeText(WBAuthActivity.this,
+                                R.string.weibosdk_demo_toast_auth_success, Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+        }
+
+        @Override
+        public void cancel() {
+            Toast.makeText(WBAuthActivity.this,
+                    R.string.weibosdk_demo_toast_auth_canceled, Toast.LENGTH_LONG).show();
+        }
+
+        @Override
+        public void onFailure(WbConnectErrorMessage errorMessage) {
+            Toast.makeText(WBAuthActivity.this, errorMessage.getErrorMessage(), Toast.LENGTH_LONG).show();
         }
     }
-
-    @Override
-    public void onCancel() {
-    }
-
-    @Override
-    public void onWeiboException(WeiboException e) {
-    }
-}
 ```
 ### 4. 调用方法，认证授权
 * 1  Web 授权，直接调用以下函数：*
 ```java
-mSsoHandler = new SsoHandler(WBAuthActivity.this, mAuthInfo);
-mSsoHandler.authorizeWeb(new AuthListener());
+mSsoHandler = new SsoHandler(WBAuthActivity.this);
+mSsoHandler.authorizeWeb(new WbAuthListener());
 ```
 * 2 SSO授权，需要调用以下函数：*
 ```java
-mSsoHandler = new SsoHandler(WBAuthActivity.this, mAuthInfo);
-mSsoHandler. authorizeClientSso(new AuthListener());
+mSsoHandler = new SsoHandler(WBAuthActivity.this);
+mSsoHandler. authorizeClientSso(new WbAuthListener());
 ```
 
 * 3 all In one方式授权，需要调用以下函数：*
 ```java
-mSsoHandler = new SsoHandler(WBAuthActivity.this, mAuthInfo);
-mSsoHandler. authorize(new AuthListener());
+mSsoHandler = new SsoHandler(WBAuthActivity.this);
+mSsoHandler. authorize(new WbAuthListener());
 ```
 * 注：此种授权方式会根据手机是否安装微博客户端来决定使用sso授权还是网页授权，如果安装有微博客户端 则调用微博客户端授权，否则调用Web页面方式授权  参见pdf文档说明 *
 

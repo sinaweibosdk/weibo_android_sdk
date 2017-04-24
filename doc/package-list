@@ -1,0 +1,12 @@
+com.sina.weibo.sdk
+com.sina.weibo.sdk.api
+com.sina.weibo.sdk.auth
+com.sina.weibo.sdk.auth.sso
+com.sina.weibo.sdk.cmd
+com.sina.weibo.sdk.net
+com.sina.weibo.sdk.share
+com.sina.weibo.sdk.utils
+com.sina.weibo.sdk.web
+com.sina.weibo.sdk.web.client
+com.sina.weibo.sdk.web.param
+com.sina.weibo.sdk.web.view
