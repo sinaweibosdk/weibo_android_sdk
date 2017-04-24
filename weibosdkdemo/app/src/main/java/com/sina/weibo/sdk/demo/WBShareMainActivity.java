@@ -26,9 +26,6 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.sina.weibo.sdk.api.share.IWeiboShareAPI;
-import com.sina.weibo.sdk.api.share.WeiboShareSDK;
-
 /**
  * 该类是分享功能的入口。
  * 
@@ -36,10 +33,6 @@ import com.sina.weibo.sdk.api.share.WeiboShareSDK;
  * @since 2013-09-29
  */
 public class WBShareMainActivity extends Activity {
-
-    /** 微博分享的接口实例 */
-    private IWeiboShareAPI mWeiboShareAPI;
-    
     /** 微博分享按钮 */
     private Button mShareButton;
     
@@ -60,14 +53,6 @@ public class WBShareMainActivity extends Activity {
      * 初始化 UI 和微博接口实例 。
      */
     private void initialize() {
-        
-        // 创建微博 SDK 接口实例
-        mWeiboShareAPI = WeiboShareSDK.createWeiboAPI(this, Constants.APP_KEY);
-        
-        // 获取微博客户端相关信息，如是否安装、支持 SDK 的版本
-        boolean isInstalledWeibo = mWeiboShareAPI.isWeiboAppInstalled();
-        int supportApiLevel = mWeiboShareAPI.getWeiboAppSupportAPI(); 
-        
         /**
          * 初始化 UI
          */
@@ -76,16 +61,15 @@ public class WBShareMainActivity extends Activity {
         ((TextView)findViewById(R.id.weibosdk_demo_support_api_level_hint)).setMovementMethod(LinkMovementMethod.getInstance());
         
         // 设置微博客户端相关信息
-        String installInfo = getString(isInstalledWeibo ? R.string.weibosdk_demo_has_installed_weibo : R.string.weibosdk_demo_has_installed_weibo);
-        ((TextView)findViewById(R.id.weibosdk_demo_is_installed_weibo)).setText(installInfo);
-        ((TextView)findViewById(R.id.weibosdk_demo_support_api_level)).setText("\t" + supportApiLevel);
+        //String installInfo = getString(isInstalledWeibo ? R.string.weibosdk_demo_has_installed_weibo : R.string.weibosdk_demo_has_installed_weibo);
+        //((TextView)findViewById(R.id.weibosdk_demo_is_installed_weibo)).setText(installInfo);
+        //((TextView)findViewById(R.id.weibosdk_demo_support_api_level)).setText("\t" + supportApiLevel);
         
         // 设置注册按钮对应回调
         ((Button) findViewById(R.id.register_app_to_weibo)).setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 // 注册到新浪微博
-                mWeiboShareAPI.registerApp();
                 Toast.makeText(WBShareMainActivity.this,
                         R.string.weibosdk_demo_toast_register_app_to_weibo, Toast.LENGTH_LONG).show();
                 

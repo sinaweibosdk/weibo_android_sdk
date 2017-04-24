@@ -26,7 +26,7 @@ public class WeiboPageActivity extends Activity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_weibo_page);
-        authInfo = new AuthInfo(this,Constants.APP_KEY,Constants.REDIRECT_URL,Constants.SCOPE);
+        authInfo = new AuthInfo(this, Constants.APP_KEY, Constants.REDIRECT_URL, Constants.SCOPE);
         //打开指定的微博个人主页
         findViewById(R.id.userinfo).setOnClickListener(new View.OnClickListener() {
             @Override

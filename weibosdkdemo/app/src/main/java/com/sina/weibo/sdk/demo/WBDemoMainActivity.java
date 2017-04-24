@@ -22,6 +22,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 
+import com.sina.weibo.sdk.WbSdk;
+import com.sina.weibo.sdk.auth.AuthInfo;
 import com.sina.weibo.sdk.statistic.WBAgent;
 
 import java.util.HashMap;
@@ -44,6 +46,7 @@ public class WBDemoMainActivity extends Activity {
         setContentView(R.layout.activity_main);
         //LogUtil.sIsLogEnable = true;
         //initLog();
+        WbSdk.install(this,new AuthInfo(this, Constants.APP_KEY, Constants.REDIRECT_URL, Constants.SCOPE));
         // 微博授权功能
         this.findViewById(R.id.feature_oauth).setOnClickListener(new OnClickListener() {
 
@@ -61,16 +64,6 @@ public class WBDemoMainActivity extends Activity {
                 startActivity(new Intent(WBDemoMainActivity.this, WBShareMainActivity.class));
             }
         });
-        // 分享到私信入口
-        this.findViewById(R.id.shear_message).setOnClickListener(new OnClickListener() {
-            
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(WBDemoMainActivity.this, WBShareToMessageFriendActivity.class));
-            }
-        });
-        
-        
         // 日志上传（Open API）功能
         this.findViewById(R.id.feature_upload_log).setOnClickListener(
                 new OnClickListener() {
