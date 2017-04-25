@@ -135,7 +135,7 @@ public class WBShareActivity extends Activity implements OnClickListener, WbShar
             weiboMessage.imageObject = getImageObj();
         }
         weiboMessage.mediaObject = getWebpageObj();
-        shareHandler.shareMessage(weiboMessage, false);
+        shareHandler.shareMessage(weiboMessage, mShareType == SHARE_CLIENT);
 
     }
 

@@ -33,28 +33,10 @@
             android:name=".WBShareActivity"
             android:configChanges="keyboardHidden|orientation"
             android:screenOrientation="portrait" >
-            <intent-filter>
-                <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
         </activity>
         <!-- 统计 -->
         <activity android:name=".WBStatisticActivity" />
 
-        <activity android:name="com.sina.weibo.sdk.demo.WBShareToMessageFriendActivity"
-            android:configChanges="keyboardHidden|orientation"
-            android:windowSoftInputMode="adjustResize"
-            android:launchMode="singleTask"
-            android:exported="true" >
-
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="weiboDemo" android:host="share"/>
-            </intent-filter>
-
-        </activity>
 
         <meta-data
             android:name="WEIBO_APPKEY"
@@ -62,11 +44,6 @@
         <meta-data
             android:name="WEIBO_CHANNEL"
             android:value="weibo" />
-
-        <service
-            android:name="com.sina.weibo.sdk.net.DownloadService"
-            android:exported="false" >
-        </service>
     </application>
 
 </manifest>
