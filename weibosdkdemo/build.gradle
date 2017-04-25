@@ -3,6 +3,7 @@
 buildscript {
     repositories {
         jcenter()
+        maven { url "https://dl.bintray.com/thelasterstar/maven/" }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:1.5.0'
@@ -15,6 +16,7 @@ buildscript {
 allprojects {
     repositories {
         jcenter()
+        maven { url "https://dl.bintray.com/thelasterstar/maven/" }
     }
 }
 
