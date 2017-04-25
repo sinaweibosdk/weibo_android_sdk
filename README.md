@@ -113,7 +113,7 @@ allprojects {
 }
 compile 'com.sina.weibo.sdk:core:2.0.1:openDefaultRelease@aar'
 ```
-或者将新文档目录下的openDefault-2.0.0.aar复制到工程libs目录下，修改build.gradle文件如下：
+或者将新文档目录下的openDefault-2.0.1.aar复制到工程libs目录下，修改build.gradle文件如下：
 ```java
 repositories{
     flatDir {
