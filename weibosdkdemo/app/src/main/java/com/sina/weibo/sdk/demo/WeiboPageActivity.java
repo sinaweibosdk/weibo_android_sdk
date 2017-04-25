@@ -1,7 +1,6 @@
 package com.sina.weibo.sdk.demo;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
@@ -9,7 +8,6 @@ import android.widget.CompoundButton;
 
 import com.sina.weibo.sdk.auth.AuthInfo;
 import com.sina.weibo.sdk.web.WeiboPageUtils;
-import com.sina.weibo.sdk.web.WeiboSdkWebActivity;
 
 /**
  * Created by xuesong6 on 2017/2/28.
@@ -88,14 +86,6 @@ public class WeiboPageActivity extends Activity{
             @Override
             public void onClick(View view) {
                 WeiboPageUtils.getInstance(WeiboPageActivity.this,authInfo).gotoMyProfile(useWeb);
-            }
-        });
-        findViewById(R.id.test).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent();
-                intent.setClass(WeiboPageActivity.this,WeiboSdkWebActivity.class);
-                startActivity(intent);
             }
         });
         CheckBox checkBox = (CheckBox)findViewById(R.id.web_switch);
