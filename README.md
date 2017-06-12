@@ -12,7 +12,7 @@
 
 * Step 1：浏览 ReadMe 了解大致情况
 * Step 2：运行示例程序 [WeiboSDKDemo.apk][4] 或 [Demo][5] 了解 SDK 提供的所有功能
-* Step 3：查看 [微博Android平台SDK文档V4.0.pdf][1] 深入了解如何使用
+* Step 3：查看 [微博Android平台SDK文档V4.1.pdf][1] 深入了解如何使用
 * Step 4：参照 [Demo][5] 进行开发  
 
 **如果您在使用过程中有些问题不清楚如何解决**，请先仔细阅读：[常见问题FAQ][2]，尝试能否找到对应的答案。   
@@ -22,8 +22,10 @@
 
 ------
 
-# Release-Note: Android SDK V4.0 
+# Release-Note: Android SDK V4.1 
 ## 版本变更：
+v4.1
+1.修复了一些已知的bug
 
 v4.0
 1.新的授权和分享逻辑，使你的接入更明确
@@ -64,6 +66,8 @@ v3.2
  - SSO 授权：在**有客户端**的情况下，使用 SSO 授权登陆；无客户端的情况下，自动唤起 Web 授权
  - Web 授权：在**没有客户端**的情况下，可直接使用该授权
  - SSO 授权+Web 授权 混合授权，（**推荐使用**）  ( 如果手机安装了微博客户端则使用客户端授权,没有则进行网页授权 )   详情请查看Demo中`WBAuthActivity`中说明
+ # 特别说明：新版本的sdk已经移除了openapi功能（包括获取用户信息等方法），如果你想再授权后获取用户信息，请参考open api接口文档 [微博开放平台api][10]，使用自己的网络引擎请求数据
+
 
 ### 2. 微博分享
 通过微博SDK，第三方应用能够分享文字、图片：    
@@ -100,7 +104,8 @@ OpenApi openApi已经不在微博sdk中维护，如果你想使用OpenApi,请参
 应用程序签名：该签名是通过官方提供的签名工具生成的MD5值。  
 详情请查看：[微博Android平台SDK文档V4.0pdf][1] 中：**如何使用签名工具获取您应用的签名？**  
 
-### 3. 集成sdk
+### 3. 集成sdk 
+1:Android Studio接入
     在你工程的主模块下面修改build.gradle文件，添加微博sdk的依赖
 ```java
 allprojects {
@@ -127,6 +132,14 @@ dependencies {
 
 }
 
+```
+2:Eclipse:
+    1：复制github项目下【eclipse集成】目录下的文件到你的工程中
+3:关于so
+    微博sdk aar中默认直提供了[armeabi] [armeabi-v7a] [x86]三个平台的so，如果你需要适配更多版本的so，请到github->so目录中获取全部平台的so文件
+4:关于混淆
+```java
+-keep class com.sina.weibo.sdk.** { *; }
 ```
 
 ------
@@ -244,3 +257,4 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 [7]:https://github.com/sinaweibosdk/weibo_android_sdk/edit/master/README.md#%E4%B8%BE%E4%BE%8B%E4%BD%BF%E7%94%A8%E5%BC%82%E6%AD%A5%E6%8E%A5%E5%8F%A3%E6%9D%A5%E5%8F%91%E9%80%81%E4%B8%80%E6%9D%A1%E5%B8%A6%E5%9B%BE%E7%89%87%E7%9A%84%E5%BE%AE%E5%8D%9A
 [8]:http://sinaweibosdk.github.io/weibo_android_sdk/doc/
 [9]:http://open.weibo.com/wiki/%E5%BE%AE%E5%8D%9AAPI
+[10]:http://open.weibo.com/wiki/%E5%BE%AE%E5%8D%9AAPI
