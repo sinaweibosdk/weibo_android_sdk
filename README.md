@@ -134,10 +134,15 @@ dependencies {
 
 ```
 2:Eclipse:
+
     1：复制github项目下【eclipse集成】目录下的文件到你的工程中
+
 3:关于so
+
     微博sdk aar中默认直提供了[armeabi] [armeabi-v7a] [x86]三个平台的so，如果你需要适配更多版本的so，请到github->so目录中获取全部平台的so文件
+
 4:关于混淆
+
 ```java
 -keep class com.sina.weibo.sdk.** { *; }
 ```
