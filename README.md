@@ -44,7 +44,7 @@ v3.2
 
 ## 概述
 微博 Android 平台 SDK 为第三方应用提供了简单易用的微博API调用服务，使第三方客户端无需了解复杂的验证机制即可进行授权登陆，并提供微博分享功能，可直接通过微博官方客户端分享微博。
->本文档详细内容请查阅：[微博Android平台SDK文档V4.0.pdf][1]
+>本文档详细内容请查阅：[微博Android平台SDK文档V4.1.pdf][1]
 
 ------
 
@@ -85,7 +85,7 @@ OpenApi openApi已经不在微博sdk中维护，如果你想使用OpenApi,请参
 ## 运行示例代码
 为了方便第三方应用更快的集成微博 SDK，更清晰的了解目前微博 SDK 所提供的功能，我们在 GitHub 上提供了一个简单的 **示例工程** 以及对应的 **APK安装包** 。  
 **方式一：**通过 adb install 命令直接安装 app_debug.apk   (在新文档文件夹下面)
-**方式二：**在 Android Studio 中导入并运行 weibosdkdemo 工程（详情请查看[微博Android平台SDK文档4.0.pdf][1]中：**运行示例代码**）  
+**方式二：**在 Android Studio 中导入并运行 weibosdkdemo 工程（详情请查看[微博Android平台SDK文档4.1.pdf][1]中：**运行示例代码**）  
 
 
 ## 微博SDK及DEMO工程目录结构及分析
@@ -115,9 +115,9 @@ allprojects {
         maven { url "https://dl.bintray.com/thelasterstar/maven/" }
     }
 }
-compile 'com.sina.weibo.sdk:core:2.0.3:openDefaultRelease@aar'
+compile 'com.sina.weibo.sdk:core:2.0.6:openDefaultRelease@aar'
 ```
-或者将新文档目录下的openDefault-2.0.3.aar复制到工程libs目录下，修改build.gradle文件如下：
+或者将新文档目录下的openDefault-2.0.6.aar复制到工程libs目录下，修改build.gradle文件如下：
 ```java
 repositories{
     flatDir {
@@ -128,7 +128,7 @@ repositories{
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:24.2.1'
-    compile(name: 'openDefault-2.0.3', ext: 'aar')
+    compile(name: 'openDefault-2.0.6', ext: 'aar')
 
 }
 
@@ -251,7 +251,7 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
 
 ## 其它功能
-其它功能请相见文档：[微博Android平台SDK文档V4.0.pdf][1]
+其它功能请相见文档：[微博Android平台SDK文档V4.1.pdf][1]
 
 [1]:https://github.com/sinaweibosdk/weibo_android_sdk/blob/master/%E6%96%B0%E6%96%87%E6%A1%A3/%E5%BE%AE%E5%8D%9ASDK%204.0%E6%96%87%E6%A1%A3.pdf
 [2]:https://github.com/sinaweibosdk/weibo_android_sdk/blob/master/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%20FAQ.md
