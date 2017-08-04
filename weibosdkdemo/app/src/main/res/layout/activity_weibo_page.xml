@@ -64,6 +64,12 @@
                 android:text="我的主页"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
+            <Button
+                android:layout_marginTop="10dip"
+                android:id="@+id/test"
+                android:text="测试"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
         </LinearLayout>
     </ScrollView>

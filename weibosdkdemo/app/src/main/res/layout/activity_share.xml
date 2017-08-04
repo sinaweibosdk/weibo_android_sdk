@@ -94,6 +94,75 @@
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true" />
             </RelativeLayout>
+            <TextView
+                android:padding="20dip"
+                android:text="微博多图和视频分享，微博多图分享和视频分享为与非关系（使用老版本分享图片时不能和多图共存，视频和图片不能共存,请注意分享内容，是否支持多图分享调用WbSdk.supportMultiImage()查询）"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <LinearLayout
+                android:padding="15dip"
+                android:background="#44b6e5"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:text="多图分享"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_weight="1"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"></LinearLayout>
+                    <CheckBox
+                        android:id="@+id/share_multi_image"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                         />
+                    <TextView
+                        android:text="多图"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="30dip"
+                android:padding="15dip"
+                android:background="#985798"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:text="视频分享"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_weight="1"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"></LinearLayout>
+                    <CheckBox
+                        android:id="@+id/share_multi_video"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        />
+                    <TextView
+                        android:text="视频"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </LinearLayout>
+
+
 
 
 

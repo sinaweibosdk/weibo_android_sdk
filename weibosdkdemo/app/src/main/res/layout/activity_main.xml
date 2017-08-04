@@ -19,15 +19,13 @@
         android:layout_height="wrap_content"
         android:layout_margin="6dp"
         android:text="@string/weibosdk_demo_feature_share" />
-
-     <Button
-        android:id="@+id/shear_message"
+    <Button
+        android:id="@+id/feature_story"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_margin="6dp"
-        android:text="@string/weibosdk_demo_shear_message" />
-     
-     
+        android:text="分享到微博故事" />
+
     <Button
         android:id="@+id/feature_upload_log"
         android:layout_width="fill_parent"

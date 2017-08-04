@@ -22,10 +22,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 
+import com.sina.weibo.sdk.R;
 import com.sina.weibo.sdk.WbSdk;
 import com.sina.weibo.sdk.auth.AuthInfo;
 import com.sina.weibo.sdk.statistic.WBAgent;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -44,14 +49,13 @@ public class WBDemoMainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //LogUtil.sIsLogEnable = true;
-        //initLog();
         WbSdk.install(this,new AuthInfo(this, Constants.APP_KEY, Constants.REDIRECT_URL, Constants.SCOPE));
         // 微博授权功能
         this.findViewById(R.id.feature_oauth).setOnClickListener(new OnClickListener() {
 
             @Override
             public void onClick(View v) {
+                initLog();
                 startActivity(new Intent(WBDemoMainActivity.this, WBAuthActivity.class));
             }
         });
@@ -81,12 +85,54 @@ public class WBDemoMainActivity extends Activity {
         this.findViewById(R.id.goto_weibo_page).setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                    startActivity(new Intent(WBDemoMainActivity.this,WeiboPageActivity.class));
+                startActivity(new Intent(WBDemoMainActivity.this,WeiboPageActivity.class));
             }
         });
+        findViewById(R.id.feature_story).setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(WBDemoMainActivity.this,ShareStoryActivity.class);
+                startActivity(intent);
+            }
+        });
+        copyFile("eeee.mp4");
+        copyFile("aaa.png");
+        copyFile("bbbb.jpg");
+        copyFile("ccc.JPG");
+        copyFile("eee.jpg");
+        copyFile("ddd.jpg");
+        copyFile("fff.jpg");
+        copyFile("ggg.JPG");
+        copyFile("hhhh.jpg");
+        copyFile("kkk.JPG");
+
     }
-    
-    
+
+    private void copyFile(final String fileName){
+        final File file = new File(getExternalFilesDir(null).getPath()+"/"+fileName);
+        if(!file.exists()){
+            //复制文件
+            Thread thread = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try{
+                        InputStream inputStream = getAssets().open(fileName);
+                        OutputStream outputStream = new FileOutputStream(file);
+                        byte[] buffer = new byte[1444];
+                        int readSize = 0;
+                        while ((readSize = inputStream.read(buffer)) != 0){
+                            outputStream.write(buffer,0,readSize);
+                        }
+                        inputStream.close();
+                        outputStream.close();
+                    }catch (Exception e){}
+
+                }
+            });
+            thread.start();
+        }
+    }
     @Override
     public void onResume() {
         super.onResume();
@@ -115,7 +161,6 @@ public class WBDemoMainActivity extends Activity {
     public void initLog() {
         WBAgent.setAppKey(Constants.APP_KEY);
         WBAgent.setChannel("weibo"); //这个是统计这个app 是从哪一个平台down下来的  百度手机助手
-
         WBAgent.openActivityDurationTrack(false);
         try {
             //设置发送时间间隔 需大于90s小于8小时
@@ -125,5 +170,9 @@ public class WBDemoMainActivity extends Activity {
             e.printStackTrace();
         }
         
-    }  
+    }
+
+    private void testSendAction(){
+
+    }
 }

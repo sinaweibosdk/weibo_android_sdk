@@ -20,6 +20,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -29,13 +30,19 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.sina.weibo.sdk.R;
 import com.sina.weibo.sdk.api.ImageObject;
+import com.sina.weibo.sdk.api.MultiImageObject;
 import com.sina.weibo.sdk.api.TextObject;
+import com.sina.weibo.sdk.api.VideoSourceObject;
 import com.sina.weibo.sdk.api.WebpageObject;
 import com.sina.weibo.sdk.api.WeiboMultiMessage;
 import com.sina.weibo.sdk.share.WbShareCallback;
 import com.sina.weibo.sdk.share.WbShareHandler;
 import com.sina.weibo.sdk.utils.Utility;
+
+import java.io.File;
+import java.util.ArrayList;
 
 /**
  * 该类演示了第三方应用如何通过微博客户端
@@ -56,6 +63,9 @@ public class WBShareActivity extends Activity implements OnClickListener, WbShar
     private CheckBox        mTextCheckbox;
     /** 用于控制是否分享图片的 CheckBox */
     private CheckBox        mImageCheckbox;
+
+    private CheckBox multiImageCheckbox;
+    private CheckBox videoCheckbox;
     /** 分享按钮 */
     private Button          mSharedBtn;
 
@@ -72,12 +82,9 @@ public class WBShareActivity extends Activity implements OnClickListener, WbShar
         setContentView(R.layout.activity_share);
         initViews();
         mShareType = getIntent().getIntExtra(KEY_SHARE_TYPE, SHARE_CLIENT);
-
-
         shareHandler = new WbShareHandler(this);
         shareHandler.registerApp();
-
-
+        shareHandler.setProgressColor(0xff33b5e5);
     }
 
     @Override
@@ -94,8 +101,7 @@ public class WBShareActivity extends Activity implements OnClickListener, WbShar
         if (R.id.share_to_btn == v.getId()) {
             mSharedBtn.setText("share done");
             flag = 1;
-            sendMessage(mTextCheckbox.isChecked(), 
-                    mImageCheckbox.isChecked());
+            sendMessage(true,mImageCheckbox.isChecked());
         }
     }
 
@@ -110,6 +116,8 @@ public class WBShareActivity extends Activity implements OnClickListener, WbShar
         mImageCheckbox = (CheckBox) findViewById(R.id.shared_image_checkbox);
         mSharedBtn = (Button) findViewById(R.id.share_to_btn);
         mSharedBtn.setOnClickListener(this);
+        multiImageCheckbox = (CheckBox)findViewById(R.id.share_multi_image);
+        videoCheckbox = (CheckBox)findViewById(R.id.share_multi_video);
 
     }
 
@@ -134,10 +142,17 @@ public class WBShareActivity extends Activity implements OnClickListener, WbShar
         if (hasImage) {
             weiboMessage.imageObject = getImageObj();
         }
-        weiboMessage.mediaObject = getWebpageObj();
-        shareHandler.shareMessage(weiboMessage, mShareType == SHARE_CLIENT);
+        if(multiImageCheckbox.isChecked()){
+            weiboMessage.multiImageObject = getMultiImageObject();
+        }
+        if(videoCheckbox.isChecked()){
+            weiboMessage.videoSourceObject = getVideoObject();
+        }
+        shareHandler.shareMessage(weiboMessage, false);
 
     }
+
+
 
     @Override
     public void onWbShareSuccess() {
@@ -164,8 +179,7 @@ public class WBShareActivity extends Activity implements OnClickListener, WbShar
         String format = getString(formatId);
         String text = format;
         if (mTextCheckbox.isChecked() || mImageCheckbox.isChecked()) {
-            //text = "@大屁老师，这是一个很漂亮的小狗，朕甚是喜欢-_-!! http://weibo.com/p/1005052052202067/home?from=page_100505&mod=TAB&is_all=1#place";
-            text = "70岁富翁拥有两座城堡 抛弃伴侣想找年轻女子生育继承人#UC头条# http://s4.uczzd.cn/ucnews/news?app=ucnews-iflow&aid=17106278003054546318&cid=100&zzd_from=ucnews-iflow&uc_param_str=dndseiwifrvesvntgipf&rd_type=share&pagetype=share&btifl=100&sdkdeep=2&sdksid=55a8f9d3-223a-d5a7-812c-c3af12bb6430&sdkoriginal=55a8f9d3-223a-d5a7-812c-c3af12bb6430";
+            text = "@大屁老师，这是一个很漂亮的小狗，朕甚是喜欢-_-!! #大屁老师#http://weibo.com/p/1005052052202067/home?from=page_100505&mod=TAB&is_all=1#place";
         }
         return text;
     }
@@ -209,6 +223,35 @@ public class WBShareActivity extends Activity implements OnClickListener, WbShar
         mediaObject.actionUrl = "http://news.sina.com.cn/c/2013-10-22/021928494669.shtml";
         mediaObject.defaultText = "Webpage 默认文案";
         return mediaObject;
+    }
+
+    /***
+     * 创建多图
+     * @return
+     */
+    private MultiImageObject getMultiImageObject(){
+        MultiImageObject multiImageObject = new MultiImageObject();
+        //pathList设置的是本地本件的路径,并且是当前应用可以访问的路径，现在不支持网络路径（多图分享依靠微博最新版本的支持，所以当分享到低版本的微博应用时，多图分享失效
+        // 可以通过WbSdk.hasSupportMultiImage 方法判断是否支持多图分享,h5分享微博暂时不支持多图）多图分享接入程序必须有文件读写权限，否则会造成分享失败
+        ArrayList<Uri> pathList = new ArrayList<Uri>();
+        pathList.add(Uri.fromFile(new File(getExternalFilesDir(null)+"/aaa.png")));
+        pathList.add(Uri.fromFile(new File(getExternalFilesDir(null)+"/bbbb.jpg")));
+        pathList.add(Uri.fromFile(new File(getExternalFilesDir(null)+"/ccc.JPG")));
+        pathList.add(Uri.fromFile(new File(getExternalFilesDir(null)+"/ddd.jpg")));
+        pathList.add(Uri.fromFile(new File(getExternalFilesDir(null)+"/fff.jpg")));
+        pathList.add(Uri.fromFile(new File(getExternalFilesDir(null)+"/ggg.JPG")));
+        pathList.add(Uri.fromFile(new File(getExternalFilesDir(null)+"/eee.jpg")));
+        pathList.add(Uri.fromFile(new File(getExternalFilesDir(null)+"/hhhh.jpg")));
+        pathList.add(Uri.fromFile(new File(getExternalFilesDir(null)+"/kkk.JPG")));
+        multiImageObject.setImageList(pathList);
+        return multiImageObject;
+    }
+
+    private VideoSourceObject getVideoObject(){
+        //获取视频
+        VideoSourceObject videoSourceObject = new VideoSourceObject();
+        videoSourceObject.videoPath = Uri.fromFile(new File(getExternalFilesDir(null)+"/eeee.mp4"));
+        return videoSourceObject;
     }
 
     @Override

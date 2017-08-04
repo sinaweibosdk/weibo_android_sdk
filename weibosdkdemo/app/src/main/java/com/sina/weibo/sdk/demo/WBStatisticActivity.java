@@ -25,6 +25,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
+import com.sina.weibo.sdk.R;
 import com.sina.weibo.sdk.statistic.WBAgent;
 
 import java.util.HashMap;

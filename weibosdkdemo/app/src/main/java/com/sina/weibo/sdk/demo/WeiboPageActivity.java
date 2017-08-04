@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 
+import com.sina.weibo.sdk.R;
 import com.sina.weibo.sdk.auth.AuthInfo;
 import com.sina.weibo.sdk.web.WeiboPageUtils;
 
@@ -17,14 +18,14 @@ public class WeiboPageActivity extends Activity{
 
     private String uid = "2052202067";
     private String mblogid = "4080071993851792";
-    private String articleId = "2309404068917940255425";
+    private String articleId = "2309404129576363137836";
     private boolean useWeb = true;
     private AuthInfo authInfo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_weibo_page);
-        authInfo = new AuthInfo(this, Constants.APP_KEY, Constants.REDIRECT_URL, Constants.SCOPE);
+        authInfo = new AuthInfo(this,Constants.APP_KEY,Constants.REDIRECT_URL,Constants.SCOPE);
         //打开指定的微博个人主页
         findViewById(R.id.userinfo).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,7 +62,7 @@ public class WeiboPageActivity extends Activity{
         findViewById(R.id.comment).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                WeiboPageUtils.getInstance(WeiboPageActivity.this,authInfo).commentWeibo("mblogid",useWeb);
+                WeiboPageUtils.getInstance(WeiboPageActivity.this,authInfo).commentWeibo("4133710346914136",useWeb);
             }
         });
 
@@ -69,7 +70,7 @@ public class WeiboPageActivity extends Activity{
         findViewById(R.id.search).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                WeiboPageUtils.getInstance(WeiboPageActivity.this,authInfo).openWeiboSearchPage("大屁老师",useWeb);
+                WeiboPageUtils.getInstance(WeiboPageActivity.this,authInfo).openWeiboSearchPage("周杰伦",useWeb);
             }
         });
 
@@ -86,6 +87,12 @@ public class WeiboPageActivity extends Activity{
             @Override
             public void onClick(View view) {
                 WeiboPageUtils.getInstance(WeiboPageActivity.this,authInfo).gotoMyProfile(useWeb);
+            }
+        });
+        findViewById(R.id.test).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                WeiboPageUtils.getInstance(WeiboPageActivity.this,authInfo).startOtherPage("https://www.baidu.com?",null);
             }
         });
         CheckBox checkBox = (CheckBox)findViewById(R.id.web_switch);

@@ -9,8 +9,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.sina.weibo.sdk.R;
 import com.sina.weibo.sdk.statistic.WBAgent;
-
 /**
  * fragment页面统计
  * @author xiaofei9

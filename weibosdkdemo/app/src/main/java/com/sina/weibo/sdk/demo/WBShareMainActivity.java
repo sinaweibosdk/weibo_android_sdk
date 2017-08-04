@@ -18,13 +18,18 @@ package com.sina.weibo.sdk.demo;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.method.LinkMovementMethod;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.sina.weibo.sdk.R;
+import com.sina.weibo.sdk.share.WbShareHandler;
+
+import java.io.File;
 
 /**
  * 该类是分享功能的入口。
@@ -59,33 +64,31 @@ public class WBShareMainActivity extends Activity {
         // 设置提示文本
         ((TextView)findViewById(R.id.register_app_to_weibo_hint)).setMovementMethod(LinkMovementMethod.getInstance());
         ((TextView)findViewById(R.id.weibosdk_demo_support_api_level_hint)).setMovementMethod(LinkMovementMethod.getInstance());
-        
-        // 设置微博客户端相关信息
-        //String installInfo = getString(isInstalledWeibo ? R.string.weibosdk_demo_has_installed_weibo : R.string.weibosdk_demo_has_installed_weibo);
-        //((TextView)findViewById(R.id.weibosdk_demo_is_installed_weibo)).setText(installInfo);
-        //((TextView)findViewById(R.id.weibosdk_demo_support_api_level)).setText("\t" + supportApiLevel);
-        
         // 设置注册按钮对应回调
-        ((Button) findViewById(R.id.register_app_to_weibo)).setOnClickListener(new OnClickListener() {
+        findViewById(R.id.register_app_to_weibo).setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 // 注册到新浪微博
-                Toast.makeText(WBShareMainActivity.this,
-                        R.string.weibosdk_demo_toast_register_app_to_weibo, Toast.LENGTH_LONG).show();
+//                Toast.makeText(WBShareMainActivity.this,
+//                        R.string.weibosdk_demo_toast_register_app_to_weibo, Toast.LENGTH_LONG).show();
                 
                 mShareButton.setEnabled(true);
                 mShareAllInOneButton.setEnabled(true);
+                WbShareHandler shareHandler = new WbShareHandler(WBShareMainActivity.this);
+                shareHandler.registerApp();
             }
         });
         
         // 设置分享按钮对应回调
         mShareButton = (Button) findViewById(R.id.share_to_weibo);
-        mShareButton.setEnabled(true);
+        mShareButton.setEnabled(false);
         mShareButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(WBShareMainActivity.this, WBShareActivity.class);
                 i.putExtra(WBShareActivity.KEY_SHARE_TYPE, WBShareActivity.SHARE_CLIENT);
+                File file = new File("xxxx");
+                i.setData(Uri.parse(file.getPath()));
                 startActivity(i);
             }
         });

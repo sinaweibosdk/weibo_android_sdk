@@ -29,6 +29,8 @@ import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
+import com.sina.weibo.sdk.R;
+
 /**
  * 该类简单的封装了分享中，用于显示文字、图片、视频、音乐等内容的组合控件。
  * 
