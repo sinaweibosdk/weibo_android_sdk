@@ -110,6 +110,7 @@ public class WBDemoMainActivity extends Activity {
     }
 
     private void copyFile(final String fileName){
+
         final File file = new File(getExternalFilesDir(null).getPath()+"/"+fileName);
         if(!file.exists()){
             //复制文件
