@@ -144,7 +144,8 @@ dependencies {
   微博sdk aar中默认直提供了[armeabi] [armeabi-v7a] [x86]三个平台的so，如果你需要适配更多版本的so，请到github->so目录中获取全部平台的so文件
 
   如果你只想引入特别的平台在gradle 中配置如下
-
+  
+```java
   splits {
         abi {
             enable true
@@ -153,6 +154,8 @@ dependencies {
             universalApk true 
         }
     }
+
+```
 
 4:关于混淆
 
