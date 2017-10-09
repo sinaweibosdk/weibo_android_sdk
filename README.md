@@ -146,10 +146,13 @@ dependencies {
   如果你只想引入特别的平台在gradle 中配置如下
 
   splits {
-    abi {
-        include 'armeabi-v7a', 'armeabi'
+        abi {
+            enable true
+            reset()
+            include 'armeabi-v7a', 'arm64-v8a' //根据需求自己修改
+            universalApk true 
+        }
     }
-  }
 
 4:关于混淆
 
