@@ -24,6 +24,9 @@
 
 # Release-Note: Android SDK V4.1 
 ## 版本变更：
+v4.3.0
+1.修复bug
+
 v4.2.7
 1.支持微博极速版授权登录
 
@@ -120,9 +123,9 @@ allprojects {
         maven { url "https://dl.bintray.com/thelasterstar/maven/" }
     }
 }
-compile 'com.sina.weibo.sdk:core:4.2.7:openDefaultRelease@aar'
+compile 'com.sina.weibo.sdk:core:4.3.0:openDefaultRelease@aar'
 ```
-或者将新文档目录下的openDefault-4.2.7.aar复制到工程libs目录下，修改build.gradle文件如下：
+或者将新文档目录下的openDefault-4.3.0.aar复制到工程libs目录下，修改build.gradle文件如下：
 ```java
 repositories{
     flatDir {
@@ -133,7 +136,7 @@ repositories{
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:24.2.1'
-    compile(name: 'openDefault-4.2.7', ext: 'aar')
+    compile(name: 'openDefault-4.3.0-', ext: 'aar')
 
 }
 
