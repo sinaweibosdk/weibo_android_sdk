@@ -87,10 +87,16 @@ public class WBShareActivity extends Activity implements OnClickListener, WbShar
         shareHandler.setProgressColor(0xff33b5e5);
     }
 
-    @Override
+/*    @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         shareHandler.doResultIntent(intent,this);
+    }*/
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        shareHandler.doResultIntent(data,this);
     }
 
     /**
