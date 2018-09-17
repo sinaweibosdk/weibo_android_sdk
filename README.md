@@ -26,6 +26,12 @@
 ## 版本变更：
 v4.3.1
 1.修复bug
+2.关于分享之后的回调，4.3.0开始用如下方法接受:
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        shareHandler.doResultIntent(data,this);
+    }
 
 v4.3.0
 1.修复bug
