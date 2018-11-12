@@ -25,14 +25,18 @@
 # Release-Note: Android SDK V4.1 
 ## 版本变更：
 
-v4.3.4
+v4.3.5
+
 1.重点修复安全漏洞问题
 
 2.关于分享之后的回调，该版本又改回去了。
     @Override
     protected void onNewIntent(Intent intent) {
+
         super.onNewIntent(intent);
+
         shareHandler.doResultIntent(intent,this);
+
     }
 
 v4.3.1
@@ -143,7 +147,7 @@ allprojects {
         maven { url "https://dl.bintray.com/thelasterstar/maven/" }
     }
 }
-compile 'com.sina.weibo.sdk:core:4.3.0:openDefaultRelease@aar'
+compile 'com.sina.weibo.sdk:core:4.3.5:openDefaultRelease@aar'
 ```
 或者将新文档目录下的openDefault-4.3.0.aar复制到工程libs目录下，修改build.gradle文件如下：
 ```java
