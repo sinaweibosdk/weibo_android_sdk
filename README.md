@@ -25,20 +25,9 @@
 # Release-Note: Android SDK V4.1 
 ## 版本变更：
 
-v4.3.5
+v4.3.4
 
 1.重点修复安全漏洞问题
-
-2.关于分享之后的回调，该版本又改回去了。
-
-    @Override
-    protected void onNewIntent(Intent intent) {
-
-        super.onNewIntent(intent);
-
-        shareHandler.doResultIntent(intent,this);
-
-    }
 
 v4.3.1
 1.修复bug
