@@ -30,6 +30,7 @@ v4.3.5
 1.重点修复安全漏洞问题
 
 2.关于分享之后的回调，该版本又改回去了。
+
     @Override
     protected void onNewIntent(Intent intent) {
 
@@ -42,6 +43,7 @@ v4.3.5
 v4.3.1
 1.修复bug
 2.关于分享之后的回调，4.3.0开始用如下方法接受:
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
