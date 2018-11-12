@@ -27,7 +27,7 @@
 
 v4.3.4
 
-1.重点修复安全漏洞问题
+1.修复bug
 
 v4.3.1
 1.修复bug
@@ -138,7 +138,7 @@ allprojects {
         maven { url "https://dl.bintray.com/thelasterstar/maven/" }
     }
 }
-compile 'com.sina.weibo.sdk:core:4.3.5:openDefaultRelease@aar'
+compile 'com.sina.weibo.sdk:core:4.3.4:openDefaultRelease@aar'
 ```
 或者将新文档目录下的openDefault-4.3.0.aar复制到工程libs目录下，修改build.gradle文件如下：
 ```java
