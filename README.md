@@ -25,6 +25,10 @@
 # Release-Note: Android SDK V4.1 
 ## 版本变更：
 
+v4.3.6
+
+1.修复bug
+
 v4.3.5
 
 1.修复Android4.4.4以下版本分享后没有回调.
@@ -142,9 +146,9 @@ allprojects {
         maven { url "https://dl.bintray.com/thelasterstar/maven/" }
     }
 }
-compile 'com.sina.weibo.sdk:core:4.3.5:openDefaultRelease@aar'
+compile 'com.sina.weibo.sdk:core:4.3.6:openDefaultRelease@aar'
 ```
-或者将新文档目录下的openDefault-4.3.5.aar复制到工程libs目录下，修改build.gradle文件如下：
+或者将新文档目录下的openDefault-4.3.6.aar复制到工程libs目录下，修改build.gradle文件如下：
 ```java
 repositories{
     flatDir {
