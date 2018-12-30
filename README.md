@@ -159,7 +159,7 @@ repositories{
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:24.2.1'
-    compile(name: 'openDefault-4.3.0-', ext: 'aar')
+    compile(name: 'openDefault-4.3.6', ext: 'aar')
 
 }
 
