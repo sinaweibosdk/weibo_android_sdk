@@ -25,6 +25,12 @@
 # Release-Note: Android SDK V4.1 
 ## 版本变更：
 
+v.4.3.7
+
+1.修复bug
+
+2.增加64位的so
+
 v4.3.6
 
 1.修复bug
