@@ -152,9 +152,9 @@ allprojects {
         maven { url "https://dl.bintray.com/thelasterstar/maven/" }
     }
 }
-compile 'com.sina.weibo.sdk:core:4.3.6:openDefaultRelease@aar'
+compile 'com.sina.weibo.sdk:core:4.3.7:openDefaultRelease@aar'
 ```
-或者将新文档目录下的openDefault-4.3.6.aar复制到工程libs目录下，修改build.gradle文件如下：
+或者将新文档目录下的openDefault-4.3.7.aar复制到工程libs目录下，修改build.gradle文件如下：
 ```java
 repositories{
     flatDir {
