@@ -28,7 +28,7 @@
 v4.3.8
 
 1.修复若干bug
-2.支持armeabi-v7a, arm64-v8a
+2.默认只支持armeabi-v7a架构
 
 v4.3.7
 
