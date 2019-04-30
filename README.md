@@ -28,6 +28,7 @@
 v4.3.8
 
 1.修复若干bug
+2.支持armeabi-v7a, arm64-v8a
 
 v4.3.7
 
