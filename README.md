@@ -190,7 +190,7 @@ dependencies {
         abi {
             enable true
             reset()
-            include 'armeabi-v7a', 'arm64-v8a' //根据需求自己修改
+            include 'armeabi-v7a' //根据需求自己修改
             universalApk true 
         }
     }
