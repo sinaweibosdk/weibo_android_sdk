@@ -19,8 +19,13 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="54" column="13" lean-forward="true" selection-start-line="54" selection-start-column="13" selection-end-line="54" selection-end-column="13" />
+            <state relative-caret-position="496">
+              <caret line="189" column="13" lean-forward="true" selection-start-line="189" selection-start-column="13" selection-end-line="189" selection-end-column="13" />
+              <folding>
+                <element signature="docComment;field#APP_KEY#0;class#Constants#0" expanded="true" />
+                <element signature="docComment;field#REDIRECT_URL#0;class#Constants#0" expanded="true" />
+                <element signature="docComment;field#SCOPE#0;class#Constants#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -91,7 +96,7 @@
             <path>
               <item name="weibo_android_sdk" type="b2602c69:ProjectViewProjectNode" />
               <item name="weibo_android_sdk" type="462c0819:PsiDirectoryNode" />
-              <item name="新文档" type="462c0819:PsiDirectoryNode" />
+              <item name="so" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -109,16 +114,16 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/so/armeabi-v7a" />
+      <recent name="$PROJECT_DIR$/新文档" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/新文档" />
       <recent name="$PROJECT_DIR$/so/arm64-v8a" />
       <recent name="$PROJECT_DIR$/so/armeabi-v7a" />
       <recent name="$PROJECT_DIR$/so/armeabi" />
       <recent name="$PROJECT_DIR$/weibosdkdemo/app/libs" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/so/armeabi-v7a" />
-      <recent name="$PROJECT_DIR$/新文档" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -275,7 +280,7 @@
       <window_info id="Capture Tool" order="1" />
       <window_info id="Favorites" order="2" sideWeight="0.5088161" side_tool="true" weight="0.25928918" />
       <window_info id="Captures" order="3" weight="0.25" />
-      <window_info content_ui="combo" id="Project" order="4" sideWeight="0.49118388" visible="true" weight="0.28747323" />
+      <window_info content_ui="combo" id="Project" order="4" sideWeight="0.49118388" visible="true" weight="0.29090908" />
       <window_info id="Structure" order="5" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="6" />
       <window_info id="Designer" order="7" />
@@ -284,7 +289,7 @@
       <window_info anchor="bottom" id="Android Monitor" order="1" sideWeight="0.7495961" visible="true" weight="0.1323283" />
       <window_info anchor="bottom" id="Messages" order="2" sideWeight="0.49434572" weight="0.20938024" />
       <window_info anchor="bottom" id="Version Control" order="3" sideWeight="0.6502423" weight="0.35114503" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="4" visible="true" weight="0.39585605" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="4" visible="true" weight="0.3398693" />
       <window_info anchor="bottom" id="Gradle Console" order="5" sideWeight="0.5169628" side_tool="true" weight="0.20853859" />
       <window_info anchor="bottom" id="Message" order="6" />
       <window_info anchor="bottom" id="Find" order="7" weight="0.5711893" />
@@ -463,8 +468,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="54" column="13" lean-forward="true" selection-start-line="54" selection-start-column="13" selection-end-line="54" selection-end-column="13" />
+        <state relative-caret-position="496">
+          <caret line="189" column="13" lean-forward="true" selection-start-line="189" selection-start-column="13" selection-end-line="189" selection-end-column="13" />
+          <folding>
+            <element signature="docComment;field#APP_KEY#0;class#Constants#0" expanded="true" />
+            <element signature="docComment;field#REDIRECT_URL#0;class#Constants#0" expanded="true" />
+            <element signature="docComment;field#SCOPE#0;class#Constants#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

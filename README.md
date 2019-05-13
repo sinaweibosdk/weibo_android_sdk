@@ -28,7 +28,7 @@
 v4.3.8
 
 1.修复若干bug
-2.默认只支持armeabi-v7a架构
+2.默认只支持armeabi架构
 
 v4.3.7
 
@@ -170,7 +170,7 @@ repositories{
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:24.2.1'
-    compile(name: 'openDefault-4.3.0-', ext: 'aar')
+    compile(name: 'openDefault-4.3.8', ext: 'aar')
 
 }
 
@@ -181,7 +181,7 @@ dependencies {
 
 3:关于so
 
-  微博sdk aar中默认直提供了[armeabi] [armeabi-v7a] [x86]三个平台的so，如果你需要适配更多版本的so，请到github->so目录中获取全部平台的so文件
+  微博sdk aar中默认直提供了[armeabi] [armeabi-v7a] [arm64-v8a]三个平台的so，如果你需要适配更多版本的so，请到github->so目录中获取全部平台的so文件
 
   如果你只想引入特别的平台在gradle 中配置如下
   
@@ -190,7 +190,7 @@ dependencies {
         abi {
             enable true
             reset()
-            include 'armeabi-v7a' //根据需求自己修改
+            include 'armeabi' //根据需求自己修改
             universalApk true 
         }
     }
