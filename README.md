@@ -25,11 +25,15 @@
 # Release-Note: Android SDK V4.1 
 ## 版本变更：
 
+v4.3.9
+
+1.修复分享遇到的bug若干。
+
 v4.3.8
 
 1.修复若干bug
 2.默认只支持armeabi架构
-3.使用4.3.8时，请联系客服进行包名报备，否则会出现crash。联系方式QQ（879073189）
+3.使用4.3.8时，请联系客服进行包名报备，否则会出现crash。联系方式QQ（879073159）
 
 v4.3.7
 
@@ -160,7 +164,7 @@ allprojects {
 }
 compile 'com.sina.weibo.sdk:core:4.3.8:openDefaultRelease@aar'
 ```
-或者将新文档目录下的openDefault-4.3.8.aar复制到工程libs目录下，修改build.gradle文件如下：
+或者将新文档目录下的openDefault-4.3.9.aar复制到工程libs目录下，修改build.gradle文件如下：
 ```java
 repositories{
     flatDir {
@@ -171,7 +175,7 @@ repositories{
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:24.2.1'
-    compile(name: 'openDefault-4.3.8', ext: 'aar')
+    compile(name: 'openDefault-4.3.9', ext: 'aar')
 
 }
 
