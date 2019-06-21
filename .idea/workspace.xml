@@ -6,12 +6,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6eb9761a-7de5-4d4c-af20-43714e9744c0" name="Default" comment="update 4.3.8">
-      <change afterPath="$PROJECT_DIR$/so/x86/libweibosdkcore.so" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/so/x86/libwind.so" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/so/x86_64/libweibosdkcore.so" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/so/x86_64/libwind.so" afterDir="false" />
-    </list>
+    <list default="true" id="6eb9761a-7de5-4d4c-af20-43714e9744c0" name="Default" comment="update so" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,11 +69,11 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="x" value="1280" />
     <option name="y" value="-257" />
     <option name="width" value="1920" />
-    <option name="height" value="1002" />
+    <option name="height" value="1057" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -112,35 +107,6 @@
               <item name="weibo_android_sdk" type="b2602c69:ProjectViewProjectNode" />
               <item name="weibo_android_sdk" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="weibo_android_sdk" type="b2602c69:ProjectViewProjectNode" />
-              <item name="weibo_android_sdk" type="462c0819:PsiDirectoryNode" />
-              <item name="so" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="weibo_android_sdk" type="b2602c69:ProjectViewProjectNode" />
-              <item name="weibo_android_sdk" type="462c0819:PsiDirectoryNode" />
-              <item name="so" type="462c0819:PsiDirectoryNode" />
-              <item name="arm64-v8a" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="weibo_android_sdk" type="b2602c69:ProjectViewProjectNode" />
-              <item name="weibo_android_sdk" type="462c0819:PsiDirectoryNode" />
-              <item name="so" type="462c0819:PsiDirectoryNode" />
-              <item name="armeabi-v7a" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="weibo_android_sdk" type="b2602c69:ProjectViewProjectNode" />
-              <item name="weibo_android_sdk" type="462c0819:PsiDirectoryNode" />
-              <item name="so" type="462c0819:PsiDirectoryNode" />
-              <item name="x86" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="weibo_android_sdk" type="b2602c69:ProjectViewProjectNode" />
-              <item name="weibo_android_sdk" type="462c0819:PsiDirectoryNode" />
-              <item name="so" type="462c0819:PsiDirectoryNode" />
-              <item name="x86_64" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -161,11 +127,11 @@
       <recent name="$PROJECT_DIR$/so/armeabi-v7a" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/so/x86" />
+      <recent name="$PROJECT_DIR$/so/x86_64" />
       <recent name="$PROJECT_DIR$/新文档" />
       <recent name="$PROJECT_DIR$/so/arm64-v8a" />
       <recent name="$PROJECT_DIR$/so/armeabi-v7a" />
-      <recent name="$PROJECT_DIR$/so/armeabi" />
-      <recent name="$PROJECT_DIR$/weibosdkdemo/app/libs" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -310,7 +276,14 @@
       <option name="project" value="LOCAL" />
       <updated>1557720074100</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="update so">
+      <created>1560742021341</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1560742021341</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -329,7 +302,7 @@
       <window_info anchor="bottom" id="Android Monitor" order="1" sideWeight="0.7495961" visible="true" weight="0.1323283" />
       <window_info anchor="bottom" id="Messages" order="2" sideWeight="0.49434572" weight="0.20938024" />
       <window_info anchor="bottom" id="Version Control" order="3" sideWeight="0.6502423" weight="0.27842227" />
-      <window_info anchor="bottom" id="Terminal" order="4" visible="true" weight="0.17011996" />
+      <window_info anchor="bottom" id="Terminal" order="4" weight="0.17011996" />
       <window_info anchor="bottom" id="Gradle Console" order="5" sideWeight="0.5169628" side_tool="true" weight="0.20853859" />
       <window_info anchor="bottom" id="Message" order="6" />
       <window_info anchor="bottom" id="Find" order="7" weight="0.5711893" />
@@ -440,7 +413,8 @@
     <MESSAGE value="4.3.1" />
     <MESSAGE value="4.3.4" />
     <MESSAGE value="update 4.3.8" />
-    <option name="LAST_COMMIT_MESSAGE" value="update 4.3.8" />
+    <MESSAGE value="update so" />
+    <option name="LAST_COMMIT_MESSAGE" value="update so" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/weibosdkdemo/app/src/main/java/com/sina/weibo/sdk/demo/WBDemoMainActivity.java">
