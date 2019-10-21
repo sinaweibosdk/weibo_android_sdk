@@ -85,18 +85,13 @@ public class WBShareActivity extends Activity implements OnClickListener, WbShar
         shareHandler = new WbShareHandler(this);
         shareHandler.registerApp();
         shareHandler.setProgressColor(0xff33b5e5);
+        //sendMultiMessage(true,false);
+        //finish();
     }
 
-/*    @Override
+    @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        shareHandler.doResultIntent(intent,this);
-    }*/
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        shareHandler.doResultIntent(data,this);
     }
 
     /**
@@ -154,11 +149,15 @@ public class WBShareActivity extends Activity implements OnClickListener, WbShar
         if(videoCheckbox.isChecked()){
             weiboMessage.videoSourceObject = getVideoObject();
         }
-        shareHandler.shareMessage(weiboMessage, false);
+        shareHandler.shareMessage(weiboMessage, mShareType == SHARE_CLIENT);
 
     }
 
-
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        shareHandler.doResultIntent(data,this);
+    }
 
     @Override
     public void onWbShareSuccess() {
@@ -197,8 +196,8 @@ public class WBShareActivity extends Activity implements OnClickListener, WbShar
     private TextObject getTextObj() {
         TextObject textObject = new TextObject();
         textObject.text = getSharedText();
-        textObject.title = "xxxx";
-        textObject.actionUrl = "http://www.baidu.com";
+        //textObject.title = "xxxx";
+        //textObject.actionUrl = "http://www.baidu.com";
         return textObject;
     }
 

@@ -38,19 +38,26 @@ import java.text.SimpleDateFormat;
 
 /**
  * 该类主要演示如何进行授权、SSO登陆。
- * 
+ *
  * @author SINA
  * @since 2013-09-29
  */
 public class WBAuthActivity extends Activity {
-    
+
     private static final String TAG = "weibosdk";
-    /** 显示认证后的信息，如 AccessToken */
+    /**
+     * 显示认证后的信息，如 AccessToken
+     */
     private TextView mTokenText;
-    /** 封装了 "access_token"，"expires_in"，"refresh_token"，并提供了他们的管理功能  */
+    /**
+     * 封装了 "access_token"，"expires_in"，"refresh_token"，并提供了他们的管理功能
+     */
     private Oauth2AccessToken mAccessToken;
-    /** 注意：SsoHandler 仅当 SDK 支持 SSO 时有效 */
+    /**
+     * 注意：SsoHandler 仅当 SDK 支持 SSO 时有效
+     */
     private SsoHandler mSsoHandler;
+
     /**
      * @see {@link Activity#onCreate}
      */
@@ -58,41 +65,53 @@ public class WBAuthActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_auth);
-        
+
         // 获取 Token View，并让提示 View 的内容可滚动（小屏幕可能显示不全）
         mTokenText = (TextView) findViewById(R.id.token_text_view);
         TextView hintView = (TextView) findViewById(R.id.obtain_token_hint);
         hintView.setMovementMethod(new ScrollingMovementMethod());
         // 创建微博实例
 
-
         mSsoHandler = new SsoHandler(WBAuthActivity.this);
-
-
-        // SSO 授权, 仅客户端
+        // SSO client
         findViewById(R.id.obtain_token_via_sso).setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-              mSsoHandler.authorizeClientSso(new SelfWbAuthListener());
+                mSsoHandler.authorizeClientSso(new SelfWbAuthListener());
             }
         });
 
-        // SSO 授权, 仅Web
+        // SSO web
         findViewById(R.id.obtain_token_via_web).setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 mSsoHandler.authorizeWeb(new SelfWbAuthListener());
             }
         });
-        
-        // SSO 授权, ALL IN ONE   如果手机安装了微博客户端则使用客户端授权,没有则进行网页授权
+
+        // SSO all
         findViewById(R.id.obtain_token_via_signature).setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 mSsoHandler.authorize(new SelfWbAuthListener());
             }
         });
-        
+/*        findViewById(R.id.api_login).setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mSsoHandler.fetchGuestUserInfoAsync("hwshortvideo", "KTazRAtKBnSd05lJm6fxL4lEbfLTayyw", "1078195010", new IGuestUserInfoListener() {
+                    @Override
+                    public void onGuestUserInfoRetrieved(GuestUserInfo userInfo) {
+                        Log.v("zxs","用户信息"+userInfo.getGsid());
+                    }
+
+                    @Override
+                    public void onGuestUserInfoRetrievedFailed(WeiboException e) {
+
+                    }
+                });
+            }
+        });*/
         // 用户登出
         findViewById(R.id.logout).setOnClickListener(new OnClickListener() {
             @Override
@@ -107,7 +126,7 @@ public class WBAuthActivity extends Activity {
         findViewById(R.id.refresh).setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(!TextUtils.isEmpty(mAccessToken.getRefreshToken())){
+                if (!TextUtils.isEmpty(mAccessToken.getRefreshToken())) {
                     AccessTokenKeeper.refreshToken(Constants.APP_KEY, WBAuthActivity.this, new RequestListener() {
                         @Override
                         public void onComplete(String response) {
@@ -122,7 +141,7 @@ public class WBAuthActivity extends Activity {
                 }
             }
         });
-        
+
         // 从 SharedPreferences 中读取上次已保存好 AccessToken 等信息，
         // 第一次启动本应用，AccessToken 不可用
         mAccessToken = AccessTokenKeeper.readAccessToken(this);
@@ -133,23 +152,23 @@ public class WBAuthActivity extends Activity {
 
     /**
      * 当 SSO 授权 Activity 退出时，该函数被调用。
-     * 
+     *
      * @see {@link Activity#onActivityResult}
      */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        
+
         // SSO 授权回调
         // 重要：发起 SSO 登陆的 Activity 必须重写 onActivityResults
         if (mSsoHandler != null) {
             mSsoHandler.authorizeCallBack(requestCode, resultCode, data);
         }
-        
+
     }
 
 
-    private class SelfWbAuthListener implements com.sina.weibo.sdk.auth.WbAuthListener{
+    private class SelfWbAuthListener implements com.sina.weibo.sdk.auth.WbAuthListener {
         @Override
         public void onSuccess(final Oauth2AccessToken token) {
             WBAuthActivity.this.runOnUiThread(new Runnable() {
@@ -157,9 +176,9 @@ public class WBAuthActivity extends Activity {
                 public void run() {
                     mAccessToken = token;
                     if (mAccessToken.isSessionValid()) {
-                        // 显示 Token
+                        // update Token
                         updateTokenView(false);
-                        // 保存 Token 到 SharedPreferences
+                        // save Token to SharedPreferences
                         AccessTokenKeeper.writeAccessToken(WBAuthActivity.this, mAccessToken);
                         Toast.makeText(WBAuthActivity.this,
                                 R.string.weibosdk_demo_toast_auth_success, Toast.LENGTH_SHORT).show();
@@ -179,10 +198,10 @@ public class WBAuthActivity extends Activity {
             Toast.makeText(WBAuthActivity.this, errorMessage.getErrorMessage(), Toast.LENGTH_LONG).show();
         }
     }
-    
+
     /**
      * 显示当前 Token 信息。
-     * 
+     *
      * @param hasExisted 配置文件中是否已存在 token 信息并且合法
      */
     private void updateTokenView(boolean hasExisted) {
@@ -190,7 +209,7 @@ public class WBAuthActivity extends Activity {
                 new java.util.Date(mAccessToken.getExpiresTime()));
         String format = getString(R.string.weibosdk_demo_token_to_string_format_1);
         mTokenText.setText(String.format(format, mAccessToken.getToken(), date));
-        
+
         String message = String.format(format, mAccessToken.getToken(), date);
         if (hasExisted) {
             message = getString(R.string.weibosdk_demo_token_has_existed) + "\n" + message;

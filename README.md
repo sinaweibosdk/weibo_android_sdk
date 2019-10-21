@@ -24,6 +24,10 @@
 
 # Release-Note: Android SDK V4.1 
 ## 版本变更：
+v4.4.2
+
+1.修复恶意启动可能造成的crash.
+
 
 v4.4.1
 

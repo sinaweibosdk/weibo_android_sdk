@@ -54,9 +54,9 @@ public class ShareStoryActivity extends Activity implements WbShareCallback {
     }
 
     @Override
-    protected void onNewIntent(Intent intent) {
-        super.onNewIntent(intent);
-        shareHandler.doResultIntent(intent,this);
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        shareHandler.doResultIntent(data,this);
     }
 
     @Override

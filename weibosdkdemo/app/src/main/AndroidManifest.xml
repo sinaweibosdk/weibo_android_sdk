@@ -12,6 +12,7 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <!-- 用于调用 JNI -->
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <application
@@ -28,6 +29,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".demo.TestActivity">
+
+        </activity>
         <!-- 授权认证 -->
         <activity android:name="com.sina.weibo.sdk.demo.WBAuthActivity"
             />
@@ -37,11 +41,15 @@
 
         <!-- 分享 -->
         <activity
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:name="com.sina.weibo.sdk.demo.WBShareActivity"
             android:configChanges="keyboardHidden|orientation">
         </activity>
+        <activity
+            android:name="com.sina.weibo.sdk.demo.DemoActivity"
+            android:configChanges="keyboardHidden|orientation">
+        </activity>
         <!-- 统计 -->
-        <activity android:name="com.sina.weibo.sdk.demo.WBStatisticActivity" />
         <meta-data
             android:name="WEIBO_APPKEY"
             android:value="2045436852" />
