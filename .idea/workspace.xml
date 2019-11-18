@@ -6,12 +6,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6eb9761a-7de5-4d4c-af20-43714e9744c0" name="Default" comment="update so">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/so/arm64-v8a/libwind.so" beforeDir="false" afterPath="$PROJECT_DIR$/so/arm64-v8a/libwind.so" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/weibosdkdemo/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/weibosdkdemo/app/build.gradle" afterDir="false" />
-    </list>
+    <list default="true" id="6eb9761a-7de5-4d4c-af20-43714e9744c0" name="Default" comment="update so" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,8 +21,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/weibosdkdemo/app/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="67" lean-forward="true" selection-start-line="67" selection-end-line="67" />
+            <state relative-caret-position="371">
+              <caret line="69" column="14" lean-forward="true" selection-start-line="69" selection-start-column="14" selection-end-line="69" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -139,17 +134,6 @@
               <item name="weibo_android_sdk" type="b2602c69:ProjectViewProjectNode" />
               <item name="weibo_android_sdk" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="weibo_android_sdk" type="b2602c69:ProjectViewProjectNode" />
-              <item name="weibo_android_sdk" type="462c0819:PsiDirectoryNode" />
-              <item name="so" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="weibo_android_sdk" type="b2602c69:ProjectViewProjectNode" />
-              <item name="weibo_android_sdk" type="462c0819:PsiDirectoryNode" />
-              <item name="so" type="462c0819:PsiDirectoryNode" />
-              <item name="arm64-v8a" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -163,21 +147,21 @@
     <property name="android.project.structure.last.selected" value="SDK Location" />
     <property name="android.project.structure.proportion" value="0.15" />
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/so/x86_64" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/so" />
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/新版本以及文档" />
-      <recent name="$PROJECT_DIR$/新文档" />
-      <recent name="$PROJECT_DIR$/so/x86" />
-      <recent name="$PROJECT_DIR$/so/x86_64" />
-      <recent name="$PROJECT_DIR$/so/arm64-v8a" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/新版本以及文档" />
       <recent name="$PROJECT_DIR$/新文档" />
       <recent name="$PROJECT_DIR$/so/armeabi-v7a" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/so/x86_64" />
+      <recent name="$PROJECT_DIR$/so/x86" />
+      <recent name="$PROJECT_DIR$/so/armeabi-v7a" />
+      <recent name="$PROJECT_DIR$/so/arm64-v8a" />
+      <recent name="$PROJECT_DIR$/新版本以及文档" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -345,16 +329,16 @@
       <window_info id="Capture Tool" order="1" />
       <window_info id="Favorites" order="2" sideWeight="0.5088161" side_tool="true" weight="0.25928918" />
       <window_info id="Captures" order="3" weight="0.25" />
-      <window_info active="true" content_ui="combo" id="Project" order="4" sideWeight="0.49118388" visible="true" weight="0.24625267" />
+      <window_info content_ui="combo" id="Project" order="4" sideWeight="0.49118388" visible="true" weight="0.24625267" />
       <window_info id="Structure" order="5" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="6" />
       <window_info id="Designer" order="7" />
       <window_info id="Resources Explorer" order="8" />
       <window_info anchor="bottom" id="Event Log" order="0" sideWeight="0.34975767" side_tool="true" weight="0.1402027" />
       <window_info anchor="bottom" id="Android Monitor" order="1" sideWeight="0.7495961" visible="true" weight="0.1323283" />
-      <window_info anchor="bottom" id="Messages" order="2" sideWeight="0.49434572" weight="0.20938024" />
-      <window_info anchor="bottom" id="Version Control" order="3" sideWeight="0.6502423" visible="true" weight="0.53653216" />
-      <window_info anchor="bottom" id="Terminal" order="4" weight="0.33696836" />
+      <window_info active="true" anchor="bottom" id="Messages" order="2" sideWeight="0.49434572" visible="true" weight="0.25845146" />
+      <window_info anchor="bottom" id="Version Control" order="3" sideWeight="0.6502423" weight="0.53653216" />
+      <window_info anchor="bottom" id="Terminal" order="4" weight="0.16902944" />
       <window_info anchor="bottom" id="Gradle Console" order="5" sideWeight="0.5169628" side_tool="true" weight="0.20853859" />
       <window_info anchor="bottom" id="Message" order="6" />
       <window_info anchor="bottom" id="Find" order="7" weight="0.5711893" />
@@ -375,7 +359,7 @@
       <window_info anchor="right" id="Ant Build" order="7" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="8" weight="0.25" />
       <window_info anchor="right" id="Capture Analysis" order="9" />
-      <window_info anchor="right" id="Codota" order="10" />
+      <window_info anchor="right" id="Codota" order="10" weight="0.32976446" />
       <window_info anchor="right" id="Palette&#9;" order="11" />
     </layout>
     <layout-to-restore>
@@ -576,8 +560,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/weibosdkdemo/app/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="67" lean-forward="true" selection-start-line="67" selection-end-line="67" />
+        <state relative-caret-position="371">
+          <caret line="69" column="14" lean-forward="true" selection-start-line="69" selection-start-column="14" selection-end-line="69" selection-end-column="14" />
         </state>
       </provider>
     </entry>
