@@ -24,16 +24,21 @@
 
 # Release-Note: Android SDK V4.1 
 ## 版本变更：
+v4.4.3
+
+1.解决空指针异常。（接入新版本如果没有包名报备（加入白名单），请联系QQ（879073159））
+
+
 v4.4.2
 
-1.修复恶意启动可能造成的crash.
+1.修复恶意启动可能造成的crash.（接入新版本如果没有包名报备（加入白名单），请联系QQ（879073159））
 
 
 v4.4.1
 
 1.默认支持armeabi，arm64-v8a,armeabi-v7a架构。
 
-2.修改无法获取到权限时可能造成的异常。    
+2.修改无法获取到权限时可能造成的异常。（接入新版本如果没有包名报备（加入白名单），请联系QQ（879073159））    
 
 
 v4.4.0
@@ -42,13 +47,13 @@ v4.4.0
 
 2.修复分享时横竖屏切换导致的异常。
 
-3.修复其他若干bug
+3.修复其他若干bug（接入新版本如果没有包名报备（加入白名单），请联系QQ（879073159））
 
 4.4.3.8已经报备过的，之后不用报备。
 
 v4.3.9
 
-1.修复分享遇到的bug若干。
+1.修复分享遇到的bug若干。（接入新版本如果没有包名报备（加入白名单），请联系QQ（879073159））
 
 v4.3.8
 
@@ -183,7 +188,7 @@ allprojects {
         maven { url "https://dl.bintray.com/thelasterstar/maven/" }
     }
 }
-compile 'com.sina.weibo.sdk:core:4.4.1:openDefaultRelease@aar'
+compile 'com.sina.weibo.sdk:core:4.4.3:openDefaultRelease@aar'
 ```
 或者将新文档目录下的openDefault-4.4.1.aar复制到工程libs目录下，修改build.gradle文件如下：
 ```java
@@ -196,7 +201,7 @@ repositories{
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:24.2.1'
-    compile(name: 'openDefault-4.4.1', ext: 'aar')
+    compile(name: 'openDefault-4.4.3', ext: 'aar')
 
 }
 

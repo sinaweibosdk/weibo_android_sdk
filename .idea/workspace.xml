@@ -6,7 +6,12 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6eb9761a-7de5-4d4c-af20-43714e9744c0" name="Default" comment="update so" />
+    <list default="true" id="6eb9761a-7de5-4d4c-af20-43714e9744c0" name="Default" comment="update so">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/so/arm64-v8a/libwind.so" beforeDir="false" afterPath="$PROJECT_DIR$/so/arm64-v8a/libwind.so" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weibosdkdemo/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/weibosdkdemo/app/build.gradle" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,20 +23,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/weibosdkdemo/app/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1258">
-              <caret line="74" column="14" lean-forward="true" selection-start-line="74" selection-start-column="14" selection-end-line="74" selection-end-column="14" />
+            <state relative-caret-position="285">
+              <caret line="67" lean-forward="true" selection-start-line="67" selection-end-line="67" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="28" column="19" selection-start-line="28" selection-start-column="19" selection-end-line="28" selection-end-column="19" />
+            <state relative-caret-position="-1869">
+              <caret line="190" column="38" selection-start-line="190" selection-start-column="38" selection-end-line="190" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/weibosdkdemo/build.gradle">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="21" selection-start-line="21" selection-end-line="21" />
             </state>
           </provider>
         </entry>
@@ -48,7 +62,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/weibosdkdemo/app/src/main/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="246">
+            <state relative-caret-position="374">
               <caret line="22" column="27" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="27" />
             </state>
           </provider>
@@ -83,8 +97,8 @@
         <option value="$PROJECT_DIR$/weibosdkdemo/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/weibosdkdemo/app/src/main/java/com/sina/weibo/sdk/demo/WeiboPageActivity.java" />
         <option value="$PROJECT_DIR$/weibosdkdemo/app/src/main/java/com/sina/weibo/sdk/demo/Constants.java" />
-        <option value="$PROJECT_DIR$/weibosdkdemo/app/build.gradle" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/weibosdkdemo/app/build.gradle" />
       </list>
     </option>
   </component>
@@ -118,7 +132,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -126,11 +139,23 @@
               <item name="weibo_android_sdk" type="b2602c69:ProjectViewProjectNode" />
               <item name="weibo_android_sdk" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="weibo_android_sdk" type="b2602c69:ProjectViewProjectNode" />
+              <item name="weibo_android_sdk" type="462c0819:PsiDirectoryNode" />
+              <item name="so" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="weibo_android_sdk" type="b2602c69:ProjectViewProjectNode" />
+              <item name="weibo_android_sdk" type="462c0819:PsiDirectoryNode" />
+              <item name="so" type="462c0819:PsiDirectoryNode" />
+              <item name="arm64-v8a" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -138,21 +163,21 @@
     <property name="android.project.structure.last.selected" value="SDK Location" />
     <property name="android.project.structure.proportion" value="0.15" />
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/新版本以及文档" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/so/x86_64" />
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/新版本以及文档" />
-      <recent name="$PROJECT_DIR$/新文档" />
-      <recent name="$PROJECT_DIR$/so/armeabi-v7a" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/新版本以及文档" />
       <recent name="$PROJECT_DIR$/新文档" />
       <recent name="$PROJECT_DIR$/so/x86" />
       <recent name="$PROJECT_DIR$/so/x86_64" />
       <recent name="$PROJECT_DIR$/so/arm64-v8a" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/新版本以及文档" />
+      <recent name="$PROJECT_DIR$/新文档" />
+      <recent name="$PROJECT_DIR$/so/armeabi-v7a" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -314,12 +339,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1280" y="-257" width="1920" height="1057" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Build Variants" order="0" side_tool="true" />
       <window_info id="Capture Tool" order="1" />
       <window_info id="Favorites" order="2" sideWeight="0.5088161" side_tool="true" weight="0.25928918" />
       <window_info id="Captures" order="3" weight="0.25" />
-      <window_info content_ui="combo" id="Project" order="4" sideWeight="0.49118388" visible="true" weight="0.30620986" />
+      <window_info active="true" content_ui="combo" id="Project" order="4" sideWeight="0.49118388" visible="true" weight="0.24625267" />
       <window_info id="Structure" order="5" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="6" />
       <window_info id="Designer" order="7" />
@@ -327,8 +353,8 @@
       <window_info anchor="bottom" id="Event Log" order="0" sideWeight="0.34975767" side_tool="true" weight="0.1402027" />
       <window_info anchor="bottom" id="Android Monitor" order="1" sideWeight="0.7495961" visible="true" weight="0.1323283" />
       <window_info anchor="bottom" id="Messages" order="2" sideWeight="0.49434572" weight="0.20938024" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="3" sideWeight="0.6502423" visible="true" weight="0.3565976" />
-      <window_info anchor="bottom" id="Terminal" order="4" weight="0.34351146" />
+      <window_info anchor="bottom" id="Version Control" order="3" sideWeight="0.6502423" visible="true" weight="0.53653216" />
+      <window_info anchor="bottom" id="Terminal" order="4" weight="0.33696836" />
       <window_info anchor="bottom" id="Gradle Console" order="5" sideWeight="0.5169628" side_tool="true" weight="0.20853859" />
       <window_info anchor="bottom" id="Message" order="6" />
       <window_info anchor="bottom" id="Find" order="7" weight="0.5711893" />
@@ -357,7 +383,7 @@
       <window_info id="Capture Tool" order="1" />
       <window_info id="Favorites" order="2" sideWeight="0.5088161" side_tool="true" weight="0.25928918" />
       <window_info id="Captures" order="3" weight="0.25" />
-      <window_info active="true" content_ui="combo" id="Project" order="4" sideWeight="0.49118388" visible="true" weight="0.20320855" />
+      <window_info content_ui="combo" id="Project" order="4" sideWeight="0.49118388" visible="true" weight="0.24625267" />
       <window_info id="Structure" order="5" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="6" />
       <window_info id="Designer" order="7" />
@@ -365,8 +391,8 @@
       <window_info anchor="bottom" id="Event Log" order="0" sideWeight="0.34975767" side_tool="true" weight="0.1402027" />
       <window_info anchor="bottom" id="Android Monitor" order="1" sideWeight="0.7495961" visible="true" weight="0.1323283" />
       <window_info anchor="bottom" id="Messages" order="2" sideWeight="0.49434572" weight="0.20938024" />
-      <window_info anchor="bottom" id="Version Control" order="3" sideWeight="0.6502423" weight="0.3217012" />
-      <window_info anchor="bottom" id="Terminal" order="4" visible="true" weight="0.3391494" />
+      <window_info anchor="bottom" id="Version Control" order="3" sideWeight="0.6502423" weight="0.04798255" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="4" visible="true" weight="0.33696836" />
       <window_info anchor="bottom" id="Gradle Console" order="5" sideWeight="0.5169628" side_tool="true" weight="0.20853859" />
       <window_info anchor="bottom" id="Message" order="6" />
       <window_info anchor="bottom" id="Find" order="7" weight="0.5711893" />
@@ -457,25 +483,12 @@
     <entry file="file://$PROJECT_DIR$/新版本以及文档/openDefault-4.3.6.aar">
       <provider selected="true" editor-type-id="apk-viewer" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/weibosdkdemo/app/src/main/java/com/sina/weibo/sdk/demo/WBFragmentImp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="26" column="40" selection-start-line="26" selection-start-column="40" selection-end-line="26" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/weibosdkdemo/app/src/main/java/com/sina/weibo/sdk/demo/WBFragmentImp.java" />
     <entry file="file://$PROJECT_DIR$/.gitattributes">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/新版本以及文档/openDefault-4.4.1.aar">
       <provider selected="true" editor-type-id="apk-viewer" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/weibosdkdemo/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/常见问题 FAQ.md">
       <provider selected="true" editor-type-id="text-editor">
@@ -532,17 +545,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/weibosdkdemo/app/src/main/java/com/sina/weibo/sdk/demo/WeiboPageActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="524">
-          <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="docComment;class#WeiboPageActivity#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/weibosdkdemo/app/src/main/java/com/sina/weibo/sdk/demo/WeiboPageActivity.java" />
     <entry file="file://$PROJECT_DIR$/weibosdkdemo/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -552,22 +555,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/weibosdkdemo/app/src/main/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
+        <state relative-caret-position="374">
           <caret line="22" column="27" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/weibosdkdemo/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1258">
-          <caret line="74" column="14" lean-forward="true" selection-start-line="74" selection-start-column="14" selection-end-line="74" selection-end-column="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="28" column="19" selection-start-line="28" selection-start-column="19" selection-end-line="28" selection-end-column="19" />
+        <state relative-caret-position="-1869">
+          <caret line="190" column="38" selection-start-line="190" selection-start-column="38" selection-end-line="190" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/weibosdkdemo/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/weibosdkdemo/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="67" lean-forward="true" selection-start-line="67" selection-end-line="67" />
         </state>
       </provider>
     </entry>
