@@ -21,7 +21,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/weibosdkdemo/app/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="295">
+            <state relative-caret-position="570">
               <caret line="69" column="14" selection-start-line="69" selection-start-column="14" selection-end-line="69" selection-end-column="14" />
             </state>
           </provider>
@@ -98,8 +98,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1280" />
-    <option name="y" value="-257" />
+    <option name="x" value="1800" />
+    <option name="y" value="-145" />
     <option name="width" value="1920" />
     <option name="height" value="1057" />
   </component>
@@ -127,6 +127,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -134,17 +136,10 @@
               <item name="weibo_android_sdk" type="b2602c69:ProjectViewProjectNode" />
               <item name="weibo_android_sdk" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="weibo_android_sdk" type="b2602c69:ProjectViewProjectNode" />
-              <item name="weibo_android_sdk" type="462c0819:PsiDirectoryNode" />
-              <item name="so" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -156,16 +151,16 @@
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/so" />
-      <recent name="$PROJECT_DIR$/so/x86_64" />
-      <recent name="$PROJECT_DIR$/so/x86" />
-      <recent name="$PROJECT_DIR$/so/armeabi-v7a" />
-      <recent name="$PROJECT_DIR$/so/arm64-v8a" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/新版本以及文档" />
       <recent name="$PROJECT_DIR$/新文档" />
+      <recent name="$PROJECT_DIR$/so/armeabi-v7a" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/新版本以及文档" />
+      <recent name="$PROJECT_DIR$/so" />
+      <recent name="$PROJECT_DIR$/so/x86_64" />
+      <recent name="$PROJECT_DIR$/so/x86" />
       <recent name="$PROJECT_DIR$/so/armeabi-v7a" />
     </key>
   </component>
@@ -333,7 +328,7 @@
       <window_info id="Capture Tool" order="1" />
       <window_info id="Favorites" order="2" sideWeight="0.5088161" side_tool="true" weight="0.25928918" />
       <window_info id="Captures" order="3" weight="0.25" />
-      <window_info content_ui="combo" id="Project" order="4" sideWeight="0.49118388" visible="true" weight="0.24946466" />
+      <window_info active="true" content_ui="combo" id="Project" order="4" sideWeight="0.49118388" visible="true" weight="0.25267667" />
       <window_info id="Structure" order="5" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="6" />
       <window_info id="Designer" order="7" />
@@ -342,7 +337,7 @@
       <window_info anchor="bottom" id="Android Monitor" order="1" sideWeight="0.7495961" visible="true" weight="0.1323283" />
       <window_info active="true" anchor="bottom" id="Messages" order="2" sideWeight="0.49434572" visible="true" weight="0.25845146" />
       <window_info anchor="bottom" id="Version Control" order="3" sideWeight="0.6502423" weight="0.53653216" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="4" visible="true" weight="0.47546348" />
+      <window_info anchor="bottom" id="Terminal" order="4" visible="true" weight="0.3031625" />
       <window_info anchor="bottom" id="Gradle Console" order="5" sideWeight="0.5169628" side_tool="true" weight="0.20853859" />
       <window_info anchor="bottom" id="Message" order="6" />
       <window_info anchor="bottom" id="Find" order="7" weight="0.5711893" />
@@ -536,7 +531,7 @@
     <entry file="file://$PROJECT_DIR$/weibosdkdemo/app/src/main/java/com/sina/weibo/sdk/demo/WeiboPageActivity.java" />
     <entry file="file://$PROJECT_DIR$/weibosdkdemo/app/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
+        <state relative-caret-position="570">
           <caret line="69" column="14" selection-start-line="69" selection-start-column="14" selection-end-line="69" selection-end-column="14" />
         </state>
       </provider>
