@@ -28,6 +28,12 @@
             android:text="图片" />
 
         <CheckBox
+            android:id="@+id/share_url_cb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="网页" />
+
+        <CheckBox
             android:id="@+id/share_multi_image_cb"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

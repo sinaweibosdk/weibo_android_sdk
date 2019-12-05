@@ -1,10 +1,9 @@
 package com.sina.weibo.sdk.demo;
 
-import android.content.Context;
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -22,7 +21,7 @@ import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends Activity implements View.OnClickListener {
 
     private Button mInit;
 
@@ -80,7 +79,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mWBAPI.authorize(new WbAuthListener() {
             @Override
             public void onComplete(Oauth2AccessToken token) {
-                Toast.makeText(MainActivity.this, "微博授权成功", Toast.LENGTH_SHORT).show();
+                if (token.isSessionValid()) {
+                    Toast.makeText(MainActivity.this, "微博授权成功", Toast.LENGTH_SHORT).show();
+                }
             }
 
             @Override
@@ -94,7 +95,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
     }
-
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {

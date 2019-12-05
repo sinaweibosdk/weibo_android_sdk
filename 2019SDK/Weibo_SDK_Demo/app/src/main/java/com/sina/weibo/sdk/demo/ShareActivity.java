@@ -1,12 +1,12 @@
 package com.sina.weibo.sdk.demo;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -14,25 +14,31 @@ import android.widget.RadioButton;
 import android.widget.Toast;
 
 import com.sina.weibo.sdk.R;
-import com.sina.weibo.sdk.auth.AuthInfo;
-import com.sina.weibo.sdk.common.UiError;
 import com.sina.weibo.sdk.api.ImageObject;
 import com.sina.weibo.sdk.api.MultiImageObject;
 import com.sina.weibo.sdk.api.TextObject;
 import com.sina.weibo.sdk.api.VideoSourceObject;
+import com.sina.weibo.sdk.api.WebpageObject;
 import com.sina.weibo.sdk.api.WeiboMultiMessage;
+import com.sina.weibo.sdk.auth.AuthInfo;
+import com.sina.weibo.sdk.common.UiError;
 import com.sina.weibo.sdk.openapi.IWBAPI;
 import com.sina.weibo.sdk.openapi.WBAPIFactory;
 import com.sina.weibo.sdk.share.WbShareCallback;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.UUID;
 
-public class ShareActivity extends AppCompatActivity implements View.OnClickListener, WbShareCallback {
+public class ShareActivity extends Activity implements View.OnClickListener, WbShareCallback {
 
     private CheckBox mShareText;
 
     private CheckBox mShareImage;
+
+    private CheckBox mShareUrl;
 
     private CheckBox mShareMultiImage;
 
@@ -62,6 +68,7 @@ public class ShareActivity extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.activity_share);
         mShareText = findViewById(R.id.share_text_cb);
         mShareImage = findViewById(R.id.share_image_cb);
+        mShareUrl = findViewById(R.id.share_url_cb);
         mShareMultiImage = findViewById(R.id.share_multi_image_cb);
         mShareVideo = findViewById(R.id.share_video_cb);
         mShareClient = findViewById(R.id.share_client);
@@ -95,9 +102,9 @@ public class ShareActivity extends AppCompatActivity implements View.OnClickList
         // 分享文字
         if (mShareText.isChecked()) {
             text = "这里设置您要分享的内容！";
+            textObject.text = text;
+            message.textObject = textObject;
         }
-        textObject.text = text;
-        message.textObject = textObject;
 
         // 分享图片
         if (mShareImage.isChecked()) {
@@ -105,6 +112,33 @@ public class ShareActivity extends AppCompatActivity implements View.OnClickList
             Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.share_image);
             imageObject.setImageData(bitmap);
             message.imageObject = imageObject;
+        }
+
+        if (mShareUrl.isChecked()) {
+            WebpageObject webObject = new WebpageObject();
+            webObject.identify = UUID.randomUUID().toString();
+            webObject.title = "标题";
+            webObject.description = "描述";
+            Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_logo);
+            ByteArrayOutputStream os = null;
+            try {
+                os = new ByteArrayOutputStream();
+                bitmap.compress(Bitmap.CompressFormat.JPEG, 85, os);
+                webObject.thumbData = os.toByteArray();
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                try {
+                    if (os != null) {
+                        os.close();
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            webObject.actionUrl = "https://weibo.com";
+            webObject.defaultText = "分享网页";
+            message.mediaObject = webObject;
         }
 
         if (mShareMultiImage.isChecked()) {
