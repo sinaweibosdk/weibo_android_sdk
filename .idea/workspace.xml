@@ -6,9 +6,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6eb9761a-7de5-4d4c-af20-43714e9744c0" name="Default" comment="update so">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="6eb9761a-7de5-4d4c-af20-43714e9744c0" name="Default" comment="update so" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,8 +39,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="122">
-              <caret line="44" column="6" selection-start-line="44" selection-start-column="6" selection-end-line="44" selection-end-column="6" />
+            <state relative-caret-position="139">
+              <caret line="45" selection-start-line="45" selection-end-line="45" />
             </state>
           </provider>
         </entry>
@@ -150,27 +148,6 @@
               <item name="weibo_android_sdk" type="b2602c69:ProjectViewProjectNode" />
               <item name="weibo_android_sdk" type="462c0819:PsiDirectoryNode" />
               <item name="2019SDK" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="weibo_android_sdk" type="b2602c69:ProjectViewProjectNode" />
-              <item name="weibo_android_sdk" type="462c0819:PsiDirectoryNode" />
-              <item name="2019SDK" type="462c0819:PsiDirectoryNode" />
-              <item name="Weibo_SDK_Demo" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="weibo_android_sdk" type="b2602c69:ProjectViewProjectNode" />
-              <item name="weibo_android_sdk" type="462c0819:PsiDirectoryNode" />
-              <item name="2019SDK" type="462c0819:PsiDirectoryNode" />
-              <item name="Weibo_SDK_Demo" type="462c0819:PsiDirectoryNode" />
-              <item name=".idea" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="weibo_android_sdk" type="b2602c69:ProjectViewProjectNode" />
-              <item name="weibo_android_sdk" type="462c0819:PsiDirectoryNode" />
-              <item name="2019SDK" type="462c0819:PsiDirectoryNode" />
-              <item name="Weibo_SDK_Demo" type="462c0819:PsiDirectoryNode" />
-              <item name=".idea" type="462c0819:PsiDirectoryNode" />
-              <item name="caches" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="weibo_android_sdk" type="b2602c69:ProjectViewProjectNode" />
@@ -370,7 +347,7 @@
       <window_info id="Capture Tool" order="1" />
       <window_info id="Favorites" order="2" sideWeight="0.5088161" side_tool="true" weight="0.25928918" />
       <window_info id="Captures" order="3" weight="0.25" />
-      <window_info active="true" content_ui="combo" id="Project" order="4" sideWeight="0.49118388" visible="true" weight="0.37593582" />
+      <window_info content_ui="combo" id="Project" order="4" sideWeight="0.49118388" visible="true" weight="0.1919786" />
       <window_info id="Structure" order="5" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="6" />
       <window_info id="Designer" order="7" />
@@ -378,8 +355,8 @@
       <window_info anchor="bottom" id="Event Log" order="0" sideWeight="0.34975767" side_tool="true" weight="0.1402027" />
       <window_info anchor="bottom" id="Android Monitor" order="1" sideWeight="0.7495961" visible="true" weight="0.1323283" />
       <window_info active="true" anchor="bottom" id="Messages" order="2" sideWeight="0.49434572" visible="true" weight="0.25845146" />
-      <window_info anchor="bottom" id="Version Control" order="3" sideWeight="0.6502423" weight="0.39651415" />
-      <window_info anchor="bottom" id="Terminal" order="4" visible="true" weight="0.09477124" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="3" sideWeight="0.6502423" visible="true" weight="0.39585605" />
+      <window_info anchor="bottom" id="Terminal" order="4" weight="0.105779715" />
       <window_info anchor="bottom" id="Gradle Console" order="5" sideWeight="0.5169628" side_tool="true" weight="0.20853859" />
       <window_info anchor="bottom" id="Message" order="6" />
       <window_info anchor="bottom" id="Find" order="7" weight="0.5711893" />
@@ -605,8 +582,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="122">
-          <caret line="44" column="6" selection-start-line="44" selection-start-column="6" selection-end-line="44" selection-end-column="6" />
+        <state relative-caret-position="139">
+          <caret line="45" selection-start-line="45" selection-end-line="45" />
         </state>
       </provider>
     </entry>
