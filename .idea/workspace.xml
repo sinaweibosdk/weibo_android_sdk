@@ -8,52 +8,6 @@
   <component name="ChangeListManager">
     <list default="true" id="6eb9761a-7de5-4d4c-af20-43714e9744c0" name="Default" comment="update so">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2019SDK/Weibo_SDK_Demo/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2019SDK/Weibo_SDK_Demo/.idea/codeStyles/Project.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2019SDK/Weibo_SDK_Demo/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2019SDK/Weibo_SDK_Demo/.idea/dictionaries/HuirongZhang.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2019SDK/Weibo_SDK_Demo/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2019SDK/Weibo_SDK_Demo/.idea/gradle.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2019SDK/Weibo_SDK_Demo/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2019SDK/Weibo_SDK_Demo/.idea/runConfigurations.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2019SDK/Weibo_SDK_Demo/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2019SDK/Weibo_SDK_Demo/app/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2019SDK/Weibo_SDK_Demo/app/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2019SDK/Weibo_SDK_Demo/app/debug.keystore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2019SDK/Weibo_SDK_Demo/app/proguard-rules.pro" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2019SDK/Weibo_SDK_Demo/app/src/androidTest/java/com/sina/weibo/sdk/ExampleInstrumentedTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2019SDK/Weibo_SDK_Demo/app/src/main/AndroidManifest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2019SDK/Weibo_SDK_Demo/app/src/main/assets/aaa.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2019SDK/Weibo_SDK_Demo/app/src/main/assets/bbb.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2019SDK/Weibo_SDK_Demo/app/src/main/assets/ccc.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2019SDK/Weibo_SDK_Demo/app/src/main/assets/ddd.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2019SDK/Weibo_SDK_Demo/app/src/main/assets/eee.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2019SDK/Weibo_SDK_Demo/app/src/main/assets/eeee.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2019SDK/Weibo_SDK_Demo/app/src/main/assets/fff.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2019SDK/Weibo_SDK_Demo/app/src/main/assets/ggg.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2019SDK/Weibo_SDK_Demo/app/src/main/assets/hhhh.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2019SDK/Weibo_SDK_Demo/app/src/main/assets/kkk.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2019SDK/Weibo_SDK_Demo/app/src/main/java/com/sina/weibo/sdk/demo/MainActivity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2019SDK/Weibo_SDK_Demo/app/src/main/java/com/sina/weibo/sdk/demo/ShareActivity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2019SDK/Weibo_SDK_Demo/app/src/main/java/com/sina/weibo/sdk/demo/ShareStoryActivity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2019SDK/Weibo_SDK_Demo/app/src/main/res/drawable-xhdpi/share_image.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2019SDK/Weibo_SDK_Demo/app/src/main/res/drawable/ic_logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2019SDK/Weibo_SDK_Demo/app/src/main/res/layout/activity_main.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2019SDK/Weibo_SDK_Demo/app/src/main/res/layout/activity_share.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2019SDK/Weibo_SDK_Demo/app/src/main/res/layout/activity_share_story.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2019SDK/Weibo_SDK_Demo/app/src/main/res/values/colors.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2019SDK/Weibo_SDK_Demo/app/src/main/res/values/strings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2019SDK/Weibo_SDK_Demo/app/src/main/res/values/styles.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2019SDK/Weibo_SDK_Demo/app/src/test/java/com/sina/weibo/sdk/ExampleUnitTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2019SDK/Weibo_SDK_Demo/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2019SDK/Weibo_SDK_Demo/debug.keystore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2019SDK/Weibo_SDK_Demo/gradle.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2019SDK/Weibo_SDK_Demo/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2019SDK/Weibo_SDK_Demo/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2019SDK/Weibo_SDK_Demo/gradlew" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2019SDK/Weibo_SDK_Demo/gradlew.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2019SDK/Weibo_SDK_Demo/settings.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2019SDK/aar/openDefault-9.12.0.aar" beforeDir="false" afterPath="$PROJECT_DIR$/2019SDK/aar/openDefault-9.12.0.aar" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -87,8 +41,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="71">
-              <caret line="41" column="4" selection-start-line="41" selection-start-column="4" selection-end-line="41" selection-end-column="4" />
+            <state relative-caret-position="122">
+              <caret line="44" column="6" selection-start-line="44" selection-start-column="6" selection-end-line="44" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -185,7 +139,6 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -202,12 +155,33 @@
               <item name="weibo_android_sdk" type="b2602c69:ProjectViewProjectNode" />
               <item name="weibo_android_sdk" type="462c0819:PsiDirectoryNode" />
               <item name="2019SDK" type="462c0819:PsiDirectoryNode" />
-              <item name="aar" type="462c0819:PsiDirectoryNode" />
+              <item name="Weibo_SDK_Demo" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="weibo_android_sdk" type="b2602c69:ProjectViewProjectNode" />
+              <item name="weibo_android_sdk" type="462c0819:PsiDirectoryNode" />
+              <item name="2019SDK" type="462c0819:PsiDirectoryNode" />
+              <item name="Weibo_SDK_Demo" type="462c0819:PsiDirectoryNode" />
+              <item name=".idea" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="weibo_android_sdk" type="b2602c69:ProjectViewProjectNode" />
+              <item name="weibo_android_sdk" type="462c0819:PsiDirectoryNode" />
+              <item name="2019SDK" type="462c0819:PsiDirectoryNode" />
+              <item name="Weibo_SDK_Demo" type="462c0819:PsiDirectoryNode" />
+              <item name=".idea" type="462c0819:PsiDirectoryNode" />
+              <item name="caches" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="weibo_android_sdk" type="b2602c69:ProjectViewProjectNode" />
+              <item name="weibo_android_sdk" type="462c0819:PsiDirectoryNode" />
+              <item name="weibosdkdemo" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -396,7 +370,7 @@
       <window_info id="Capture Tool" order="1" />
       <window_info id="Favorites" order="2" sideWeight="0.5088161" side_tool="true" weight="0.25928918" />
       <window_info id="Captures" order="3" weight="0.25" />
-      <window_info active="true" content_ui="combo" id="Project" order="4" sideWeight="0.49118388" visible="true" weight="0.27540106" />
+      <window_info active="true" content_ui="combo" id="Project" order="4" sideWeight="0.49118388" visible="true" weight="0.37593582" />
       <window_info id="Structure" order="5" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="6" />
       <window_info id="Designer" order="7" />
@@ -404,8 +378,8 @@
       <window_info anchor="bottom" id="Event Log" order="0" sideWeight="0.34975767" side_tool="true" weight="0.1402027" />
       <window_info anchor="bottom" id="Android Monitor" order="1" sideWeight="0.7495961" visible="true" weight="0.1323283" />
       <window_info active="true" anchor="bottom" id="Messages" order="2" sideWeight="0.49434572" visible="true" weight="0.25845146" />
-      <window_info anchor="bottom" id="Version Control" order="3" sideWeight="0.6502423" visible="true" weight="0.25381264" />
-      <window_info anchor="bottom" id="Terminal" order="4" weight="0.0697928" />
+      <window_info anchor="bottom" id="Version Control" order="3" sideWeight="0.6502423" weight="0.39651415" />
+      <window_info anchor="bottom" id="Terminal" order="4" visible="true" weight="0.09477124" />
       <window_info anchor="bottom" id="Gradle Console" order="5" sideWeight="0.5169628" side_tool="true" weight="0.20853859" />
       <window_info anchor="bottom" id="Message" order="6" />
       <window_info anchor="bottom" id="Find" order="7" weight="0.5711893" />
@@ -631,8 +605,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="71">
-          <caret line="41" column="4" selection-start-line="41" selection-start-column="4" selection-end-line="41" selection-end-column="4" />
+        <state relative-caret-position="122">
+          <caret line="44" column="6" selection-start-line="44" selection-start-column="6" selection-end-line="44" selection-end-column="6" />
         </state>
       </provider>
     </entry>
