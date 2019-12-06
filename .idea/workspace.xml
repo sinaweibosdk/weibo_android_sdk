@@ -6,7 +6,9 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6eb9761a-7de5-4d4c-af20-43714e9744c0" name="Default" comment="update so" />
+    <list default="true" id="6eb9761a-7de5-4d4c-af20-43714e9744c0" name="Default" comment="update so">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,8 +41,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="139">
-              <caret line="45" selection-start-line="45" selection-end-line="45" />
+            <state relative-caret-position="513">
+              <caret line="67" column="10" selection-start-line="67" selection-start-column="10" selection-end-line="67" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -106,8 +108,8 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1268" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="1280" />
     <option name="y" value="-257" />
     <option name="width" value="1920" />
     <option name="height" value="1057" />
@@ -166,21 +168,21 @@
     <property name="android.project.structure.last.selected" value="SDK Location" />
     <property name="android.project.structure.proportion" value="0.15" />
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/2019SDK/Weibo_SDK_Demo/app/src/main/res/layout" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/2019SDK/文档" />
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/新版本以及文档" />
-      <recent name="$PROJECT_DIR$/新文档" />
-      <recent name="$PROJECT_DIR$/so/armeabi-v7a" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/2019SDK" />
       <recent name="$PROJECT_DIR$/2019SDK/Weibo_SDK_Demo/app/src/main/res/layout" />
       <recent name="$PROJECT_DIR$/2019SDK/Weibo_SDK_Demo/app/src/main/java/com/sina/weibo/sdk/demo" />
       <recent name="$PROJECT_DIR$/2019SDK/aar" />
       <recent name="$PROJECT_DIR$/新版本以及文档" />
-      <recent name="$PROJECT_DIR$/so" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/新版本以及文档" />
+      <recent name="$PROJECT_DIR$/新文档" />
+      <recent name="$PROJECT_DIR$/so/armeabi-v7a" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -342,6 +344,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1280" y="-257" width="1920" height="1057" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Build Variants" order="0" side_tool="true" />
       <window_info id="Capture Tool" order="1" />
@@ -355,8 +358,8 @@
       <window_info anchor="bottom" id="Event Log" order="0" sideWeight="0.34975767" side_tool="true" weight="0.1402027" />
       <window_info anchor="bottom" id="Android Monitor" order="1" sideWeight="0.7495961" visible="true" weight="0.1323283" />
       <window_info active="true" anchor="bottom" id="Messages" order="2" sideWeight="0.49434572" visible="true" weight="0.25845146" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="3" sideWeight="0.6502423" visible="true" weight="0.39585605" />
-      <window_info anchor="bottom" id="Terminal" order="4" weight="0.105779715" />
+      <window_info anchor="bottom" id="Version Control" order="3" sideWeight="0.6502423" weight="0.39585605" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="4" visible="true" weight="0.3714597" />
       <window_info anchor="bottom" id="Gradle Console" order="5" sideWeight="0.5169628" side_tool="true" weight="0.20853859" />
       <window_info anchor="bottom" id="Message" order="6" />
       <window_info anchor="bottom" id="Find" order="7" weight="0.5711893" />
@@ -582,8 +585,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="45" selection-start-line="45" selection-end-line="45" />
+        <state relative-caret-position="513">
+          <caret line="67" column="10" selection-start-line="67" selection-start-column="10" selection-end-line="67" selection-end-column="10" />
         </state>
       </provider>
     </entry>
