@@ -60,17 +60,17 @@
             android:layout_height="wrap_content">
 
             <RadioButton
-                android:id="@+id/share_client"
+                android:id="@+id/share_client_only"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="true"
-                android:text="客户端" />
+                android:text="只通过客户端" />
 
             <RadioButton
-                android:id="@+id/share_h5"
+                android:id="@+id/share_client_h5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="H5" />
+                android:text="客户端或者H5（未安装客户端时通过H5）" />
         </RadioGroup>
 
     </LinearLayout>

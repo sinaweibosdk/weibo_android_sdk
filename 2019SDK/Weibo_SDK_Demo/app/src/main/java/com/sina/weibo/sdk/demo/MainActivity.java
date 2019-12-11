@@ -79,9 +79,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         mWBAPI.authorize(new WbAuthListener() {
             @Override
             public void onComplete(Oauth2AccessToken token) {
-                if (token.isSessionValid()) {
-                    Toast.makeText(MainActivity.this, "微博授权成功", Toast.LENGTH_SHORT).show();
-                }
+                Toast.makeText(MainActivity.this, "微博授权成功", Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -95,6 +93,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
             }
         });
     }
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {

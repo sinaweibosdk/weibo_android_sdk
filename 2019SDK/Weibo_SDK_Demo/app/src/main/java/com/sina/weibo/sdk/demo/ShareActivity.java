@@ -44,9 +44,9 @@ public class ShareActivity extends Activity implements View.OnClickListener, WbS
 
     private CheckBox mShareVideo;
 
-    private RadioButton mShareClient;
+    private RadioButton mShareClientOnly;
 
-    private RadioButton mShareWeb;
+    private RadioButton mShareClientH5;
 
     private Button mCommitBtn;
 
@@ -71,13 +71,14 @@ public class ShareActivity extends Activity implements View.OnClickListener, WbS
         mShareUrl = findViewById(R.id.share_url_cb);
         mShareMultiImage = findViewById(R.id.share_multi_image_cb);
         mShareVideo = findViewById(R.id.share_video_cb);
-        mShareClient = findViewById(R.id.share_client);
-        mShareWeb = findViewById(R.id.share_h5);
+        mShareClientOnly = findViewById(R.id.share_client_only);
+        mShareClientH5 = findViewById(R.id.share_client_h5);
         mCommitBtn = findViewById(R.id.commit);
         mCommitBtn.setOnClickListener(this);
         AuthInfo authInfo = new AuthInfo(this, APP_KY, REDIRECT_URL, SCOPE);
         mWBAPI = WBAPIFactory.createWBAPI(this);
         mWBAPI.registerApp(this, authInfo);
+        mWBAPI.setLoggerEnable(true);
     }
 
     @Override
@@ -114,6 +115,7 @@ public class ShareActivity extends Activity implements View.OnClickListener, WbS
             message.imageObject = imageObject;
         }
 
+        // 分享网页
         if (mShareUrl.isChecked()) {
             WebpageObject webObject = new WebpageObject();
             webObject.identify = UUID.randomUUID().toString();
@@ -164,7 +166,7 @@ public class ShareActivity extends Activity implements View.OnClickListener, WbS
             message.videoSourceObject = videoObject;
         }
 
-        mWBAPI.shareMessage(message, mShareClient.isChecked());
+        mWBAPI.shareMessage(message, mShareClientOnly.isChecked());
     }
 
     @Override
