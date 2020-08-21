@@ -65,20 +65,21 @@
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/2019SDK" />
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/2019SDK/aar" />
-      <recent name="$PROJECT_DIR$/新版本以及文档" />
-      <recent name="$PROJECT_DIR$/新文档" />
-      <recent name="$PROJECT_DIR$/so/armeabi-v7a" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/2019SDK" />
       <recent name="$PROJECT_DIR$/2019SDK/aar" />
       <recent name="$PROJECT_DIR$/2019SDK/文档" />
       <recent name="$PROJECT_DIR$/2019SDK/Weibo_SDK_Demo/app/src/main/res/layout" />
       <recent name="$PROJECT_DIR$/2019SDK/Weibo_SDK_Demo/app/src/main/java/com/sina/weibo/sdk/demo" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/2019SDK/aar" />
+      <recent name="$PROJECT_DIR$/新版本以及文档" />
+      <recent name="$PROJECT_DIR$/新文档" />
+      <recent name="$PROJECT_DIR$/so/armeabi-v7a" />
     </key>
   </component>
   <component name="RunManager">
