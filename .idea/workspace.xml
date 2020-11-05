@@ -6,7 +6,11 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6eb9761a-7de5-4d4c-af20-43714e9744c0" name="Default" comment="update so" />
+    <list default="true" id="6eb9761a-7de5-4d4c-af20-43714e9744c0" name="Default" comment="update so">
+      <change afterPath="$PROJECT_DIR$/2019SDK/aar/core-10.10.0-openDefaultRelease.aar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -68,18 +72,18 @@
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/2019SDK/aar" />
-      <recent name="$PROJECT_DIR$/新版本以及文档" />
-      <recent name="$PROJECT_DIR$/新文档" />
-      <recent name="$PROJECT_DIR$/so/armeabi-v7a" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/2019SDK" />
       <recent name="$PROJECT_DIR$/2019SDK/aar" />
       <recent name="$PROJECT_DIR$/2019SDK/文档" />
       <recent name="$PROJECT_DIR$/2019SDK/Weibo_SDK_Demo/app/src/main/res/layout" />
       <recent name="$PROJECT_DIR$/2019SDK/Weibo_SDK_Demo/app/src/main/java/com/sina/weibo/sdk/demo" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/2019SDK/aar" />
+      <recent name="$PROJECT_DIR$/新版本以及文档" />
+      <recent name="$PROJECT_DIR$/新文档" />
+      <recent name="$PROJECT_DIR$/so/armeabi-v7a" />
     </key>
   </component>
   <component name="RunManager">
@@ -265,6 +269,14 @@
     <MESSAGE value="update so" />
     <MESSAGE value="update 4.4.1" />
     <option name="LAST_COMMIT_MESSAGE" value="update 4.4.1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="1380" y="-62" width="1720" height="857" key="DiffContextDialog" timestamp="1604562923015">
+      <screen x="1280" y="-162" width="1920" height="1057" />
+    </state>
+    <state x="1380" y="-62" width="1720" height="857" key="DiffContextDialog/0.23.1280.712/1280.-162.1920.1057@1280.-162.1920.1057" timestamp="1602498071515" />
+    <state x="1380" y="-62" width="1720" height="857" key="DiffContextDialog/0.23.1280.716/1280.-162.1920.1057@1280.-162.1920.1057" timestamp="1599038723558" />
+    <state x="1380" y="-62" width="1720" height="857" key="DiffContextDialog/0.23.1280.722/1280.-162.1920.1057@1280.-162.1920.1057" timestamp="1604562923015" />
   </component>
   <component name="masterDetails">
     <states>

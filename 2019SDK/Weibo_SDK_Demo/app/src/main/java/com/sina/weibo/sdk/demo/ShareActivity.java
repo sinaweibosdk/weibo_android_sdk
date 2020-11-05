@@ -147,14 +147,26 @@ public class ShareActivity extends Activity implements View.OnClickListener, WbS
             // 分享多图
             MultiImageObject multiImageObject = new MultiImageObject();
             ArrayList<Uri> list = new ArrayList<>();
-            list.add(Uri.fromFile(new File(getExternalFilesDir(null) + "/aaa.png")));
-            list.add(Uri.fromFile(new File(getExternalFilesDir(null) + "/ccc.JPG")));
-            list.add(Uri.fromFile(new File(getExternalFilesDir(null) + "/ddd.jpg")));
-            list.add(Uri.fromFile(new File(getExternalFilesDir(null) + "/fff.jpg")));
-            list.add(Uri.fromFile(new File(getExternalFilesDir(null) + "/ggg.JPG")));
-            list.add(Uri.fromFile(new File(getExternalFilesDir(null) + "/eee.jpg")));
-            list.add(Uri.fromFile(new File(getExternalFilesDir(null) + "/hhhh.jpg")));
-            list.add(Uri.fromFile(new File(getExternalFilesDir(null) + "/kkk.JPG")));
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                String authority = this.getPackageName() + ".fileprovider";
+                list.add(FileProvider.getUriForFile(this, authority, new File(getExternalFilesDir(null) + "/aaa.png")));
+                list.add(FileProvider.getUriForFile(this, authority, new File(getExternalFilesDir(null) + "/ccc.JPG")));
+                list.add(FileProvider.getUriForFile(this, authority, new File(getExternalFilesDir(null) + "/ddd.jpg")));
+                list.add(FileProvider.getUriForFile(this, authority, new File(getExternalFilesDir(null) + "/fff.jpg")));
+                list.add(FileProvider.getUriForFile(this, authority, new File(getExternalFilesDir(null) + "/ggg.JPG")));
+                list.add(FileProvider.getUriForFile(this, authority, new File(getExternalFilesDir(null) + "/eee.jpg")));
+                list.add(FileProvider.getUriForFile(this, authority, new File(getExternalFilesDir(null) + "/hhhh.jpg")));
+                list.add(FileProvider.getUriForFile(this, authority, new File(getExternalFilesDir(null) + "/kkk.JPG")));
+            } else {
+                list.add(Uri.fromFile(new File(getExternalFilesDir(null) + "/aaa.png")));
+                list.add(Uri.fromFile(new File(getExternalFilesDir(null) + "/ccc.JPG")));
+                list.add(Uri.fromFile(new File(getExternalFilesDir(null) + "/ddd.jpg")));
+                list.add(Uri.fromFile(new File(getExternalFilesDir(null) + "/fff.jpg")));
+                list.add(Uri.fromFile(new File(getExternalFilesDir(null) + "/ggg.JPG")));
+                list.add(Uri.fromFile(new File(getExternalFilesDir(null) + "/eee.jpg")));
+                list.add(Uri.fromFile(new File(getExternalFilesDir(null) + "/hhhh.jpg")));
+                list.add(Uri.fromFile(new File(getExternalFilesDir(null) + "/kkk.JPG")));
+            }
             multiImageObject.imageList = list;
             message.multiImageObject = multiImageObject;
         }
@@ -162,7 +174,17 @@ public class ShareActivity extends Activity implements View.OnClickListener, WbS
         if (mShareVideo.isChecked()) {
             // 分享视频
             VideoSourceObject videoObject = new VideoSourceObject();
-            videoObject.videoPath = Uri.fromFile(new File(getExternalFilesDir(null) + "/eeee.mp4"));
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                String filePath = getExternalFilesDir(null) + "/eeee.mp4";
+                File videoFile = new File(filePath);
+                if (!videoFile.getParentFile().exists()) {
+                    videoFile.getParentFile().mkdir();
+                }
+                videoObject.videoPath = FileProvider.getUriForFile(this, this.getPackageName() + ".fileprovider", videoFile);
+            } else {
+                videoObject.videoPath = Uri.fromFile(new File(getExternalFilesDir(null) + "/eeee.mp4"));
+            }
+
             message.videoSourceObject = videoObject;
         }
 
