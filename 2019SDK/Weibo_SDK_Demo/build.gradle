@@ -9,6 +9,8 @@ buildscript {
             url 'https://maven.aliyun.com/repository/google'
         }
         google()
+        maven { url "http://artifactory.client.weibo.cn/artifactory/ext-release-local/" }
+
 
     }
     dependencies {
@@ -28,6 +30,10 @@ allprojects {
             url 'https://maven.aliyun.com/repository/google'
         }
         maven { url "https://dl.bintray.com/thelasterstar/maven/" }
+
+        maven { url "http://artifactory.client.weibo.cn/artifactory/ext-release-local/" }
+
+        maven { url "http://artifactory.client.weibo.cn/artifactory/android_lib_aars/" }
     }
 }
 
