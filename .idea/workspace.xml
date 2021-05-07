@@ -7,19 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6eb9761a-7de5-4d4c-af20-43714e9744c0" name="Default" comment="update so">
-      <change afterPath="$PROJECT_DIR$/2019SDK/Weibo_SDK_Demo/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/2019SDK/Weibo_SDK_Demo/app/agconnect-services.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2019SDK/Weibo_SDK_Demo/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/2019SDK/Weibo_SDK_Demo/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2019SDK/Weibo_SDK_Demo/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/2019SDK/Weibo_SDK_Demo/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2019SDK/Weibo_SDK_Demo/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/2019SDK/Weibo_SDK_Demo/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2019SDK/Weibo_SDK_Demo/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/2019SDK/Weibo_SDK_Demo/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2019SDK/Weibo_SDK_Demo/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/2019SDK/Weibo_SDK_Demo/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2019SDK/Weibo_SDK_Demo/app/src/main/java/com/sina/weibo/sdk/demo/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/2019SDK/Weibo_SDK_Demo/app/src/main/java/com/sina/weibo/sdk/demo/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2019SDK/Weibo_SDK_Demo/app/src/main/java/com/sina/weibo/sdk/demo/ShareActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/2019SDK/Weibo_SDK_Demo/app/src/main/java/com/sina/weibo/sdk/demo/ShareActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2019SDK/Weibo_SDK_Demo/app/src/main/java/com/sina/weibo/sdk/demo/ShareStoryActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/2019SDK/Weibo_SDK_Demo/app/src/main/java/com/sina/weibo/sdk/demo/ShareStoryActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2019SDK/Weibo_SDK_Demo/app/src/main/res/values/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/2019SDK/Weibo_SDK_Demo/app/src/main/res/values/styles.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2019SDK/Weibo_SDK_Demo/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/2019SDK/Weibo_SDK_Demo/build.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
