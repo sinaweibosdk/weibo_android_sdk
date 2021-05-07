@@ -1,14 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="CMakeSettings">
     <configurations>
       <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6eb9761a-7de5-4d4c-af20-43714e9744c0" name="Default" comment="update so">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="6eb9761a-7de5-4d4c-af20-43714e9744c0" name="Default" comment="update so" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -57,7 +73,6 @@
   </component>
   <component name="ProjectViewState">
     <option name="abbreviatePackageNames" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
@@ -238,7 +253,12 @@
         <entry key="MAIN">
           <value>
             <State>
-              <option name="COLUMN_ORDER" />
+              <option name="COLUMN_WIDTH">
+                <map>
+                  <entry key="2" value="128" />
+                  <entry key="3" value="127" />
+                </map>
+              </option>
             </State>
           </value>
         </entry>
@@ -258,6 +278,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="4.3.0" />
@@ -269,12 +290,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="update 4.4.1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1380" y="-62" width="1720" height="857" key="DiffContextDialog" timestamp="1604562923015">
-      <screen x="1280" y="-162" width="1920" height="1057" />
+    <state x="100" y="123" width="1080" height="512" key="DiffContextDialog" timestamp="1620358596373">
+      <screen x="0" y="23" width="1280" height="712" />
     </state>
-    <state x="1380" y="-62" width="1720" height="857" key="DiffContextDialog/0.23.1280.712/1280.-162.1920.1057@1280.-162.1920.1057" timestamp="1602498071515" />
-    <state x="1380" y="-62" width="1720" height="857" key="DiffContextDialog/0.23.1280.716/1280.-162.1920.1057@1280.-162.1920.1057" timestamp="1599038723558" />
-    <state x="1380" y="-62" width="1720" height="857" key="DiffContextDialog/0.23.1280.722/1280.-162.1920.1057@1280.-162.1920.1057" timestamp="1604562923015" />
+    <state x="100" y="123" width="1080" height="512" key="DiffContextDialog/0.23.1280.712/-1920.-204.1920.1057@0.23.1280.712" timestamp="1620358596373" />
   </component>
   <component name="masterDetails">
     <states>

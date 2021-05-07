@@ -4,10 +4,11 @@
 
 公告：
 
-鉴于线上服务器出现问题，推荐搭建下载本地aar后上传到自己公司的服务器地址，保证服务稳定，
-我们也将重新提供一个稳定的地址供大家使用。
+鉴于线上服务器出现问题，推荐下载本地aar后上传到自己公司的服务器地址，保证服务稳定，
+我们也将尽快重新提供一个稳定的地址供大家使用。
 
 新包地址：https://github.com/sinaweibosdk/weibo_android_sdk/tree/master/2019SDK/aar
+
 旧包地址：https://github.com/sinaweibosdk/weibo_android_sdk/tree/master/新版本以及文档
 
 v10.10.0
