@@ -4,12 +4,44 @@
 
 公告：
 
-鉴于线上服务器出现问题，推荐下载本地aar后上传到自己公司的服务器，保证后续服务稳定，
-我们也将尽快重新提供一个稳定的地址供大家使用。
+鉴于Jcenter仓库停止服务，我们重新提供了基于MavenCentral仓库的依赖方式，并更新了SDK版本
+
+[SDK v11.6.0文档](https://github.com/sinaweibosdk/weibo_android_sdk/tree/master/2019SDK/文档/微博Android SDK使用指南_11.6.0.pdf)
+
+1. 在project根目录的build.gradle文件中添加依赖配置
+```gradle
+    allprojects {
+        repositories {
+            mavenCentral()
+            ……
+        }
+    }
+```
+2. 在module的build.gradle文件中添加依赖和属性配置
+```gradle
+    android {
+        ……
+        defaultConfig {
+            ndk {
+                abiFilters 'armeabi' //, 'armeabi-v7a','arm64-v8a'
+            }
+        }
+    }
+
+    dependencies {
+        implementation 'io.github.sinaweibosdk:core:11.6.0@aar'
+    }
+```
+文档地址：https://github.com/sinaweibosdk/weibo_android_sdk/tree/master/2019SDK/文档
 
 新包地址：https://github.com/sinaweibosdk/weibo_android_sdk/tree/master/2019SDK/aar
 
 旧包地址：https://github.com/sinaweibosdk/weibo_android_sdk/tree/master/新版本以及文档
+
+v11.6.0
+
+1. 修复Crash。
+2. 新增超话分享功能（需和微博商务洽谈获取白名单权限后进行该功能开发，否则分享无效）
 
 v10.10.0
 
