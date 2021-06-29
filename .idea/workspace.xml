@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
   <component name="BranchesTreeState">
     <expand>
       <path>
@@ -24,7 +27,10 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6eb9761a-7de5-4d4c-af20-43714e9744c0" name="Default" comment="update so" />
+    <list default="true" id="6eb9761a-7de5-4d4c-af20-43714e9744c0" name="Default" comment="update so">
+      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -76,27 +82,29 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="android.project.structure.last.selected" value="SDK Location" />
     <property name="android.project.structure.proportion" value="0.15" />
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/2019SDK" />
+    <property name="dart.analysis.tool.window.visible" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/2019SDK/文档" />
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/2019SDK/文档" />
+      <recent name="$PROJECT_DIR$/2019SDK" />
+      <recent name="$PROJECT_DIR$/2019SDK/aar" />
+      <recent name="$PROJECT_DIR$/2019SDK/Weibo_SDK_Demo/app/src/main/res/layout" />
+      <recent name="$PROJECT_DIR$/2019SDK/Weibo_SDK_Demo/app/src/main/java/com/sina/weibo/sdk/demo" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/2019SDK/aar" />
       <recent name="$PROJECT_DIR$/新版本以及文档" />
       <recent name="$PROJECT_DIR$/新文档" />
       <recent name="$PROJECT_DIR$/so/armeabi-v7a" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/2019SDK" />
-      <recent name="$PROJECT_DIR$/2019SDK/aar" />
-      <recent name="$PROJECT_DIR$/2019SDK/文档" />
-      <recent name="$PROJECT_DIR$/2019SDK/Weibo_SDK_Demo/app/src/main/res/layout" />
-      <recent name="$PROJECT_DIR$/2019SDK/Weibo_SDK_Demo/app/src/main/java/com/sina/weibo/sdk/demo" />
     </key>
   </component>
   <component name="RunManager">
@@ -146,6 +154,7 @@
       </method>
     </configuration>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration>$USER_HOME$/.subversion</configuration>
   </component>
@@ -241,7 +250,14 @@
       <option name="project" value="LOCAL" />
       <updated>1568096112702</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="更新v11.6.0文档">
+      <created>1624961937815</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1624961937815</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -287,13 +303,22 @@
     <MESSAGE value="update 4.3.8" />
     <MESSAGE value="update so" />
     <MESSAGE value="update 4.4.1" />
-    <option name="LAST_COMMIT_MESSAGE" value="update 4.4.1" />
+    <MESSAGE value="更新v11.6.0文档" />
+    <option name="LAST_COMMIT_MESSAGE" value="更新v11.6.0文档" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="412" y="47" key="CommitChangelistDialog2" timestamp="1624961937624">
+      <screen x="0" y="0" width="1680" height="945" />
+    </state>
+    <state x="412" y="47" key="CommitChangelistDialog2/1680.0.1440.900/0.0.1680.945@0.0.1680.945" timestamp="1624961937624" />
     <state x="100" y="123" width="1080" height="512" key="DiffContextDialog" timestamp="1620358596373">
       <screen x="0" y="23" width="1280" height="712" />
     </state>
     <state x="100" y="123" width="1080" height="512" key="DiffContextDialog/0.23.1280.712/-1920.-204.1920.1057@0.23.1280.712" timestamp="1620358596373" />
+    <state x="440" y="212" key="Vcs.Push.Dialog.v2" timestamp="1624961944821">
+      <screen x="0" y="0" width="1680" height="945" />
+    </state>
+    <state x="440" y="212" key="Vcs.Push.Dialog.v2/1680.0.1440.900/0.0.1680.945@0.0.1680.945" timestamp="1624961944821" />
   </component>
   <component name="masterDetails">
     <states>

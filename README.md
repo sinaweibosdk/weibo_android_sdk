@@ -6,7 +6,7 @@
 
 鉴于Jcenter仓库停止服务，我们重新提供了基于MavenCentral仓库的依赖方式，并更新了SDK版本
 
-[SDK v11.6.0文档](https://github.com/sinaweibosdk/weibo_android_sdk/tree/master/2019SDK/文档/微博Android SDK使用指南_11.6.0.pdf)
+[SDK v11.6.0文档](https://github.com/sinaweibosdk/weibo_android_sdk/blob/master/2019SDK/%E6%96%87%E6%A1%A3/%E5%BE%AE%E5%8D%9AAndroid%20SDK%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97_11.6.0.pdf)
 
 1. 在project根目录的build.gradle文件中添加依赖配置
 ```gradle
