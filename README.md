@@ -6,7 +6,7 @@
 
 鉴于Jcenter仓库停止服务，我们重新提供了基于MavenCentral仓库的依赖方式，并更新了SDK版本
 
-[SDK v11.6.0文档](https://github.com/sinaweibosdk/weibo_android_sdk/blob/master/2019SDK/%E6%96%87%E6%A1%A3/%E5%BE%AE%E5%8D%9AAndroid%20SDK%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97_v11.6.0.pdf)
+[SDK v11.8.0文档](https://github.com/sinaweibosdk/weibo_android_sdk/blob/master/2019SDK/%E6%96%87%E6%A1%A3/%E5%BE%AE%E5%8D%9AAndroid%20SDK%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97_v11.8.0.pdf)
 
 1. 在project根目录的build.gradle文件中添加依赖配置
 ```gradle
@@ -29,7 +29,7 @@
     }
 
     dependencies {
-        implementation 'io.github.sinaweibosdk:core:11.6.0@aar'
+        implementation 'io.github.sinaweibosdk:core:11.8.0@aar'
     }
 ```
 文档地址：https://github.com/sinaweibosdk/weibo_android_sdk/tree/master/2019SDK/文档
@@ -37,6 +37,10 @@
 新包地址：https://github.com/sinaweibosdk/weibo_android_sdk/tree/master/2019SDK/aar
 
 旧包地址：https://github.com/sinaweibosdk/weibo_android_sdk/tree/master/新版本以及文档
+
+v11.8.0
+
+1. 修复部分场景下分享后无法正确返回回调结果的问题。
 
 v11.6.0
 
@@ -308,7 +312,7 @@ dependencies {
   微博sdk aar中默认直提供了[armeabi] [armeabi-v7a] [arm64-v8a]三个平台的so，如果你需要适配更多版本的so，请到github->so目录中获取全部平台的so文件
 
   如果你只想引入特别的平台在gradle 中配置如下
-  
+
 ```java
   splits {
         abi {
