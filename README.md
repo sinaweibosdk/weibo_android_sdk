@@ -29,7 +29,7 @@
     }
 
     dependencies {
-        implementation 'io.github.sinaweibosdk:core:11.11.1@aar'
+        implementation 'io.github.sinaweibosdk:core:11.11.2@aar'
     }
 ```
 文档地址：https://github.com/sinaweibosdk/weibo_android_sdk/tree/master/2019SDK/文档
@@ -37,6 +37,9 @@
 新包地址：https://github.com/sinaweibosdk/weibo_android_sdk/tree/master/2019SDK/aar
 
 旧包地址：https://github.com/sinaweibosdk/weibo_android_sdk/tree/master/新版本以及文档
+
+v11.11.2
+1. 修复bug
 
 v11.11.1
 
