@@ -6,7 +6,7 @@
 
 鉴于Jcenter仓库停止服务，我们重新提供了基于MavenCentral仓库的依赖方式，并更新了SDK版本
 
-[SDK v12.3.1文档](https://github.com/sinaweibosdk/weibo_android_sdk/blob/master/2019SDK/%E6%96%87%E6%A1%A3/%E5%BE%AE%E5%8D%9AAndroid%20SDK%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97_v12.3.0.pdf)
+[SDK 最新文档](https://github.com/sinaweibosdk/weibo_android_sdk/blob/master/2019SDK/%E6%96%87%E6%A1%A3/%E5%BE%AE%E5%8D%9AAndroid%20SDK%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97_v11.12.0.pdf)
 
 1. 在project根目录的build.gradle文件中添加依赖配置
 ```gradle
@@ -29,7 +29,7 @@
     }
 
     dependencies {
-        implementation 'io.github.sinaweibosdk:core:12.3.0@aar'
+        implementation 'io.github.sinaweibosdk:core:12.3.1@aar'
     }
 ```
 文档地址：https://github.com/sinaweibosdk/weibo_android_sdk/tree/master/2019SDK/文档
@@ -132,7 +132,7 @@ v10.7.0
 
 ## 概述
 微博 Android 平台 SDK 为第三方应用提供了简单易用的微博API调用服务，使第三方客户端无需了解复杂的验证机制即可进行授权登陆，并提供微博分享功能，可直接通过微博官方客户端分享微博。
->本文档详细内容请查阅：[微博Android平台SDK文档V12.3.1.pdf](https://github.com/sinaweibosdk/weibo_android_sdk/blob/master/2019SDK/%E6%96%87%E6%A1%A3/%E5%BE%AE%E5%8D%9AAndroid%20SDK%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97_v12.3.0.pdf)
+>本文档详细内容请查阅：[微博Android平台SDK文档v11.12.0.pdf](https://github.com/sinaweibosdk/weibo_android_sdk/blob/master/2019SDK/%E6%96%87%E6%A1%A3/%E5%BE%AE%E5%8D%9AAndroid%20SDK%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97_v11.12.0.pdf)
 
 ------
 
