@@ -38,7 +38,7 @@
 
 旧包地址：https://github.com/sinaweibosdk/weibo_android_sdk/tree/master/新版本以及文档
 
-v12.5.0
+v12.5.0  
 调整信息安全策略，下线部分设备信息校验
 
 v12.3.1
