@@ -29,7 +29,7 @@
     }
 
     dependencies {
-        implementation 'io.github.sinaweibosdk:core:12.5.0@aar'
+        implementation 'io.github.sinaweibosdk:core:13.5.0@aar'
     }
 ```
 文档地址：https://github.com/sinaweibosdk/weibo_android_sdk/tree/master/2019SDK/文档
@@ -38,7 +38,12 @@
 
 旧包地址：https://github.com/sinaweibosdk/weibo_android_sdk/tree/master/新版本以及文档
 
+v13.5.0  
+
+1. 升级浏览器网络安全配置
+
 v12.5.0  
+
 1. 调整信息安全策略，下线部分设备信息校验
 
 v12.3.1
