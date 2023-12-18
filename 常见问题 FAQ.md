@@ -20,9 +20,11 @@
 
 ###2. 关于审核
 **Q：**我的审核怎么还没过？  
+
 >**A：**[请查阅审核相关问题文档][8]
 
 **Q：**应用程序还没开发完，审核表单里的下载地址该怎么填呢？  
+
 >**A：**随便写个，以后在改，如：将某个 APK 上传到网盘中去，然后再获取其地址，填到上面去。
 
 ###3. 关于运行 DEMO
@@ -35,8 +37,10 @@
 >
  - 问题一：这个概念总体上来说比较复杂，请 Google 之。  
  - 问题二：Github 上提供的 debug.keysotre 是新浪官方的，除了编译运行官方 DEMO 外，请不要直接使用它，出于安全的考虑，你应该为自己的应用提供一份 keysotre，至于如何生成 keysotre，请 Google 之。
-    
+   
+
 **Q：**为什么我使用签名工具（[app_signatures.apk][10]），没有生成出来签名？  
+
 >**A：**
 >
  - 首先，要生成签名，前提条件是，该应用必须已安装到该设备上，没安装上对应APK，肯定是生成不出来的。我们也不能凭空给造一个，上帝造人也得需要道具对不。签名是根据APK的信息生成出来的。
@@ -104,7 +108,7 @@
 [7]:http://open.weibo.com/tools/console
 [8]:http://t.cn/zHW4aDG
 [9]:https://github.com/sinaweibosdk/weibo_android_sdk/blob/master/%E5%BE%AE%E5%8D%9AAndroid%E5%B9%B3%E5%8F%B0SDK%E6%96%87%E6%A1%A3V3.1.1.docx
-[10]:/app_signatures.apk
+[10]:doc/sign_tool/app_signatures.apk
 [11]:http://open.weibo.com/wiki/Scope
 [12]:/raw/FAQ/screenshot/error_redirect_uri_mismatch.png
 [13]:http://t.cn/8kWBkoj
