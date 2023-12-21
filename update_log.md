@@ -1,6 +1,6 @@
 v13.10.1
 
-> 1、统一包路径：com.sina.weibo.sdk（不再会有com.sina.weibo.sdk意外的class）
+> 1、统一包路径：com.sina.weibo.sdk（不再会有com.sina.weibo.sdk以外的class）
 >
 > 2、修改SDK中FileProvider的filePath文件命名，防止文件冲突：filepaths->wbsdk_filepaths
 
