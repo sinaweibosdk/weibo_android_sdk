@@ -15,7 +15,7 @@
 
 [SDK-文档](doc/sdk_doc.pdf)
 
-[SDK-下载](doc/core-13.10.0.aar)
+[SDK-下载](doc/core-13.10.1.aar)
 
 [SDK-DEMO下载](doc/Weibo_SDK_DEMO.zip)
 
