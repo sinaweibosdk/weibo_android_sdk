@@ -1,3 +1,8 @@
+v13.10.2
+> 1、小米应用市场合规
+> 
+> 2、ContentProvider的Androidx标准库迁徙（com.sina.weibo.sdk.content.FileProvider -> androidx.core.content.FileProvider）
+
 v13.10.1
 
 > 1、统一包路径：com.sina.weibo.sdk（不再会有com.sina.weibo.sdk以外的class）
