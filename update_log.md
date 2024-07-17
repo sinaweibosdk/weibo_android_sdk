@@ -1,3 +1,17 @@
+v13.10.4
+> 1、新增默认authority：${applicationId}.wbsdk.fileprovider
+> 
+> 2、支持自定义authority
+> 
+> 3、支持相册分享
+> 
+> 4、移除so库，SDK不再包含so文件
+> 
+> 5、bugfix：包含中文路径的视频/图片分享失败
+> 
+> 6、新增函数：判断onActivityResult的回调源（IWBAPI.isShareResult、IWBAPI.isAuthorizeResult）
+
+
 v13.10.2
 > 1、小米应用市场合规
 > 
