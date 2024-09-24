@@ -1,3 +1,11 @@
+v13.10.5
+> 1、targetSdk支持34
+>
+> 2、增加单图分享时的图片200k限制，可通过ImageObject.checkArgs检查
+>
+> 3、扩展超话分享文档
+
+
 v13.10.4
 > 1、新增默认authority：${applicationId}.wbsdk.fileprovider
 > 
