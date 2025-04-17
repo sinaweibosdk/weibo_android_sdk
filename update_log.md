@@ -1,3 +1,70 @@
+## 13.10.5-ciopt-3 (2025-04-15)
+
+- temp (f320cdb)
+- temp (c4f1e7b)
+- temp (db00a7c)
+- temp (a42d28a)
+- temp (c7e7c7b)
+- temp (3bc1c1a)
+- temp (449af2c)
+- temp (58b8899)
+- temp (b4ac90a)
+
+## 13.10.5-ciopt-2 (2025-04-15)
+
+- temp (d2e9c59)
+- temp (74cf7dc)
+- temp (d4686cb)
+- temp (32321e3)
+- temp (fe63ca5)
+- temp (325854f)
+- temp (b2ebf2d)
+- temp (fa1cb98)
+- temp (ad456dc)
+- temp (7bdd146)
+- temp (fe02485)
+- temp (27d486e)
+- temp (352c3cb)
+
+## 13.10.5-ciopt-1 (2025-04-10)
+
+- temp (14530b7)
+- temp (8f70c3b)
+- temp (59df12a)
+- temp (39fb9d0)
+- tempo (08f5df6)
+- temp (14bae01)
+- temp (6198232)
+- temp (35bbe3d)
+- temo (d45c902)
+- temo (0ec3647)
+- temp (f421a04)
+- temp (f8c46bb)
+- temp (0b54fc9)
+- temp (195b65b)
+- temp (1017aeb)
+- temp (1ccb730)
+- temp (7d0f5c2)
+- temp (74434b7)
+- temp (8313ca0)
+- temp (95948da)
+- temp (5accef4)
+- temp (408b7cd)
+
+## 13.10.5-cicd-2 (2025-04-07)
+
+- temp (3f1b802)
+- temp (8c38108)
+- temp (5e8dcea)
+- temp (18cfbda)
+- temp (b5af445)
+- temp (afecf7c)
+- temp (fdc2057)
+
+## 13.10.5-cicd-1 (2025-04-03)
+
+
+
 v13.10.5
 > 1、targetSdk支持34
 >
@@ -109,4 +176,3 @@ v10.7.0
 > 2、全新的SDK API设计。  
 > 3、全新的SDK Demo，实现傻瓜式接入。  
 > 4、aar包瘦身,删除无用代码。
-

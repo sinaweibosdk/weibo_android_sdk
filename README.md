@@ -9,16 +9,17 @@
 ---
 ## 快速上手
 
-最新版本：13.10.5（[更新日志](./update_log.md)）
+最新版本：13.10.5-ciopt-3（[更新日志](./update_log.md)）
 
 [账号注册](doc/app_register.pdf)
 
 [SDK-文档](doc/sdk_doc.pdf)
 
-[SDK-下载](doc/core-13.10.5.aar)
+[SDK-下载](doc/core-13.10.5-ciopt-3.aar)
 
 [SDK-DEMO下载](doc/Weibo_SDK_DEMO.zip)
 
+[微博SDK隐私说明](https://open.weibo.com/wiki/Sdk/privacy)
 
 ---
 
